@@ -13,12 +13,12 @@ class JobFitment extends Component {
           this.state={
                   jfc:[],
                   result:0,
-                  student_id:"321710306006",
+                  student_id:"",
           }
 
       };
       componentDidMount(){
-          Axios.get("http://localhost/login-backend/job_fit_curve.php?id="+this.state.student_id)
+          Axios.get("http://localhost/login-backend/job_fit_curve.php?id="+this.props.fitid)
           .then(response => {
               console.log(response)
               this.setState({
@@ -31,7 +31,6 @@ class JobFitment extends Component {
       }
   render(){
   return (
-    <div className="JobFitment">
       <Card className="Rounded p-3">
         <CardSubtitle align="left">Job Fitment</CardSubtitle>
         <hr></hr>
@@ -46,7 +45,6 @@ class JobFitment extends Component {
           performance in all the tests conducted by T&P
         </CardText>
       </Card>
-    </div>
   );
 }
 }

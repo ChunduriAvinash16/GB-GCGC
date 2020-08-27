@@ -26,7 +26,7 @@ class  CurrentJob extends Component {
     }
 };
 componentDidMount(){
-    Axios.get("http://localhost/login-backend/CurrentJob.php?id="+this.state.student_id)
+    Axios.get("http://localhost/login-backend/CurrentJob.php?id="+this.props.jobid)
     .then(response => {
         console.log(response)
         this.setState({
@@ -55,7 +55,7 @@ componentDidMount(){
       <Card className="Rounded p-3">
         <CardSubtitle align="left">Current Job Suitability</CardSubtitle>
         <hr></hr>
-        <div class="container-fluid">
+        <div class="container">
           <Row className="p-4">
             <Col lg="4" md="6" sm="12">
          

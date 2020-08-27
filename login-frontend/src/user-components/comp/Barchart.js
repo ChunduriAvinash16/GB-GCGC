@@ -13,7 +13,7 @@ export class BarChart extends Component {
         }
     };
     componentDidMount(){
-        Axios.get("http://localhost/login-backend/ari.php?id="+this.state.student_id)
+        Axios.get("http://localhost/login-backend/ari.php?id="+this.props.arii)
         .then(response => {
             this.setState({
                 AT1:response.data[0]['AT1_score'],
@@ -50,87 +50,17 @@ export class BarChart extends Component {
   datasets: [
     {
       label: ['marks'],
-      backgroundColor: [
-        'lightblue',
-        'lightblue',
-        'lightblue',
-        'lightblue',
-        'lightblue',
-        'lightblue',
-        'lightgreen',
-        'lightgreen',
-        'lightgreen',
-        'lightgreen',
-        'lightgreen',
-        'lightgreen',
-        'lightgreen',
-        'lightgreen',
-        'pink',
-        'pink',
-        'pink',
-        'pink'
+      backgroundColor: ['lightblue','lightblue','lightblue','lightblue','lightblue','lightblue',
+        'lightgreen','lightgreen','lightgreen','lightgreen','lightgreen','lightgreen','lightgreen','lightgreen',
+        'pink','pink','pink','pink'
       ],
-      borderColor: [
-        'lightblue',
-        'lightblue',
-        'lightblue',
-        'lightblue',
-        'lightblue',
-        'lightblue',
-        'lightgreen',
-        'lightgreen',
-        'lightgreen',
-        'lightgreen',
-        'lightgreen',
-        'lightgreen',
-        'lightgreen',
-        'lightgreen',
-        'pink',
-        'pink',
-        'pink',
-        'pink'
+      borderColor: ['lightblue','lightblue','lightblue','lightblue','lightblue','lightblue',
+        'lightgreen','lightgreen','lightgreen','lightgreen','lightgreen','lightgreen','lightgreen','lightgreen',
+        'pink','pink','pink','pink'
       ],
       borderWidth: 1,
-      hoverBackgroundColor: [
-        'blue',
-        'blue',
-        'blue',
-        'blue',
-        'blue',
-        'blue',
-        'green',
-        'green',
-        'green',
-        'green',
-        'green',
-        'green',
-        'green',
-        'green',
-        'red',
-        'red',
-        'red',
-        'red'
-      ],
-      hoverBorderColor: [
-        'blue',
-        'blue',
-        'blue',
-        'blue',
-        'blue',
-        'blue',
-        'green',
-        'green',
-        'green',
-        'green',
-        'green',
-        'green',
-        'green',
-        'green',
-        'red',
-        'red',
-        'red',
-        'red'
-      ],
+      hoverBackgroundColor: ['blue','blue','blue','blue','blue','blue','green','green','green','green','green','green','green','green','red','red','red','red'],
+      hoverBorderColor: ['blue','blue','blue','blue','blue','blue','green','green','green','green','green','green','green','green','red','red','red','red'],
       data: [this.state.AT1,this.state.AT2,this.state.AT3,this.state.AT4,this.state.AT5,this.state.AT6,this.state.TT1,this.state.TT2,this.state.TT3,this.state.TT4,
         this.state.TT5,this.state.TT6,this.state.TT7,this.state.TT8,this.state.DT1,this.state.DT2,this.state.DT3,this.state.DT4], 
       },

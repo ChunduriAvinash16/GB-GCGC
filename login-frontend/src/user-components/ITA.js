@@ -15,7 +15,7 @@ class ARI extends Component {
 
     };
     componentDidMount(){
-        Axios.get("http://localhost:80/login-backend/ita.php?id="+this.state.student_id)
+        Axios.get("http://localhost:80/login-backend/ita.php?id="+this.props.aid)
         .then(response => {
             console.log(response)
             this.setState({

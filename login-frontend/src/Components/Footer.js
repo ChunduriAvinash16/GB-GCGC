@@ -19,27 +19,20 @@ class Footer extends Component{
                     </div>
                 </div>
                 <br />
-                    <div className='row'>
-                      
-                      <div className='col-xl-12 col-lg-12 col-md-12 col-xs-12'><img src='../asstes/Kishor.jpeg' height="80" width="80"></img><div style={{fontSize:"10px"}}><center>Dr.Kishor Buddha</center></div></div>
-                      
-                    </div>
                     <br />
-                        <div className='row'>
                           <div className='col-xs-12'>
                             <div className='row'>
                               <div className='col-xl-2'></div>
-                              <div className='col-xl-1 col-lg-3 col-md-3 col-xs-12 ' style={{marginLeft:'1rem'}} style={{marginRight:'1rem'}}  ><img src='../asstes/Siddharth.jpg' height="70" width="70"></img><br></br><div style={{fontSize:"9px"}}><center>Siddharth</center></div></div><p>            </p>
-                              <div className='col-xl-1 col-lg-3 col-md-3 col-xs-12  ' style={{marginLeft:'1rem'}} style={{marginRight:'1rem'}}><img src='../asstes/DeviPriya.jpg' height="70" width="70"></img><br></br><div style={{fontSize:"9px"}}><center>Devi Priya</center></div></div>
-                              <div className='col-xl-1 col-lg-3 col-md-3 col-xs-12 'style={{marginLeft:'1rem'}} style={{marginRight:'1rem'}} ><img src='../asstes/Avinash.jpg' height="70" width="70"></img><br></br><div style={{fontSize:"9px"}}><center>Avinash</center></div></div>
-                              <div className='col-xl-1 col-lg-3 col-md-3 col-xs-12'style={{marginLeft:'1rem'}} style={{marginRight:'1rem'}} ><img src='../asstes/varsha.jpg' height="70" width="70"></img><br></br><div style={{fontSize:"9px"}}><center>Sree Varsha</center></div></div>
-                              <div className='col-xl-1 col-lg-3 col-md-3 col-xs-12'style={{marginLeft:'1rem'}} style={{marginRight:'1rem'}} ><img src='../asstes/Madhu.jpg' height="70" width="70"></img><br></br><div style={{fontSize:"9px"}}><center>Madhu Priya</center></div></div>
-                              <div className='col-xl-1 col-lg-3 col-md-3 col-xs-12'style={{marginLeft:'1rem'}} style={{marginRight:'1rem'}} ><img src='../asstes/Jain.jpeg' height="70" width="70"></img><br></br><div style={{fontSize:"9px"}}><center>Gulab Jain</center></div></div>
-                              <div className='col-xl-1 col-lg-3 col-md-3 col-xs-12' style={{marginLeft:'1rem'}} style={{marginRight:'1rem'}}><img src='../asstes/Charan.jpg' height="70" width="70"></img><br></br><div style={{fontSize:"9px"}}><center>Charan</center></div></div>
-                              <div className='col-xl-1 col-lg-3 col-md-3 col-xs-12'style={{marginLeft:'1rem'}} style={{marginRight:'1rem'}} ><img src='../asstes/souji.jpg' height="70" width="70"></img><br></br><div style={{fontSize:"9px"}}><center>Soujanya</center></div></div>
+                              <div className='col-xl-1 col-lg-3 col-md-3 col-xs-12 ' ><img src={require('../asstes/Siddharth.jpg')} height="70" width="70"></img><br></br><div style={{fontSize:"9px"}}><center>Siddharth</center></div></div><p>            </p>
+                              <div className='col-xl-1 col-lg-3 col-md-3 col-xs-12  ' ><img src={require('../asstes/DeviPriya.jpg')} height="70" width="70"></img><br></br><div style={{fontSize:"9px"}}><center>Devi Priya</center></div></div>
+                              <div className='col-xl-1 col-lg-3 col-md-3 col-xs-12 ' ><img src={require('../asstes/Avinash.jpg')} height="70" width="70"></img><br></br><div style={{fontSize:"9px"}}><center>Avinash</center></div></div>
+                              <div className='col-xl-1 col-lg-3 col-md-3 col-xs-12' ><img src={require('../asstes/varsha.jpg')} height="70" width="70"></img><br></br><div style={{fontSize:"9px"}}><center>Sree Varsha</center></div></div>
+                              <div className='col-xl-1 col-lg-3 col-md-3 col-xs-12' ><img src={require('../asstes/Madhu.JPG')} height="70" width="70"></img><br></br><div style={{fontSize:"9px"}}><center>Madhu Priya</center></div></div>
+                              <div className='col-xl-1 col-lg-3 col-md-3 col-xs-12' ><img src={require('../asstes/Jain.jpeg')} height="70" width="70"></img><br></br><div style={{fontSize:"9px"}}><center>Gulab Jain</center></div></div>
+                              <div className='col-xl-1 col-lg-3 col-md-3 col-xs-12' ><img src={require('../asstes/Charan.jpg')} height="70" width="70"></img><br></br><div style={{fontSize:"9px"}}><center>Charan</center></div></div>
+                              <div className='col-xl-1 col-lg-3 col-md-3 col-xs-12' ><img src={require('../asstes/souji.jpg')} height="70" width="70"></img><br></br><div style={{fontSize:"9px"}}><center>Soujanya</center></div></div>
                             </div>
                           </div>
-                        </div>
                     <br></br>
                     <div className='row'>
                       <div className="col-lg-9">&nbsp;</div>

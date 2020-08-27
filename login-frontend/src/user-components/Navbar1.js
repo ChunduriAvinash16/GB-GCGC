@@ -8,20 +8,22 @@ import {
   NavbarToggler,
   Collapse,
   NavItem,
-  Jumbotron,
 } from "reactstrap";
-import leaderboard from "./leaderboard";
+import Leaderboard from "./Leaderboard";
 import Dashboard from "./Dashboard";
-import personaldetails from "./personaldetails";
-import changepassword from "./changepassword";
+import Personaldetails from "./Personaldetails";
+import Changepassword from "./Changepassword";
 import Calender from "./Calender";
 import Axios from "axios";
+import './login.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import LoginComponent from "../login-components/LoginComponent";
 
 class Navbar1 extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      login:"",
+      loginid:props.value,
       fName:"",
       lName:"",
       isNavOpen: false,
@@ -35,8 +37,8 @@ class Navbar1 extends Component {
     });
   }
 
- /* componentDidMount(){
-        Axios.get("http://localhost:80/login-backend/UserNavbar.php?id="+this.state.login)
+  componentDidMount(prevProps){
+        Axios.get("http://localhost:80/login-backend/UserNavbar.php?id="+this.state.loginid)
         .then(res => {
           console.log(res.data);
           this.setState({
@@ -44,17 +46,17 @@ class Navbar1 extends Component {
             lName: res.data[0]['last_name']
           })
         })
-  }*/
+  }
 
   render() {
     return (
-      <div className="Navbar1">
+      <div className="App container-fluid">
         <Router>
           <Navbar dark color="dark" expand="lg">
             <div class="container-fluid">
               <NavbarToggler onClick={this.toggleNav} />
               <NavbarBrand className="mr-auto" href="/">
-                <img src="assets/images/gitamlogo.png" height="50" width="50" />
+                <img src={require("../asstes/gitamlogo.png")} height="50" width="50" />
                 GITAM Bengaluru
               </NavbarBrand>
               <Collapse isOpen={this.state.isNavOpen} navbar>
@@ -121,7 +123,7 @@ class Navbar1 extends Component {
                       align="left"
                       className="nav-link"
                       tag={Link}
-                      to="/logout"
+                      to="/Login"
                       style={{ color: "lightgreen" }}
                     >
                       <span class="fa fa-sign-out"></span>&nbsp;Logout
@@ -131,11 +133,11 @@ class Navbar1 extends Component {
               </Collapse>
             </div>
             <span className="col-xs-6 welcome">
-              Welcome<br></br> Name
+              {this.props.value}<br></br>{this.state.lName}
             </span>
             <div className="col-xs-6">
               <img
-                src="assets/images/gitamlogo.png"
+                src={require("../asstes/gitamlogo.png")}
                 height="50"
                 width="50"
               ></img>
@@ -143,10 +145,11 @@ class Navbar1 extends Component {
           </Navbar>
           <Switch>
             <Route exact path="/Dashboard"><Dashboard login={this.props.value}/></Route>
-            <Route exact path="/leaderboard" component={leaderboard} />
+            <Route exact path="/leaderboard"><Leaderboard login={this.props.value} /></Route> 
             <Route exact path="/Calender" component={Calender} />
-            <Route exact path="/personaldetails" component={personaldetails} />
-            <Route exact path="/changepassword" component={changepassword} />
+            <Route exact path="/personaldetails"><Personaldetails login={this.props.value}/></Route>
+            <Route exact path="/changepassword"><Changepassword login={this.props.value}/> </Route>
+            <Route exact path="/Login" component={LoginComponent}></Route>
           </Switch>
         </Router>
       </div>

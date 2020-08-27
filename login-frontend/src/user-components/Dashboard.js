@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import "../App.css";
-import { Navbar, NavbarBrand } from "reactstrap";
 import {
   Card,
   CardTitle,
   CardSubtitle,
-  CardText,
   Row,
   Col,
   Alert,
@@ -18,17 +16,14 @@ import Axios from 'axios';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.css";
 import "bootstrap-social/bootstrap-social.css";
-
-import Navbar1 from "./Navbar1";
-import studentdetails from "./studentdetails";
+import './login.css';
 import JobFitment from "./JobFitment";
 import CurrentJob from "./CurrentJob";
 import ARI from "./ARI";
 import Cocubes from "./Cocubes";
 import Amcat from "./Amcat";
 import ITA from "./ITA";
-import Footer from "./Footer";
-import { removeChildInstance } from "@syncfusion/ej2-base";
+
 
 class Dashboard extends Component {
         constructor(props){
@@ -74,16 +69,27 @@ class Dashboard extends Component {
       }
   render(){
   return (
-    <div>
-        <studentdetails />
-        <div className="container" style={{marginRight:'1rem'}}>
-          <br></br>
-          <Row>
-            <Col md="4">
-              <Card color="success" className="Rounded p-3">
-                <CardTitle align="left">{this.state.SSC}{this.props.login}</CardTitle>
-                <CardSubtitle align="left">Tenth Percentage</CardSubtitle>
-              </Card>
+        <div className='container-fluid'>
+           <br></br>
+           <Row>
+             <Col>
+           <img
+                src={require("../asstes/gitamlogo.png")}
+                height="50"
+                width="50"
+              ></img>
+            </Col>
+            <Col>
+              Welcome Chunduri Avinash
+            </Col>
+            </Row>
+           <Collapsible trigger="Academic Details">
+            <Row>
+              <Col md="4">
+                <Card color="success" className="Rounded p-3">
+                  <CardTitle align="left">{this.state.SSC}</CardTitle>
+                  <CardSubtitle align="left">Tenth Percentage</CardSubtitle>
+                </Card>
             </Col>
             <Col md="4">
               <Card color="warning" className="Rounded p-3">
@@ -93,10 +99,12 @@ class Dashboard extends Component {
             </Col>
             <Col md="4">
               <Card color="danger" className="Rounded p-3">
-                <CardTitle align="left">{this.state.gpa*9.15}</CardTitle>
+                <CardTitle align="left">{(this.state.gpa*9.5).toFixed(2)}</CardTitle>
                 <CardSubtitle align="left">B Tech Percentage</CardSubtitle>
               </Card>
             </Col>
+        
+
           </Row>
           <br></br>
           <Collapsible trigger="More Info">
@@ -122,42 +130,35 @@ class Dashboard extends Component {
               </Col>
             </Row>
           </Collapsible>
-        </div>
+          </Collapsible>
+
 
         <br></br>
-        <div className='container' style={{marginRight:'1rem'}}>
           <Row>
             <Col md="6" className="pr-2 pt-2">
-              <JobFitment />
+              <JobFitment fitid={this.props.login}/>
             </Col>
           
             <Col md="6" className="p-2">
-              <CurrentJob />
+              <CurrentJob jobid={this.props.login}/>
             </Col>
           </Row>
-          </div>
-        <br></br>
-
-        <ARI />
-        <div className='container' style={{marginRight:'0.5rem'}}>
-        <br></br>
         
-          <Row>
-            <Col md="6" className="p-2">
-              <Cocubes />
-            </Col>
-            <Col md="6" className="p-2">
-              <Amcat />
-            </Col>
-          </Row>
-          </div>
         <br></br>
-
-        <ITA />
-      <div className='container' style={{marginRight:'1rem'}}>
+          <ARI arii={this.props.login}/>
+          <Collapsible trigger="ARE">
+            <Col  className="p-2">
+              <Cocubes cid={this.props.login}/>
+            </Col>
+            <Col className="p-2">
+              <Amcat aid={this.props.login}/>
+            </Col>
+          </Collapsible>
+                <br></br>
+          <ITA aid={this.props.login}/>
         <br></br>
+        <Row>
         <Table striped className="placements" bordered responsive>
-          
             <tr>
               <th colspan="2">Placements Analysis</th>
             </tr>
@@ -180,6 +181,7 @@ class Dashboard extends Component {
             </tr>
          
         </Table>
+        </Row>
         <br></br>
         <br></br>
         <h6>Placements Analysis</h6>
@@ -199,7 +201,6 @@ class Dashboard extends Component {
         </Table>
         <br></br>
         <br></br>
-        </div>
       </div>
   );
 }

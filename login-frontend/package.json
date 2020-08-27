@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@syncfusion/ej2-base": "^18.2.54",
+    "@syncfusion/ej2-base": "^18.2.55",
+    "@syncfusion/ej2-buttons": "^18.2.54",
     "@syncfusion/ej2-react-schedule": "^18.2.54",
     "@testing-library/react": "^10.4.9",
     "apexcharts": "^3.19.3",

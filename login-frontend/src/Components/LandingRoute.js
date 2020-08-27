@@ -8,9 +8,6 @@ export default function LandingRoute() {
     return (
         <div>
             <Header/>
-            <About/>
-            <Resume/>
-            <Contact/>
             <Footer/>
         </div>
     )

@@ -11,9 +11,7 @@ import Collapsible from "react-collapsible";
 
 function studentdetails() {
   return (
-    <div className="App">
-      <div className="container">
-        <br></br>
+    <div>
         <div className='container'>
         <Row>
           <Col md="4" style={{marginRight:'2rem'}}>
@@ -60,7 +58,6 @@ function studentdetails() {
             </Col>
           </Row>
         </Collapsible>
-      </div>
     </div>
   );
 }
