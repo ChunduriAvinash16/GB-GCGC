@@ -40,7 +40,7 @@ class LoginComponent extends Component {
                             <Route exact path='/' component={LandingRoute}/>
                             <Route path="/login/"><Login functionCallFromParent={this.parentFunction.bind(this)}/></Route>
                             <Route path="/Loginpage/"><Navbar1 value={this.state.login_id}/><Footer/></Route>
-                            <Route path="/home/"><AdminRoute value={this.state.login_id}/></Route>
+                            <Route path="/AdminPage/"><AdminRoute value={this.state.login_id}/></Route>
                             <Route path="/Guestpage/"><Guestpage value={this.state.login_id}/></Route>
                         </Switch>
                 

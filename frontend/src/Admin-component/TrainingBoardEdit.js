@@ -21,6 +21,7 @@ import { Col } from "react-bootstrap";
 import Axios from "axios";
 import  EditTraining from './EditTraining';
 import RecordsList from './RecordList';
+import {Redirect} from 'react-router';
 
 class TrainingBoardEdit extends Component {
   constructor(props) {
@@ -35,7 +36,8 @@ class TrainingBoardEdit extends Component {
       from_date:"",
       to_date:"",
       program:"",
-      id:""
+      id:"",
+      redirect:false
     };
 
    // this.handleonclick=this.handleonclick.bind(this);
@@ -43,9 +45,9 @@ class TrainingBoardEdit extends Component {
     this.onChangeToDate=this.onChangeToDate.bind(this);
     this.onChangeProgram=this.onChangeProgram.bind(this);
     this.onChangeYOP=this.onChangeYOP.bind(this);
-        this.toggleModal = this.toggleModal.bind(this);
-        this.toggleModal1 = this.toggleModal1.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
+    this.toggleModal1 = this.toggleModal1.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   toggleModal() {
     this.setState({
@@ -103,7 +105,8 @@ class TrainingBoardEdit extends Component {
         YOP:"",
         program:"",
         from_date:"",
-        to_date:""
+        to_date:"",
+        redirect:true
       })
   }
 
@@ -114,6 +117,10 @@ class TrainingBoardEdit extends Component {
 }
 
   render() {
+    const {redirect} = this.state;
+    if(redirect){
+      return <Redirect to={"/home"}/>
+    }
     return (
       <div>
         <Card>

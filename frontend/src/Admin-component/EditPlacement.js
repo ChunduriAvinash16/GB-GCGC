@@ -10,7 +10,7 @@ import {
     Label,
     Input,
   } from "reactstrap";
-
+import {Redirect} from 'react-router'; 
 import Axios from 'axios';
 class EditPlacement extends Component  {
     constructor(props){
@@ -21,12 +21,13 @@ class EditPlacement extends Component  {
         id:"",
         company:"",
         date:"",
-        CTC:""
+        CTC:"",
+        redirect:false
       };
       this.onChangeCTC=this.onChangeCTC.bind(this);
       this.onChangeCompany=this.onChangeCompany.bind(this);
       this.onChangeDate=this.onChangeDate.bind(this);
-     // this.handleSubmit = this.handleSubmit.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
     }
     toggleModal() {
       this.setState({
@@ -72,9 +73,20 @@ class EditPlacement extends Component  {
         Axios.post("http://localhost:80/Admin-backend/PlacementDashBoardUpdateValue.php",obj)
         .then(res=>alert("update Successful"))
         .catch(err=>console.log(err))
+        this.setState({
+          id:"",
+          company:"",
+          date:"",
+          CTC:"",
+          redirect:true
+        })
     }
     
     render(){
+      const {redirect} = this.state;
+      if(redirect){
+        return <Redirect to={"/PlacementEditBoard"}/>
+      }
         return (
             <div className="container">
               <Form onSubmit={this.handleSubmit}>

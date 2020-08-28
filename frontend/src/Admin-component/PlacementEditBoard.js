@@ -25,6 +25,7 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import Axios from 'axios';
+import {Redirect}  from 'react-router';
 
 class PlacementBoardEdit extends Component {
   constructor(props) {
@@ -36,7 +37,8 @@ class PlacementBoardEdit extends Component {
       isNavOpen: false ,
       company:"",
       date:"",
-      CTC:""
+      CTC:"",
+      redirect:false
     };
     this.onChangeCTC=this.onChangeCTC.bind(this);
     this.onChangeCompany=this.onChangeCompany.bind(this);
@@ -89,6 +91,7 @@ class PlacementBoardEdit extends Component {
         company:"",
         date:"",
         CTC:"",
+        redirect:true
       })
   }
   userList(){
@@ -97,6 +100,11 @@ class PlacementBoardEdit extends Component {
     })
 }
   render() {
+    const {redirect} = this.state;
+
+    if(redirect){
+        return <Redirect to={"/home"}/>
+    }
     return (
       <div>
         <Card>

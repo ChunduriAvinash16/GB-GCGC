@@ -1,8 +1,168 @@
 import React from "react";
 import { Container, Row, Col, Card } from "reactstrap";
 import { Form, Button } from "react-bootstrap";
+import Axios from "axios";
 
 class Settings extends React.Component {
+  constructor(props) {
+    super(props);
+    this.onChangeFirstName = this.onChangeFirstName.bind(this);
+    this.onChangeLastName = this.onChangeLastName.bind(this);
+    this.onChangeEmpID = this.onChangeEmpID.bind(this);
+    this.onChangeEmail = this.onChangeEmail.bind(this);
+    this.onChangePhone = this.onChangePhone.bind(this);
+    this.onChangeCampus = this.onChangeCampus.bind(this);
+    this.onChangeInstituition = this.onChangeInstituition.bind(this);
+    this.onChangeDepartment = this.onChangeDepartment.bind(this);
+    this.onChangeoldPassword = this.onChangeoldPassword.bind(this);
+    this.onChangenewPassword = this.onChangenewPassword.bind(this);
+    this.onChangeverifyPassword = this.onChangeverifyPassword.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+    this.onSubmitPassword = this.onSubmitPassword.bind(this);
+    this.onChangeDesignation = this.onChangeDesignation.bind(this);
+    this.state = {
+      Emp_Id: "",
+      fname: "",
+      lname: "",
+      email: "",
+      phone: "",
+      campus: "",
+      instituition: "",
+      department: "",
+      redirect: false,
+      settings: [],
+      oldpassword: "",
+      newpassword: "",
+      verifypassword: "",
+      designation: "",
+    };
+  }
+  onChangeoldPassword(e) {
+    this.setState({
+      oldpassword: e.target.value,
+    });
+  }
+  onChangenewPassword(e) {
+    this.setState({
+      newpassword: e.target.value,
+    });
+  }
+  onChangeverifyPassword(e) {
+    this.setState({
+      verifypassword: e.target.value,
+    });
+  }
+  onChangeFirstName(e) {
+    this.setState({
+      fname: e.target.value,
+    });
+  }
+  onChangeLastName(e) {
+    this.setState({
+      lname: e.target.value,
+    });
+  }
+  onChangeEmpID(e) {
+    this.setState({
+      Emp_Id: e.target.value,
+    });
+  }
+  onChangeEmail(e) {
+    this.setState({
+      email: e.target.value,
+    });
+  }
+  onChangePhone(e) {
+    this.setState({
+      phone: e.target.value,
+    });
+  }
+  onChangeCampus(e) {
+    this.setState({
+      campus: e.target.value,
+    });
+  }
+  onChangeInstituition(e) {
+    this.setState({
+      instituition: e.target.value,
+    });
+  }
+  onChangeDepartment(e) {
+    this.setState({
+      department: e.target.value,
+    });
+  }
+  onChangeDesignation(e) {
+    this.setState({
+      designation: e.target.value,
+    });
+  }
+  componentDidMount() {
+    Axios.get("http://localhost/Admin-backend/getByIdSettings.php?id=" +this.props.sid)
+      .then((response) => {
+        this.setState({
+          Emp_Id: response.data.Emp_Id,
+          fname: response.data.Emp_Name,
+          lname: response.data.last_name,
+          email: response.data.Email_id,
+          phone: response.data.Mobile_No,
+          campus: response.data.Campus,
+          instituition: response.data.Institution,
+          department: response.data.Department,
+          settings: response.data,
+          designation: response.data.Designation,
+        });
+        if (this.state.lname === null) {
+          this.setState({
+            lname: "",
+          });
+        }
+        console.log(this.state.designation);
+        console.log(this.state.settings);
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+    const obj = {
+      Emp_Id: this.state.Emp_Id,
+      fname: this.state.fname,
+      lname: this.state.lname,
+      email: this.state.email,
+      phone: this.state.phone,
+      campus: this.state.campus,
+      instituition: this.state.instituition,
+      department: this.state.department,
+      designation: this.state.designation,
+    };
+    console.log(obj);
+    Axios.post(
+      "http://localhost/Admin-backend/updateSettings.php?id=" + this.props.sid,
+      obj
+    ).then((res) => console.log(res.data), this.setState({ redirect: true }));
+  }
+  onSubmitPassword(e) {
+    e.preventDefault();
+    const obj = {
+      oldpassword: this.state.oldpassword,
+      newpassword: this.state.newpassword,
+      verifypassword: this.state.verifypassword,
+    };
+    console.log(obj);
+    Axios.post(
+      "http://localhost/Admin-backend/updatePassword.php?id=" + this.props.sid,
+      obj
+    ).then((res) => console.log(res.data), 
+      this.setState({ redirect: true,
+        oldpassword:"",
+      newpassword:"",
+    verifypassword:"" 
+  }));
+  }
+
   render() {
     return (
       <Container fluid>
@@ -21,186 +181,157 @@ class Settings extends React.Component {
         </Row>
         <Row style={{ backgroundColor: "white" }}>
           <Col>
-            <form
-              style={{
-                fontSize: "12px",
-                fontFamily: "Segoe UI",
-                fontWeight: "400",
-                color: "#999999",
-              }}
-            >
+            <form onSubmit={this.onSubmit}>
               <Row>
                 <Col lg="2"></Col>
                 <Col lg="8">
                   <Row>&nbsp;</Row>
-                  <Form.Group as={Row} controlId="Employee ID">
-                    <Form.Label column lg="4">
-                      Employee ID:
-                    </Form.Label>
-                    <Col lg="8">
-                      <Form.Control
-                        type="text"
-                        defaultValue="10110"
-                        style={{
-                          fontSize: "12px",
-                          fontFamily: "Segoe UI",
-                          fontWeight: "400",
-                          color: "#999999",
-                        }}
-                      />
-                    </Col>
-                  </Form.Group>
-                  <Form.Group as={Row} controlId="First Name">
-                    <Form.Label column lg="4">
-                      First Name:
-                    </Form.Label>
-                    <Col lg="8">
-                      <Form.Control
-                        type="text"
-                        defaultValue="Kishor"
-                        style={{
-                          fontSize: "12px",
-                          fontFamily: "Segoe UI",
-                          fontWeight: "400",
-                          color: "#999999",
-                        }}
-                      />
-                    </Col>
-                  </Form.Group>
-                  <Form.Group as={Row} controlId="Last Name">
-                    <Form.Label column lg="4">
-                      Last Name:
-                    </Form.Label>
-                    <Col lg="8">
-                      <Form.Control
-                        type="text"
-                        defaultValue="Buddha"
-                        style={{
-                          fontSize: "12px",
-                          fontFamily: "Segoe UI",
-                          fontWeight: "400",
-                          color: "#999999",
-                        }}
-                      />
-                    </Col>
-                  </Form.Group>
-                  <Form.Group as={Row} controlId="Email">
-                    <Form.Label column lg="4">
-                      Email:
-                    </Form.Label>
-                    <Col lg="8">
-                      <Form.Control
-                        type="email"
-                        style={{
-                          fontSize: "12px",
-                          fontFamily: "Segoe UI",
-                          fontWeight: "400",
-                          color: "#999999",
-                        }}
-                      />
-                    </Col>
-                  </Form.Group>
-                  <Form.Group as={Row} controlId="Phone">
-                    <Form.Label column lg="4">
-                      Phone:
-                    </Form.Label>
-                    <Col lg="8">
-                      <Form.Control
-                        type="text"
-                        style={{
-                          fontSize: "12px",
-                          fontFamily: "Segoe UI",
-                          fontWeight: "400",
-                          color: "#999999",
-                        }}
-                      />
-                    </Col>
-                  </Form.Group>
-                  <Form.Group as={Row} controlId="Campus">
-                    <Form.Label column lg="4">
-                      Campus:
-                    </Form.Label>
-                    <Col lg="8">
-                      <Form.Control
-                        as="select"
-                        style={{
-                          fontSize: "12px",
-                          fontFamily: "Segoe UI",
-                          fontWeight: "400",
-                          color: "#999999",
-                        }}
-                      >
-                        <option>Bengaluru</option>
-                        <option>Vizag</option>
-                        <option>Hyderabad</option>
-                      </Form.Control>
-                    </Col>
-                  </Form.Group>
-                  <Form.Group as={Row} controlId="Institution">
-                    <Form.Label column lg="4">
-                      Institution:
-                    </Form.Label>
-                    <Col lg="8">
-                      <Form.Control
-                        type="text"
-                        defaultValue="Gitam School Of Technology"
-                        style={{
-                          fontSize: "12px",
-                          fontFamily: "Segoe UI",
-                          fontWeight: "400",
-                          color: "#999999",
-                        }}
-                      />
-                    </Col>
-                  </Form.Group>
-                  <Form.Group as={Row} controlId="Department">
-                    <Form.Label column lg="4">
-                      Department:
-                    </Form.Label>
-                    <Col lg="8">
-                      <Form.Control
-                        as="select"
-                        style={{
-                          fontSize: "12px",
-                          fontFamily: "Segoe UI",
-                          fontWeight: "400",
-                          color: "#999999",
-                        }}
-                      >
-                        <option>T&P</option>
-                        <option>FC</option>
-                        <option>Staff</option>
-                      </Form.Control>
-                    </Col>
-                  </Form.Group>
-                  <Form.Group as={Row} controlId="Image">
-                    <Form.Label column lg="4">
-                      Image:
-                    </Form.Label>
-                    <Col lg="8">
-                      <Form.Control
-                        type="file"
-                        style={{
-                          fontSize: "12px",
-                          fontFamily: "Segoe UI",
-                          fontWeight: "400",
-                          color: "#999999",
-                        }}
-                      />
-                    </Col>
-                  </Form.Group>
                   <Row>
-                    <Col align="center">
-                      <Button
-                        type="submit"
-                        style={{
-                          backgroundColor: "#2A324B",
-                          borderColor: "#2A324B",
-                          color: "white",
-                        }}
+                    <Col lg="4">Emp ID:</Col>
+                    <Col lg="8">
+                      <input
+                        type="text"
+                        value={this.state.Emp_Id}
+                        onChange={this.onChangeEmpID}
+                        className="form-control"
+                      />
+                    </Col>
+                  </Row>
+                  <Row>&nbsp;</Row>
+                  <Row>
+                    <Col lg="4">First Name:</Col>
+                    <Col lg="8">
+                      <input
+                        type="text"
+                        value={this.state.fname}
+                        onChange={this.onChangeFirstName}
+                        className="form-control"
+                      />
+                    </Col>
+                  </Row>
+                  <Row>&nbsp;</Row>
+                  <Row>
+                    <Col lg="4">Last Name:</Col>
+                    <Col lg="8">
+                      <input
+                        type="text"
+                        value={this.state.lname}
+                        onChange={this.onChangeLastName}
+                        className="form-control"
+                      />
+                    </Col>
+                  </Row>
+                  <Row>&nbsp;</Row>
+                  <Row>
+                    <Col lg="4">Email:</Col>
+                    <Col lg="8">
+                      <input
+                        type="text"
+                        value={this.state.email}
+                        onChange={this.onChangeEmail}
+                        className="form-control"
+                      />
+                    </Col>
+                  </Row>
+                  <Row>&nbsp;</Row>
+                  <Row>
+                    <Col lg="4">Phone:</Col>
+                    <Col lg="8">
+                      <input
+                        type="text"
+                        value={this.state.phone}
+                        onChange={this.onChangePhone}
+                        className="form-control"
+                      />
+                    </Col>
+                  </Row>
+                  <Row>&nbsp;</Row>
+                  <Row>
+                    <Col lg="4">Campus:</Col>
+                    <Col lg="8">
+                      <select
+                        className="form-control"
+                        value={this.state.campus}
+                        onChange={this.onChangeCampus}
                       >
-                        Submit
-                      </Button>
+                        <option value={"Bengaluru"}>Bengaluru</option>
+                        <option value={"Vizag"}>Vizag</option>
+                        <option value={"Hyderabad"}>Hyderabad</option>
+                      </select>
+                    </Col>
+                  </Row>
+                  <Row>&nbsp;</Row>
+                  <Row>
+                    <Col lg="4">Instituion:</Col>
+                    <Col lg="8">
+                      <input
+                        className="form-control"
+                        type="text"
+                        value={this.state.instituition}
+                        onChange={this.onChangeInstituition}
+                      />
+                    </Col>
+                  </Row>
+                  <Row>&nbsp;</Row>
+                  <Row>
+                    <Col lg="4">Department:</Col>
+                    <Col lg="8">
+                      <select
+                        className="form-control"
+                        value={this.state.department}
+                        onChange={this.onChangeDepartment}
+                      >
+                        <option value={"EECE"}>ECEE</option>
+                        <option value={"CSE"}>CSE</option>
+                        <option value={"Mechanical"}>Mechanical</option>
+                        <option value={"IT"}>IT</option>
+                        <option value={"CIVIL"}>Civil</option>
+                        <option value={"GST"}>Director</option>
+                      </select>
+                    </Col>
+                  </Row>
+                  <Row>&nbsp;</Row>
+                  <Row>
+                    <Col lg="4">Designation:</Col>
+                    <Col lg="8">
+                      <select
+                        className="form-control"
+                        value={this.state.designation}
+                        onChange={this.onChangeDesignation}
+                      >
+                        <option value={"Director"}>Director</option>
+                        <option value={"HOD"}>Head Of Department</option>
+                        <option value={"Professor"}>Professor</option>
+                        <option value={"Associate Professor"}>
+                          Associate Professor
+                        </option>
+                        <option value={"Assistant Professor"}>
+                          Assistant Professor
+                        </option>
+                        <option value={"T&P"}>T&P</option>
+                        <option value={"FC"}>FC</option>
+                      </select>
+                    </Col>
+                  </Row>
+                  <Row>&nbsp;</Row>
+                  <Row>
+                    <Col lg="4">Image:</Col>
+                    <Col lg="8">
+                      <input type="file" />
+                    </Col>
+                  </Row>
+                  <Row>&nbsp;</Row>
+                  <Row align="center">
+                    <Col>
+                      <input
+                        type="submit"
+                        value="Update"
+                        style={{
+                          backgroundColor: "blue",
+                          color: "white",
+                          border: "white",
+                        }}
+                      />
                     </Col>
                   </Row>
                   <Row>&nbsp;</Row>
@@ -226,6 +357,7 @@ class Settings extends React.Component {
         <Row style={{ backgroundColor: "white" }}>
           <Col>
             <form
+              onSubmit={this.onSubmitPassword}
               style={{
                 fontSize: "12px",
                 fontFamily: "Segoe UI",
@@ -243,6 +375,8 @@ class Settings extends React.Component {
                     </Form.Label>
                     <Col lg="8">
                       <Form.Control
+                        value={this.state.oldpassword}
+                        onChange={this.onChangeoldPassword}
                         type="password"
                         style={{
                           fontSize: "12px",
@@ -255,10 +389,12 @@ class Settings extends React.Component {
                   </Form.Group>
                   <Form.Group as={Row} controlId="New Password">
                     <Form.Label column lg="4">
-                      New Password:
+                      8 New Password:
                     </Form.Label>
                     <Col lg="8">
                       <Form.Control
+                        value={this.state.newpassword}
+                        onChange={this.onChangenewPassword}
                         type="password"
                         style={{
                           fontSize: "12px",
@@ -275,6 +411,8 @@ class Settings extends React.Component {
                     </Form.Label>
                     <Col lg="8">
                       <Form.Control
+                        value={this.state.verifypassword}
+                        onChange={this.onChangeverifyPassword}
                         type="password"
                         style={{
                           fontSize: "12px",

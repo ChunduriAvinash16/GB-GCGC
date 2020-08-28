@@ -62,7 +62,7 @@ const SideBar = ({ isOpen, toggle }) => (
           </NavItem>
 
           <NavItem>
-            <NavLink tag={Link} to={"/logout"}>
+            <NavLink tag={Link} to={"/"}>
               <FontAwesomeIcon icon={faSignOutAlt} className="mr-2" />
               Logout
             </NavLink>

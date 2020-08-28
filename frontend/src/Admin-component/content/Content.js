@@ -33,6 +33,7 @@ import Ita from "../Uploads/ita";
 import Companydetails from "../Uploads/companydetails";
 import EditTraining from "../EditTraining";
 import EditPlacement from "../EditPlacement";
+import LandingRoute from "../../Components/LandingRoute";
 const ColoredLine = ({ color }) => (
   <hr
     style={{
@@ -43,14 +44,13 @@ const ColoredLine = ({ color }) => (
   />
 );
 
-const Content = ({ sidebarIsOpen, toggleSidebar }) => (
+const Content = ({id,sidebarIsOpen, toggleSidebar}) => (
   <Container
     fluid
     className={classNames("content", { "is-open": sidebarIsOpen })}
   >
     <Topbar toggleSidebar={toggleSidebar} />
     <Switch>
-      <Route exact path="/" component={() => "Hello"} />
       <Route
         exact
         path="/home"
@@ -99,7 +99,7 @@ const Content = ({ sidebarIsOpen, toggleSidebar }) => (
         path="/settings"
         component={() => (
           <div>
-            <Settings />
+            <Settings sid={id}/>
           </div>
         )}
       />

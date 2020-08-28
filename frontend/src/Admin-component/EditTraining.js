@@ -10,6 +10,7 @@ import {
     Label,
     Input,
   } from "reactstrap";
+  import {Redirect} from 'react-router';
 
 import Axios from 'axios';
 class EditTraining extends Component {
@@ -25,7 +26,7 @@ class EditTraining extends Component {
             from_date:"",
             to_date:"",
             program:"",
-            id:""
+            id:"",
           };
       
           this.onChangeFromDate=this.onChangeFromDate.bind(this);

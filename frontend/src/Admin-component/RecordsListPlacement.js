@@ -50,7 +50,7 @@ export default class RecordList extends Component {
                     {this.props.obj.status}
                 </td>
                 <td>
-                    <Link to={"/edit/"+this.props.obj.id} ><FontAwesomeIcon icon={faPencilAlt} className="ml-2"/></Link>
+                    <Link to={"/editplacement/"+this.props.obj.id} ><FontAwesomeIcon icon={faPencilAlt} className="ml-2"/></Link>
                 
                     <Link><FontAwesomeIcon icon={faTrash}  onClick={this.delete} className="ml-2"/></Link>
                 </td>
