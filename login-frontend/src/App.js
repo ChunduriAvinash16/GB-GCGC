@@ -3,6 +3,7 @@ import ReactGA from 'react-ga';
 import $ from 'jquery';
 import LoginComponent from './login-components/LoginComponent';
 import LandingRoute from './Components/LandingRoute';
+import "./App.css";
 import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
 class App extends Component {
 
