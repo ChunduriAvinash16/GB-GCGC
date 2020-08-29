@@ -1,6 +1,6 @@
 # LandingPagedashboard
 
-#GB-GCGC
+# GB-GCGC
 
 
 GCGC is Gitam Career Guidance Cell
