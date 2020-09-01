@@ -11,6 +11,7 @@ import Navbar1 from "../user-components/Navbar1";
 import Footer from "../user-components/Footer";
 import LandingRoute from '../Components/LandingRoute';
 import AdminRoute from '../Admin-component/AdminRoute';
+import Header from '../Components/Header'
 class LoginComponent extends Component {
     constructor(props){
         super(props);
@@ -37,8 +38,7 @@ class LoginComponent extends Component {
                     </div>
 
                         <Switch>
-                            <Route exact path='/' component={Login}/>
-                            <Route path="/login/"><Login functionCallFromParent={this.parentFunction.bind(this)}/></Route>
+                            <Route exact path='/'><Login functionCallFromParent={this.parentFunction.bind(this)}/></Route>
                             <Route path="/Loginpage/"><Navbar1 value={this.state.login_id}/><Footer/></Route>
                             <Route path="/AdminPage/"><AdminRoute value={this.state.login_id}/></Route>
                             <Route path="/Guestpage/"><Guestpage value={this.state.login_id}/></Route>
