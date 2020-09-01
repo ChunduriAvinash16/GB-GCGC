@@ -37,7 +37,7 @@ class LoginComponent extends Component {
                     </div>
 
                         <Switch>
-                            <Route exact path='/' component={LandingRoute}/>
+                            <Route exact path='/' component={Login}/>
                             <Route path="/login/"><Login functionCallFromParent={this.parentFunction.bind(this)}/></Route>
                             <Route path="/Loginpage/"><Navbar1 value={this.state.login_id}/><Footer/></Route>
                             <Route path="/AdminPage/"><AdminRoute value={this.state.login_id}/></Route>

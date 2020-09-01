@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Axios from 'axios';
+import {Col} from 'reactstrap';
 import { useHistory ,Link, Redirect} from 'react-router-dom';
 class Login extends Component {
     constructor(props){
@@ -69,26 +70,28 @@ class Login extends Component {
         }
 
         return (
-            <div id="BodyLogin" className='centered'>
-                <nav className="navbar navbar-expand-lg navbar-light fixed-top">
-                    <div className="container">
-                        <Link className="navbar-brand" to={"/login"}><label>GB-GCGC</label></Link>
-                    </div>
-                </nav>
+            <header>
+            <div className="row banner">
+               <div className="banner-text">
+                  <h1 className="responsive-headline">GB-GCGC</h1>
+                  <h3>GITAM Career Guidance Cell</h3>
+                  <hr />
+                  <div id="BodyLogin" className='centered'>
                 <div className="centered" id="LOGIN">
                     <div className="auth-inner" id="INNER_LOGIN">
                         <div className="auth-wrapper">
                             <form>
-                                <h3>Login In</h3>
+                                <h3 style={{"color":"white"}}>Login In</h3><hr/>
                                 <div className="form-group">
-                                    <label>Login Id</label>
-                                    <input type="text" className="form-control" placeholder="Registration Number" onChange={this.handleAddLoginId}/>
+                                        <h5 style={{"color":"white","text-align":"initial"}}>Login Id</h5>
+                                        <input type="text" className="form-control" placeholder="Registration Number" onChange={this.handleAddLoginId}/>
                                 </div>
                                 <div className="form-group">
-                                    <label>Password</label>
+                                    <h5 style={{"color":"white","text-align":"initial"}}>Password</h5>
                                     <input type="password" className="form-control" placeholder="Enter password" onChange={this.handleAddPassword}/>
                                 </div>
-                                <button type="submit" className="btn btn-danger btn-block" onClick={this.handleSudmit} >Submit</button>
+                                <br/>
+                                <button type="submit" className="btn btn-danger btn-block"style={{"background-color":"#CC5200"}} onClick={this.handleSudmit} >Submit</button>
                                     <p className="forgot-password text-right">
                                         Forgot <a href="#">password?</a>
                                     </p>
@@ -97,6 +100,19 @@ class Login extends Component {
                     </div>
                 </div>
             </div>
+                  <ul className="social">
+                     <li><a href="https://twitter.com/gbplacements"><i className='fa fa-twitter'></i></a></li>
+                     <li><a href="https://www.facebook.com/gitamblrplacements"><i className='fa fa-facebook'></i></a></li>
+                     <li><a href="https://instagram.com/gbplacements"><i className='fa fa-instagram'></i></a></li>
+                     <li><a href="https://www.youtube.com/channel/UCTdcKs5RAOcQ-qm2qOXI2Ng"><i className='fa fa-youtube'></i></a></li>
+                     <li><a href="https://www.linkedin.com/in/gitamblrplacements/"><i className='fa fa-linkedin'></i></a></li>
+                  </ul>
+               </div>
+               <p  style={{"color":"white"}}>Copyright GITAM,BENGALURU © 2020. All rights reserved.</p>
+
+            </div>
+
+            </header>
          );
     }
 }
