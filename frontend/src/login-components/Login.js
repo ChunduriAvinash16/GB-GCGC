@@ -60,7 +60,7 @@ class Login extends Component {
     }
     render(){
       if(this.state.redirect && this.state.type==="user"){
-            return (<Redirect to="/Loginpage"/>)
+            return (<Redirect to="/Dashboard"/>)
         }
         if(this.state.redirect && this.state.type==="Admin"){
             return (<Redirect to="/Adminpage"/>)
@@ -108,7 +108,7 @@ class Login extends Component {
                      <li><a href="https://www.linkedin.com/in/gitamblrplacements/"><i className='fa fa-linkedin'></i></a></li>
                   </ul>
                </div>
-               <p  style={{"color":"white"}}>Copyright GITAM,BENGALURU © 2020. All rights reserved.</p>
+               <p style={{"color":"white"}} >Copyright GITAM,BENGALURU © 2020. All rights reserved.</p>
 
             </div>
 

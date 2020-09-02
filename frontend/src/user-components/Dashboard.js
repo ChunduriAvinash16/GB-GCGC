@@ -23,12 +23,15 @@ import ARI from "./ARI";
 import Cocubes from "./Cocubes";
 import Amcat from "./Amcat";
 import ITA from "./ITA";
+import Personaldetails from "./Personaldetails";
+import Leaderboard from "./Leaderboard";
 
 
 class Dashboard extends Component {
         constructor(props){
           super(props);
           this.state={
+            login_id:props.value,
               student_id:"",
               SSC:0,
               inter:0,
@@ -53,7 +56,8 @@ class Dashboard extends Component {
       }*/
 
       componentDidMount(){
-          Axios.get("http://localhost:80/login-backend/studentdetails.php?id="+this.props.login)
+        console.log(this.props.value)
+        Axios.get("http://localhost:80/login-backend/studentdetails.php?id="+this.state.login_id)
           .then(response => {
               this.setState({
                   SSC: response.data[0]['SSC_percent'],
@@ -71,115 +75,125 @@ class Dashboard extends Component {
   return (
         <div className='container-fluid'>
            <br></br>
-           <Row>
-             <Col>
-           <img
-                src={require("../asstes/gitamlogo.png")}
-                height="50"
-                width="50"
-              ></img>
-            </Col>
-            <Col>
-              Welcome Chunduri Avinash
-            </Col>
+            <Row style={{textAlign:"initial"}}>
+              <Col>
+                <img
+                      src={require("../asstes/Avinash.jpg")}
+                      height="100"
+                      width="100"
+                    ></img>
+                  Welcome Chunduri Avinash
+              </Col>
             </Row>
-           <Collapsible trigger="Academic Details">
-            <Row>
-              <Col md="4">
-                <Card color="success" className="Rounded p-3">
-                  <CardTitle align="left">{this.state.SSC}</CardTitle>
-                  <CardSubtitle align="left">Tenth Percentage</CardSubtitle>
-                </Card>
-            </Col>
-            <Col md="4">
-              <Card color="warning" className="Rounded p-3">
-                <CardTitle align="left">{this.state.inter}</CardTitle>
-                <CardSubtitle align="left">Inter Percentage</CardSubtitle>
-              </Card>
-            </Col>
-            <Col md="4">
-              <Card color="danger" className="Rounded p-3">
-                <CardTitle align="left">{(this.state.gpa*9.5).toFixed(2)}</CardTitle>
-                <CardSubtitle align="left">B Tech Percentage</CardSubtitle>
-              </Card>
-            </Col>
-        
-
-          </Row>
+            <Row> 
+              <Collapsible trigger="Personal Details">
+                <Personaldetails login={this.props.value}/>
+              </Collapsible>
+            </Row>
+            <br/>
+            <Collapsible trigger="Academic Details">
+              <br/>
+                <Row>
+                  <Col md="4">
+                    <Card color="success" className="Rounded p-3">
+                      <CardTitle align="left">{this.state.SSC}</CardTitle>
+                      <CardSubtitle align="left">Tenth Percentage</CardSubtitle>
+                    </Card>
+                </Col>
+                <Col md="4">
+                  <Card color="warning" className="Rounded p-3">
+                    <CardTitle align="left">{this.state.inter}</CardTitle>
+                    <CardSubtitle align="left">Inter Percentage</CardSubtitle>
+                  </Card>
+                </Col>
+                <Col md="4">
+                  <Card color="danger" className="Rounded p-3">
+                    <CardTitle align="left">{(this.state.gpa*9.5).toFixed(2)}</CardTitle>
+                    <CardSubtitle align="left">B Tech Percentage</CardSubtitle>
+                  </Card>
+                </Col>
+              </Row><br></br>
+              <Collapsible trigger="More Info"><br></br>
+                  <Row>
+                    <Col md="4">
+                      <Alert color="success" className="Rounded p-3">
+                        <CardTitle align="left">{this.state.branch.slice(0,3)}</CardTitle>
+                        <CardSubtitle align="left">Branch</CardSubtitle>
+                      </Alert>
+                    </Col>
+                    <Col md="4">
+                      <Alert color="warning" className="Rounded p-3">
+                        <CardTitle align="left">{this.state.pass_category}</CardTitle>
+                        <CardSubtitle align="left">Pass Category</CardSubtitle>
+                      </Alert>
+                    </Col>
+                    <Col md="4">
+                      <Alert color="danger" className="Rounded p-3">
+                        <CardTitle align="left">{this.state.branch.slice(3,5)}</CardTitle>
+                        <CardSubtitle align="left">Section</CardSubtitle>
+                      </Alert>
+                    </Col>
+                  </Row>
+                </Collapsible>
+          </Collapsible>
+          &nbsp;
+          <Collapsible trigger="Leader Board">
+            <br/>
+            <Leaderboard login={this.props.value}/>
+          </Collapsible>
+          <br/>
+          <Collapsible trigger="Job Suitability">
+              <br></br>
+                <Row>
+                  <Col md="6" className="pr-2 pt-2">
+                    <JobFitment fitid={this.props.value}/>
+                  </Col>
+                  <Col md="6" className="p-2">
+                    <CurrentJob jobid={this.props.value}/>
+                  </Col>
+                </Row>
+          </Collapsible>
           <br></br>
-          <Collapsible trigger="More Info">
-            <br></br>
-            <Row>
-              <Col md="4">
-                <Alert color="success" className="Rounded p-3">
-                  <CardTitle align="left">{this.state.branch.slice(0,3)}</CardTitle>
-                  <CardSubtitle align="left">Branch</CardSubtitle>
-                </Alert>
-              </Col>
-              <Col md="4">
-                <Alert color="warning" className="Rounded p-3">
-                  <CardTitle align="left">{this.state.pass_category}</CardTitle>
-                  <CardSubtitle align="left">Pass Category</CardSubtitle>
-                </Alert>
-              </Col>
-              <Col md="4">
-                <Alert color="danger" className="Rounded p-3">
-                  <CardTitle align="left">{this.state.branch.slice(3,5)}</CardTitle>
-                  <CardSubtitle align="left">Section</CardSubtitle>
-                </Alert>
-              </Col>
-            </Row>
+          <Collapsible trigger="ARI">
+            <br/>
+            <ARI arii={this.props.value}/>
           </Collapsible>
-          </Collapsible>
-
-
-        <br></br>
-          <Row>
-            <Col md="6" className="pr-2 pt-2">
-              <JobFitment fitid={this.props.login}/>
-            </Col>
-          
-            <Col md="6" className="p-2">
-              <CurrentJob jobid={this.props.login}/>
-            </Col>
-          </Row>
-        
-        <br></br>
-          <ARI arii={this.props.login}/>
+          <br/>
           <Collapsible trigger="ARE">
-            <Col  className="p-2">
-              <Cocubes cid={this.props.login}/>
-            </Col>
-            <Col className="p-2">
-              <Amcat aid={this.props.login}/>
-            </Col>
+            <br/>
+              <Col  className="p-2">
+                <Cocubes cid={this.props.value}/>
+              </Col>
+              <Col className="p-2">
+                <Amcat aid={this.props.value}/>
+              </Col>
           </Collapsible>
                 <br></br>
-          <ITA aid={this.props.login}/>
-        <br></br>
-        <Row>
-        <Table striped className="placements" bordered responsive>
-            <tr>
-              <th colspan="2">Placements Analysis</th>
-            </tr>
-         
-         
-            <tr>
-              <td md="6">Total Number of Companies:50</td>
-              <td md="6">Number of written test cleared:0</td>
-            </tr>
-            <tr>
-              <td md="6">Number of Companies Attended:0</td>
-              <td md="6">Number of GD's cleared:0</td>
-            </tr>
-            <tr>
-              <td md="6">Number of Companies Eligible:50</td>
-              <td md="6">Number of technical test cleared:0</td>
-            </tr>
-            <tr>
-              <td colspan="2">Number of Offer Letters:0</td>
-            </tr>
-         
+          <Collapsible trigger="ITA">
+            <ITA aid={this.props.value}/>
+          </Collapsible>
+          <br></br>
+          <Collapsible trigger="Placement Analysis">
+          <Row>
+          <Table striped className="placements" bordered responsive>
+              <tr>
+                <th colspan="2">Placements Analysis</th>
+              </tr>
+              <tr>
+                <td md="6">Total Number of Companies:50</td>
+                <td md="6">Number of written test cleared:0</td>
+              </tr>
+              <tr>
+                <td md="6">Number of Companies Attended:0</td>
+                <td md="6">Number of GD's cleared:0</td>
+              </tr>
+              <tr>
+                <td md="6">Number of Companies Eligible:50</td>
+                <td md="6">Number of technical test cleared:0</td>
+              </tr>
+              <tr>
+                <td colspan="2">Number of Offer Letters:0</td>
+              </tr>
         </Table>
         </Row>
         <br></br>
@@ -198,9 +212,8 @@ class Dashboard extends Component {
               <th>Personal Interview</th>
             </tr>
           </thead>
-        </Table>
-        <br></br>
-        <br></br>
+          </Table>
+        </Collapsible>
       </div>
   );
 }
