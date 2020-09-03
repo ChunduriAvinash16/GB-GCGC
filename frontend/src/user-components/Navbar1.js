@@ -55,7 +55,7 @@ class Navbar1 extends Component {
             <div className="container-fluid">
               <Row>
                 <div className="col-12 col-md-3 col-lg-3 col-x-1" style={{"textAlign": "initial"}}>
-                <NavbarBrand className="mr-auto" href="/login">
+                <NavbarBrand className="mr-auto">
                 <img src={require("../asstes/gitamlogo.png")} height="50" width="50" />
                 GITAM Bengaluru
                 </NavbarBrand>
@@ -112,11 +112,7 @@ class Navbar1 extends Component {
              </div>
           </Navbar>
           <Switch>
-        <Route exact path="/Dashboard" component={()=>(<div><Dashboard login={this.props.value}/></div>)}></Route>
-            <Route exact path="/leaderboard" component={Leaderboard} />
-            <Route exact path="/Calender" component={Calender} />
-            <Route exact path="/personaldetails" component={Personaldetails} />
-            <Route exact path="/changepassword" component={Changepassword} />
+             <Route exact path="/Dashboard" component={()=>(<div><Dashboard login={this.props.value}/></div>)}></Route>
           </Switch>
         </Router>
       </div>

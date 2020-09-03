@@ -35,6 +35,7 @@ class Dashboard extends Component {
               SSC:0,
               inter:0,
               gpa:0,
+              fname:"",
               branch:"",
               pass_category:""
           }
@@ -68,6 +69,14 @@ class Dashboard extends Component {
           .catch(function(err){
               console.log(err);
           })
+          Axios.get("http://localhost:80/login-backend/names.php?id="+this.props.login)
+          .then(response=>{
+            console.log(response.data)
+            this.setState({
+              fname:response.data['first_name'],
+              lname:response.data['last_name']
+            })
+          })
       }
   render(){
   return (
@@ -80,7 +89,7 @@ class Dashboard extends Component {
                       height="100"
                       width="100"
                     ></img>
-                  Welcome Chunduri Avinash
+                  Welcome {this.state.fname} {this.state.lname}
               </Col>
             </Row>
             <Row> 
