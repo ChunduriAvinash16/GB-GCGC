@@ -163,3 +163,11 @@ Card {
   color: white;
   text-align-last: center;
 }
+.row{
+  width: 100%;
+  max-width: -webkit-fill-available;
+  margin:auto;
+  display: flex;
+  flex-wrap: wrap;
+
+}

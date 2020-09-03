@@ -164,7 +164,7 @@ export default class AllStudents extends Component{
     render(){   
         return(
             <div className="AllStudents" style={{backgroundColor:'#C7CCDB'}}>
-            <Container>
+            <Container fluid>
                 <Row>
                     <Col className="Heading" align="left" style={{fontSize:"20px",fontFamily: "Segoe UI",fontWeight:"600"}}>
                     Manage Students

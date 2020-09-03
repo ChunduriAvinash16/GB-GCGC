@@ -90,7 +90,7 @@ class Dashboard extends Component {
                       height="100"
                       width="100"
                     ></img>
-                  Welcome <h2 style={{"font-family":""}}>{this.state.fname} {this.state.lname}</h2>
+                  Welcome <h5>{this.state.fname} {this.state.lname}</h5>
               </Col>
             </Row>
               <br/>

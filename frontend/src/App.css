@@ -159,7 +159,7 @@ header .social li {
    padding: 0;
 }
 header .social li a { color: #fff; }
-header .social li a:hover { color: #11ABB0; }
+header .social li a:hover { color:#CC5200; }
 
 header .scrolldown a {
    position: absolute;

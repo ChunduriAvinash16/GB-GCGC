@@ -33,30 +33,35 @@ const SideBar = ({ isOpen, toggle }) => (
               Home
             </NavLink>
           </NavItem>
+          <hr/>
           <NavItem style={{"text-align":"left"}}>
             <NavLink tag={Link} to={"/IndividualStudentEntry"}>
               <FontAwesomeIcon icon={faChalkboardTeacher} className="mr-2" />
               Individual student
             </NavLink>
           </NavItem>
+          <hr/>
           <NavItem style={{"text-align":"left"}}>
             <NavLink tag={Link} to={"/allstudents"}>
               <FontAwesomeIcon icon={faUserEdit} className="mr-2" />
               Allstudents
             </NavLink>
           </NavItem>
+          <hr/>
           <NavItem style={{"text-align":"left"}}>
             <NavLink tag={Link} to={"/Uploads"}>
               <FontAwesomeIcon icon={faUpload} className="mr-2" />
               Uploads
             </NavLink>
           </NavItem>
+          <hr/>
           <NavItem style={{"text-align":"left"}}>
             <NavLink tag={Link} to={"/settings"}>
-              <FontAwesomeIcon icon={faCog} className="mr-2" />
+              <FontAwesomeIcon icon={faCog} className="mr-2"/>
               Settings
             </NavLink>
           </NavItem>
+          <hr/>
           <NavItem style={{"text-align":"left"}}>
             <NavLink tag={Link} to={"/"}>
               <FontAwesomeIcon icon={faSignOutAlt} className="mr-2" />

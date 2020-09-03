@@ -61,7 +61,7 @@ function IndividualStudentEntry() {
             </Col>
             <Col lg="3">
               <select
-                className="container p-1"
+                className="container p-1 form-control"
                 style={{
                   color: "#999999",
                   fontSize: "14px",
@@ -76,16 +76,10 @@ function IndividualStudentEntry() {
             </Col>
             <Col lg="3">
               <input
+                className="container p-1 form-control"
                 type="text"
                 name="user"
                 className="container pt-1"
-                style={{
-                  color: "#999999",
-                  fontSize: "14px",
-                  fontFamily: "Segoe UI",
-                  fontWeight: "400",
-                  borderColor: "#999999",
-                }}
               />
             </Col>
           </Row>

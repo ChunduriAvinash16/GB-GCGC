@@ -69,11 +69,10 @@ class HomeCards extends Component {
 
    render() {
     return (
-      <div className="container">
+      <div className="container-fluid">
                   <div>
                     <Row className="pl-3">
                     </Row>
-                    <hr style={{ visibility: "visible" }} />
                   </div>
           <div className="row">      
           <div className="col-xs-12 col-lg-3 col-md-6 p-3">
