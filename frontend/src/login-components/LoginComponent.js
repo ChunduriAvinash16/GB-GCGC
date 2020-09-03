@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
 import Login from './Login';
-import Loginpage from './Loginpage';
-import AdminPage from './AdminPage';
+
 import Guestpage from './Guestpage';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.css";
@@ -10,7 +9,6 @@ import "bootstrap-social/bootstrap-social.css";
 import Navbar1 from "../user-components/Navbar1";
 import Footer from "../user-components/Footer";
 import AdminRoute from '../Admin-component/AdminRoute';
-import Dashboard from '../user-components/Dashboard';
 class LoginComponent extends Component {
     constructor(props){
         super(props);

@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Axios from 'axios';
 import {Redirect} from 'react-router';
 import {
-    faPlus,
     faPencilAlt,
     faTrash,
   } from "@fortawesome/free-solid-svg-icons";

@@ -9,13 +9,7 @@ import {
   Link,
 } from "react-router-dom";
 import {
-  Nav,
-  Navbar,
-  NavbarBrand,
-  NavbarToggler,
-  Collapse,
-  NavItem,
-  Jumbotron,
+  Nav
 } from "reactstrap";
 import { Button } from "react-bootstrap";
 

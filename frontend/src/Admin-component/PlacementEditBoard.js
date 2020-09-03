@@ -4,16 +4,8 @@ import RecordsListPlacement from './RecordsListPlacement';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlus,
-  faPencilAlt,
-  faMinusCircle,
-  faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 import {
-  NavbarBrand,
-  NavbarToggler,
-  Collapse,
-  Nav,
-  Jumbotron,
   Modal,
   ModalHeader,
   ModalBody,

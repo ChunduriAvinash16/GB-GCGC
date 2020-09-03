@@ -3,7 +3,6 @@ import {Link} from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {Redirect} from "react-router";
 import {
-    faPlus,
     faPencilAlt,
     faTrash,
   } from "@fortawesome/free-solid-svg-icons";

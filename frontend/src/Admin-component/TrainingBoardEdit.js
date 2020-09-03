@@ -12,14 +12,11 @@ import {
   Input,
 } from "reactstrap";
 import {
-  faPlus,
-  faPencilAlt,
-  faTrash,
+  faPlus
 } from "@fortawesome/free-solid-svg-icons";
-import { Link, Route } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { Col } from "react-bootstrap";
 import Axios from "axios";
-import  EditTraining from './EditTraining';
 import RecordsList from './RecordList';
 import {Redirect} from 'react-router';
 

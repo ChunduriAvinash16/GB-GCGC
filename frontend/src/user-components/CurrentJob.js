@@ -64,8 +64,7 @@ componentDidMount(){
                                 backgroundColor: ['#4169E1','#EEEEEE'],
                                  hoverBackgroundColor: ['#4169E1','#EEEEEE']
                            }]}} 
-                      />   
-                         Analyst
+                      />Analyst
             </Col>
             <Col lg="4" md="6" sm="12">
             <Doughnut data={{datasets: [{
@@ -73,8 +72,7 @@ componentDidMount(){
                                 backgroundColor: ['#4169E1','#EEEEEE'],
                                  hoverBackgroundColor: ['#4169E1','#EEEEEE']
                            }]}} 
-                      />
-              CustomerSales
+                      />CustomerSales
             </Col>
             <Col lg="4" md="6" sm="12">
               <Doughnut data={{datasets: [{
@@ -82,9 +80,7 @@ componentDidMount(){
                                 backgroundColor: ['#4169E1','#EEEEEE'],
                                  hoverBackgroundColor: ['#4169E1','#EEEEEE']
                            }]}} 
-                      />
-              Plant Engineer
-
+                      /> Plant Engineer
             </Col>
             <Col lg="4" md="6" sm="12">
               <Doughnut data={{datasets: [{
@@ -92,9 +88,7 @@ componentDidMount(){
                                 backgroundColor: ['#4169E1','#EEEEEE'],
                                  hoverBackgroundColor: ['#4169E1','#EEEEEE']
                            }]}} 
-                      />   
-              RRD Engineer
-
+                      />RRD Engineer
             </Col>
             <Col lg="4" md="6" sm="12">
             <Doughnut data={{datasets: [{
@@ -102,8 +96,7 @@ componentDidMount(){
                                 backgroundColor: ['#4169E1','#EEEEEE'],
                                  hoverBackgroundColor: ['#4169E1','#EEEEEE']
                            }]}} 
-                      /> 
-              Network Engineer
+                      /> Network Engineer
             </Col>
             <Col lg="4" md="6" sm="12">
             <Doughnut data={{datasets: [{
@@ -111,8 +104,7 @@ componentDidMount(){
                                 backgroundColor: ['#4169E1','#EEEEEE'],
                                  hoverBackgroundColor: ['#4169E1','#EEEEEE']
                            }]}} 
-                      />  
-              Operations Engineer
+                      /> Operations Engineer
             </Col>
             <Col lg="4" md="6" sm="12">
             <Doughnut data={{datasets: [{
@@ -120,8 +112,7 @@ componentDidMount(){
                                 backgroundColor: ['#4169E1','#EEEEEE'],
                                  hoverBackgroundColor: ['#4169E1','#EEEEEE']
                            }]}} 
-                      />
-              Software Developer
+                      /> Software Developer
             </Col>
             <Col lg="4" md="6" sm="12">
             <Doughnut data={{datasets: [{
@@ -129,8 +120,7 @@ componentDidMount(){
                                 backgroundColor: ['#4169E1','#EEEEEE'],
                                  hoverBackgroundColor: ['#4169E1','#EEEEEE']
                            }]}} 
-                      /> 
-              Software Engineer
+                      /> Software Engineer
             </Col>
             <Col lg="4" md="6" sm="12">
             <Doughnut data={{datasets: [{
@@ -138,8 +128,7 @@ componentDidMount(){
                                 backgroundColor: ['#4169E1','#EEEEEE'],
                                  hoverBackgroundColor: ['#4169E1','#EEEEEE']
                            }]}} 
-                      />
-              Software Tester
+                      />Software Tester
             </Col>
           </Row>
         </div>
