@@ -27,25 +27,16 @@ class LoginComponent extends Component {
 
     render(){
     return (
-        <Router>
-                    <div className="container">
-                        <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-                            <ul className="navbar-nav ml-auto">
-                            <li className="nav-item">
-                                <Link className="nav-link" to={"/login"}>Login</Link>
-                            </li>
-                            </ul>
-                        </div>
-                    </div>
-
+            <Router>
                         <Switch>
-                            <Route exact path='/'><Login functionCallFromParent={this.parentFunction.bind(this)}/></Route>
-                            <Route path="/Dashboard"><Navbar1/><Dashboard value={this.state.login_id}/><Footer/></Route>
-                            <Route path="/AdminPage/"><AdminRoute value={this.state.login_id}/></Route>
+                            <Route path='/login'><Login functionCallFromParent={this.parentFunction.bind(this)}/></Route>
+                            <Route path="/Dashboard"><Navbar1 value={this.state.login_id}/><Footer/></Route>
+                            <Route path="/home"><AdminRoute value={this.state.login_id}/></Route>
                             <Route path="/Guestpage/"><Guestpage value={this.state.login_id}/></Route>
                         </Switch>
                 
-    </Router>
+            </Router>
+
         )
     }
 }

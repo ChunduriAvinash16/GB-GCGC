@@ -16,6 +16,7 @@ class Personaldetails extends Component {
   constructor(props){
           super(props);
           this.state={
+              login:"",
               RollNo:"",
               Campus:"Bengaluru",
               College:"GITAM University",
@@ -37,7 +38,7 @@ class Personaldetails extends Component {
           }
       }
 
-      componentDidMount(){
+      componentDidMount(props){
           Axios.get("http://localhost:80/login-backend/personaldetail.php?id="+this.props.login)
           .then(response => {
               this.setState({
@@ -67,11 +68,12 @@ class Personaldetails extends Component {
 
   render() {
     return (
-      <div class="container-fluid">
+      <div className="container-fluid">
         <h1 align="center">Personal Details</h1>
         <Row>
           <Col>&nbsp;</Col>
         </Row>
+        {console.log(this.props.login)}
         <Form>
           <Row>
             <Col lg="4" md="6" xs="12">

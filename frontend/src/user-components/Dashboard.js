@@ -31,7 +31,6 @@ class Dashboard extends Component {
         constructor(props){
           super(props);
           this.state={
-            login_id:props.value,
               student_id:"",
               SSC:0,
               inter:0,
@@ -56,8 +55,7 @@ class Dashboard extends Component {
       }*/
 
       componentDidMount(){
-        console.log(this.props.value)
-        Axios.get("http://localhost:80/login-backend/studentdetails.php?id="+this.state.login_id)
+        Axios.get("http://localhost:80/login-backend/studentdetails.php?id="+this.props.login)
           .then(response => {
               this.setState({
                   SSC: response.data[0]['SSC_percent'],
@@ -86,8 +84,9 @@ class Dashboard extends Component {
               </Col>
             </Row>
             <Row> 
-              <Collapsible trigger="Personal Details">
-                <Personaldetails login={this.props.value}/>
+              {console.log(this.props.value)}
+              <Collapsible trigger="Personal Details" triggerStyle={{"textAlign":"end"}}>
+                <Personaldetails login={this.props.login}/>
               </Collapsible>
             </Row>
             <br/>
@@ -139,45 +138,46 @@ class Dashboard extends Component {
           &nbsp;
           <Collapsible trigger="Leader Board">
             <br/>
-            <Leaderboard login={this.props.value}/>
+            <Leaderboard login={this.props.login}/>
           </Collapsible>
           <br/>
           <Collapsible trigger="Job Suitability">
               <br></br>
                 <Row>
                   <Col md="6" className="pr-2 pt-2">
-                    <JobFitment fitid={this.props.value}/>
+                    <JobFitment fitid={this.props.login}/>
                   </Col>
                   <Col md="6" className="p-2">
-                    <CurrentJob jobid={this.props.value}/>
+                    <CurrentJob jobid={this.props.login}/>
                   </Col>
                 </Row>
           </Collapsible>
           <br></br>
           <Collapsible trigger="ARI">
             <br/>
-            <ARI arii={this.props.value}/>
+            <ARI arii={this.props.login}/>
           </Collapsible>
           <br/>
           <Collapsible trigger="ARE">
             <br/>
               <Col  className="p-2">
-                <Cocubes cid={this.props.value}/>
+                <Cocubes cid={this.props.login}/>
               </Col>
               <Col className="p-2">
-                <Amcat aid={this.props.value}/>
+                <Amcat aid={this.props.login}/>
               </Col>
           </Collapsible>
                 <br></br>
           <Collapsible trigger="ITA">
-            <ITA aid={this.props.value}/>
+            <ITA aid={this.props.login}/>
           </Collapsible>
           <br></br>
           <Collapsible trigger="Placement Analysis">
           <Row>
           <Table striped className="placements" bordered responsive>
+              <tbody>
               <tr>
-                <th colspan="2">Placements Analysis</th>
+                <th colSpan="2">Placements Analysis</th>
               </tr>
               <tr>
                 <td md="6">Total Number of Companies:50</td>
@@ -192,8 +192,9 @@ class Dashboard extends Component {
                 <td md="6">Number of technical test cleared:0</td>
               </tr>
               <tr>
-                <td colspan="2">Number of Offer Letters:0</td>
+                <td colSpan="2">Number of Offer Letters:0</td>
               </tr>
+              </tbody>
         </Table>
         </Row>
         <br></br>

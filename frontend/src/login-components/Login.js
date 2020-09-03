@@ -11,8 +11,9 @@ class Login extends Component {
         type:"",
         redirect:false
         };
-
-        this.handleSudmit = this.handleSudmit.bind(this);
+        this.handleAddLoginId=this.handleAddLoginId.bind(this);
+        this.handleAddPassword=this.handleAddPassword.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleAddLoginId=async e=>{
@@ -26,7 +27,7 @@ class Login extends Component {
         })
     }
 
-    handleSudmit = async (e)=>{
+    handleSubmit = async (e)=>{
         e.preventDefault();
         const obj = {
             Login_id : this.state.Login_id,
@@ -63,11 +64,12 @@ class Login extends Component {
             return (<Redirect to="/Dashboard"/>)
         }
         if(this.state.redirect && this.state.type==="Admin"){
-            return (<Redirect to="/Adminpage"/>)
+            return (<Redirect to="/home"/>)
         }
         if(this.state.redirect && this.state.type==="Guest"){
             return (<Redirect to="/Guestpage"/>)
         }
+        
 
         return (
             <header>
@@ -80,21 +82,20 @@ class Login extends Component {
                 <div className="centered" id="LOGIN">
                     <div className="auth-inner" id="INNER_LOGIN">
                         <div className="auth-wrapper">
-                            <form>
-                                <h3 style={{"color":"white"}}>Login In</h3><hr/>
+                            <h2 style={{"color":"white"}}>Login In</h2><hr/>
+                            <form onSubmit={this.handleSubmit}>
                                 <div className="form-group">
-                                        <h5 style={{"color":"white","text-align":"initial"}}>Login Id</h5>
-                                        <input type="text" className="form-control" placeholder="Registration Number" onChange={this.handleAddLoginId}/>
+                                        <h5 style={{"color":"white","textAlign":"initial"}}>Login Id</h5>
+                                        <input type="text" className="form-control" placeholder="LoginId" value={this.state.Login_id} onChange={this.handleAddLoginId}/>
                                 </div>
                                 <div className="form-group">
-                                    <h5 style={{"color":"white","text-align":"initial"}}>Password</h5>
-                                    <input type="password" className="form-control" placeholder="Enter password" onChange={this.handleAddPassword}/>
+                                    <h5 style={{"color":"white","textAlign":"initial"}}>Password</h5>
+                                    <input type="password" className="form-control" placeholder="Enter password"value={this.state.password} onChange={this.handleAddPassword}/>
                                 </div>
                                 <br/>
-                                <button type="submit" className="btn btn-danger btn-block"style={{"background-color":"#CC5200"}} onClick={this.handleSudmit} >Submit</button>
-                                    <p className="forgot-password text-right">
-                                        Forgot <a href="#">password?</a>
-                                    </p>
+                                <div className="form-group">
+                                    <button type="submit" className="btn btn-danger btn-block"style={{"backgroundColor":"#CC5200"}}>Submit</button>
+                                 </div> 
                              </form>
                         </div>
                     </div>

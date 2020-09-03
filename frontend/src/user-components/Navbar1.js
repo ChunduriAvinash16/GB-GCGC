@@ -8,8 +8,8 @@ import {
   NavbarToggler,
   Collapse,
   NavItem,
-  Row,
-  Col
+  Jumbotron,
+  Row
 } from "reactstrap";
 import Leaderboard from "./Leaderboard";
 import Dashboard from "./Dashboard";
@@ -17,21 +17,45 @@ import Personaldetails from "./Personaldetails";
 import Changepassword from "./Changepassword";
 import Calender from "./Calender";
 import Axios from "axios";
-import './login.css';
-import "bootstrap/dist/css/bootstrap.min.css";
-import LoginComponent from "../login-components/LoginComponent";
-import Login from "../login-components/Login";
 
 class Navbar1 extends Component {
- 
+  constructor(props) {
+    super(props);
+    this.state = {
+      login:"",
+      fName:"",
+      lName:"",
+      isNavOpen: false,
+    };
+        this.toggleNav = this.toggleNav.bind(this);
+  }
+
+  toggleNav() {
+    this.setState({
+      isNavOpen: !this.state.isNavOpen,
+    });
+  }
+
+ /* componentDidMount(){
+        Axios.get("http://localhost:80/login-backend/UserNavbar.php?id="+this.state.login)
+        .then(res => {
+          console.log(res.data);
+          this.setState({
+            fName: res.data[0]['first_name'],
+            lName: res.data[0]['last_name']
+          })
+        })
+  }*/
+
   render() {
     return (
-      <div className="App container-fluid">
-          <Navbar dark color="dark" expand="lg">
-            <div class="container-fluid">
+      <div className="Navbar1">
+        <Router>
+        <Navbar dark color="dark" expand="lg">
+            <div className="container-fluid">
               <Row>
-                <div className="col-12 col-md-3 col-lg-3 col-x-1" style={{"text-align": "initial"}}>
-                <NavbarBrand className="mr-auto" href="/">
+                <div className="col-12 col-md-3 col-lg-3 col-x-1" style={{"textAlign": "initial"}}>
+                <NavbarBrand className="mr-auto" href="/login">
                 <img src={require("../asstes/gitamlogo.png")} height="50" width="50" />
                 GITAM Bengaluru
                 </NavbarBrand>
@@ -49,7 +73,7 @@ class Navbar1 extends Component {
                     >
                      
                     </NavLink>*/}
-                    <i class="fa fa-cog fa-lg" style={{"color":"aliceblue"}}></i>
+                    <i className="fa fa-cog fa-lg" style={{"color":"aliceblue"}}></i>
                     {/*<NavLink
                       className="nav-link"
                       tag={Link}
@@ -58,8 +82,8 @@ class Navbar1 extends Component {
                     >
                     
                     </NavLink>*/}
-                    <i class="fa fa-power-off fa-lg p-3" style={{"color":"aliceblue"}}></i>
-                   {/* <NavItem>
+                    <i className="fa fa-power-off fa-lg p-3" style={{"color":"aliceblue"}}></i>
+                   {/*<NavItem>
                     <NavLink
                       align="left"
                       className="nav-link active"
@@ -67,14 +91,12 @@ class Navbar1 extends Component {
                       to="/Dashboard1"
                       style={{ color: "lightgreen" }}
                     >
-                      <span class="fa fa-home fa-lg"></span>
                     </NavLink>
                    </NavItem>*/}
                 </div>
               </Row>
-              <span className="tab1"></span>
-                <Nav navbar> 
              
+                          
                
                   {/*<NavItem>
                     <NavLink
@@ -87,9 +109,16 @@ class Navbar1 extends Component {
                       <span class="fa fa-key"></span>&nbsp;Change Password
                     </NavLink>
                   </NavItem>*/}
-                </Nav>
-            </div>
+             </div>
           </Navbar>
+          <Switch>
+        <Route exact path="/Dashboard" component={()=>(<div><Dashboard login={this.props.value}/></div>)}></Route>
+            <Route exact path="/leaderboard" component={Leaderboard} />
+            <Route exact path="/Calender" component={Calender} />
+            <Route exact path="/personaldetails" component={Personaldetails} />
+            <Route exact path="/changepassword" component={Changepassword} />
+          </Switch>
+        </Router>
       </div>
     );
   }

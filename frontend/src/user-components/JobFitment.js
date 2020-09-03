@@ -18,6 +18,7 @@ class JobFitment extends Component {
 
       };
       componentDidMount(){
+        console.log(this.props.fitid)
           Axios.get("http://localhost/login-backend/job_fit_curve.php?id="+this.props.fitid)
           .then(response => {
               console.log(response)
