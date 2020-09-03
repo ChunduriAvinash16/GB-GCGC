@@ -69,7 +69,6 @@ class Personaldetails extends Component {
   render() {
     return (
       <div className="container-fluid">
-        <h1 align="center">Personal Details</h1>
         <Row>
           <Col>&nbsp;</Col>
         </Row>

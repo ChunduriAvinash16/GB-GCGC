@@ -55,9 +55,6 @@ class ARI extends Component {
         <Row>
           <Col sm="12">
             <Card className="Rounded p-3">
-              <CardSubtitle align="left">ARI</CardSubtitle>
-              <hr></hr>
-
               <Bar
                 data={{
                     labels: ['AT1','AT2','AT3','AT4','AT5','AT6','TT1','TT2','TT3','TT4','TT5','TT6','TT7','TT8','DT1','DT2','DT3','DT4'],

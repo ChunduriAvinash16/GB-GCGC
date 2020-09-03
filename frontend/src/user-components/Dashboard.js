@@ -8,6 +8,7 @@ import {
   Col,
   Alert,
   Table,
+  CardBody,
 } from "reactstrap";
 import Collapsible from "react-collapsible";
 import Axios from 'axios';
@@ -85,42 +86,45 @@ class Dashboard extends Component {
             <Row style={{textAlign:"initial"}}>
               <Col>
                 <img
-                      src={require("../asstes/Avinash.jpg")}
+                      src="https://drive.google.com/thumbnail?id=10vHo98Gs3UUNlExAbFnlFtTxcyeNf2V6"
                       height="100"
                       width="100"
                     ></img>
                   Welcome {this.state.fname} {this.state.lname}
               </Col>
             </Row>
-            <Row> 
-              {console.log(this.props.value)}
-              <Collapsible trigger="Personal Details" triggerStyle={{"textAlign":"end"}}>
-                <Personaldetails login={this.props.login}/>
-              </Collapsible>
-            </Row>
-            <br/>
-            <Collapsible trigger="Academic Details">
               <br/>
-                <Row>
+              {console.log(this.props.value)}
+            <Card>
+              <Collapsible trigger="PersonalDetails" triggerStyle={{"textAlign":"end"}}>
+                  <Personaldetails login={this.props.login}/>
+              </Collapsible>
+            </Card>
+            <br/>
+            <Card>
+              <Collapsible trigger="Academic Details">
+              <CardBody>
+                <br/>
+                  <Row style={{"paddind-left":"25px"}}>
+                    <Col md="4">
+                      <Card color="success" className="Rounded p-3">
+                        <CardTitle align="left">{this.state.SSC}</CardTitle>
+                        <CardSubtitle align="left">Tenth Percentage</CardSubtitle>
+                      </Card>
+                    </Col>
                   <Col md="4">
-                    <Card color="success" className="Rounded p-3">
-                      <CardTitle align="left">{this.state.SSC}</CardTitle>
-                      <CardSubtitle align="left">Tenth Percentage</CardSubtitle>
+                    <Card color="warning" className="Rounded p-3">
+                      <CardTitle align="left">{this.state.inter}</CardTitle>
+                      <CardSubtitle align="left">Inter Percentage</CardSubtitle>
                     </Card>
-                </Col>
-                <Col md="4">
-                  <Card color="warning" className="Rounded p-3">
-                    <CardTitle align="left">{this.state.inter}</CardTitle>
-                    <CardSubtitle align="left">Inter Percentage</CardSubtitle>
-                  </Card>
-                </Col>
-                <Col md="4">
-                  <Card color="danger" className="Rounded p-3">
-                    <CardTitle align="left">{(this.state.gpa*9.5).toFixed(2)}</CardTitle>
-                    <CardSubtitle align="left">B Tech Percentage</CardSubtitle>
-                  </Card>
-                </Col>
-              </Row><br></br>
+                  </Col>
+                  <Col md="4">
+                    <Card color="danger" className="Rounded p-3">
+                      <CardTitle align="left">{(this.state.gpa*9.5).toFixed(2)}</CardTitle>
+                      <CardSubtitle align="left">B Tech Percentage</CardSubtitle>
+                    </Card>
+                  </Col>
+                </Row><br></br>
               <Collapsible trigger="More Info"><br></br>
                   <Row>
                     <Col md="4">
@@ -143,14 +147,21 @@ class Dashboard extends Component {
                     </Col>
                   </Row>
                 </Collapsible>
-          </Collapsible>
+                </CardBody>
+            </Collapsible>
+            </Card>
           &nbsp;
-          <Collapsible trigger="Leader Board">
-            <br/>
-            <Leaderboard login={this.props.login}/>
-          </Collapsible>
+          <Card>
+              <Collapsible trigger="Leader Board">
+                <CardBody>
+                    <br/>
+                     <Leaderboard login={this.props.login}/>
+                 </CardBody>
+              </Collapsible>
+          </Card>
           <br/>
-          <Collapsible trigger="Job Suitability">
+          <Card>
+            <Collapsible trigger="Job Suitability">
               <br></br>
                 <Row>
                   <Col md="6" className="pr-2 pt-2">
@@ -160,70 +171,76 @@ class Dashboard extends Component {
                     <CurrentJob jobid={this.props.login}/>
                   </Col>
                 </Row>
-          </Collapsible>
+            </Collapsible>
+          </Card>
           <br></br>
-          <Collapsible trigger="ARI">
-            <br/>
-            <ARI arii={this.props.login}/>
-          </Collapsible>
+          <Card>
+            <Collapsible trigger="ARI">
+                <br/>
+                  <ARI arii={this.props.login}/>
+            </Collapsible>
+          </Card>
           <br/>
-          <Collapsible trigger="ARE">
-            <br/>
+          <Card>
+            <Collapsible trigger="ARE">
+              <br/>
               <Col  className="p-2">
                 <Cocubes cid={this.props.login}/>
               </Col>
               <Col className="p-2">
                 <Amcat aid={this.props.login}/>
               </Col>
-          </Collapsible>
-                <br></br>
-          <Collapsible trigger="ITA">
-            <ITA aid={this.props.login}/>
-          </Collapsible>
+            </Collapsible>
+          </Card>
           <br></br>
-          <Collapsible trigger="Placement Analysis">
-          <Row>
-          <Table striped className="placements" bordered responsive>
-              <tbody>
-              <tr>
-                <th colSpan="2">Placements Analysis</th>
-              </tr>
-              <tr>
-                <td md="6">Total Number of Companies:50</td>
-                <td md="6">Number of written test cleared:0</td>
-              </tr>
-              <tr>
-                <td md="6">Number of Companies Attended:0</td>
-                <td md="6">Number of GD's cleared:0</td>
-              </tr>
-              <tr>
-                <td md="6">Number of Companies Eligible:50</td>
-                <td md="6">Number of technical test cleared:0</td>
-              </tr>
-              <tr>
-                <td colSpan="2">Number of Offer Letters:0</td>
-              </tr>
-              </tbody>
-        </Table>
-        </Row>
-        <br></br>
-        <br></br>
-        <h6>Placements Analysis</h6>
-        <Table className="placements" responsive striped>
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Company Logo</th>
-              <th>Company Name</th>
-              <th>Attendance</th>
-              <th>Written Test</th>
-              <th>GroupDiscussion</th>
-              <th>Technical Test</th>
-              <th>Personal Interview</th>
-            </tr>
-          </thead>
-          </Table>
-        </Collapsible>
+          <Card>
+            <Collapsible trigger="ITA">
+              <ITA aid={this.props.login}/>
+            </Collapsible>
+          </Card>
+          <br></br>
+          <Card>
+              <Collapsible trigger="Placement Analysis">
+              <Row>
+              <Table striped className="placements" bordered responsive>
+                  <tbody>
+                  <tr>
+                    <td md="6">Total Number of Companies:50</td>
+                    <td md="6">Number of written test cleared:0</td>
+                  </tr>
+                  <tr>
+                    <td md="6">Number of Companies Attended:0</td>
+                    <td md="6">Number of GD's cleared:0</td>
+                  </tr>
+                  <tr>
+                    <td md="6">Number of Companies Eligible:50</td>
+                    <td md="6">Number of technical test cleared:0</td>
+                  </tr>
+                  <tr>
+                    <td colSpan="2">Number of Offer Letters:0</td>
+                  </tr>
+                  </tbody>
+            </Table>
+            </Row>
+            <br></br>
+            <br></br>
+            <h6>Placements Analysis</h6>
+            <Table className="placements" responsive striped>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Company Logo</th>
+                  <th>Company Name</th>
+                  <th>Attendance</th>
+                  <th>Written Test</th>
+                  <th>GroupDiscussion</th>
+                  <th>Technical Test</th>
+                  <th>Personal Interview</th>
+                </tr>
+              </thead>
+              </Table>
+            </Collapsible>
+          </Card>
       </div>
   );
 }

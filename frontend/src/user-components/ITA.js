@@ -37,10 +37,11 @@ class ARI extends Component {
     }
     render(){
     return (
-        <div>
+        <div className="container-fluid">
         <Bar
+          style={{height:"500"}}
           data={{
-                    labels: ["SST1","SST2","TT1","TT2","TT3","TT4","TT5","CRT1","CRT2","CRT3",],
+                    labels: ["SST1","SST2","TT1","TT2","TT3","TT4","TT5","CRT1","CRT2","CRT3"],
                     datasets: [
                     {
                         label: "Attendance",
