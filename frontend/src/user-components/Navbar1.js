@@ -1,5 +1,5 @@
 import React,{Component} from "react";
-import { Link, Switch, Route } from "react-router-dom";
+import { Link, Switch, Route, Redirect } from "react-router-dom";
 import { BrowserRouter as Router, NavLink } from "react-router-dom";
 import {
   Nav,
@@ -15,6 +15,7 @@ import Leaderboard from "./Leaderboard";
 import Dashboard from "./Dashboard";
 import Personaldetails from "./Personaldetails";
 import Changepassword from "./Changepassword";
+import Login from "../login-components/Login";
 import Calender from "./Calender";
 import Axios from "axios";
 
@@ -26,8 +27,10 @@ class Navbar1 extends Component {
       fName:"",
       lName:"",
       isNavOpen: false,
+      redirect:false
     };
         this.toggleNav = this.toggleNav.bind(this);
+        this.handleclick=this.handleclick.bind(this);
   }
 
   toggleNav() {
@@ -46,7 +49,9 @@ class Navbar1 extends Component {
           })
         })
   }*/
-
+  handleclick() {
+    return <Redirect to="/login"></Redirect>
+  }
   render() {
     return (
       <div className="Navbar1">
@@ -82,7 +87,8 @@ class Navbar1 extends Component {
                     >
                     
                     </NavLink>*/}
-                    <i className="fa fa-power-off fa-lg p-3" style={{"color":"aliceblue"}}></i>
+                
+                <i className="fa fa-power-off fa-lg p-3" style={{"color":"aliceblue"}} ></i>
                    {/*<NavItem>
                     <NavLink
                       align="left"

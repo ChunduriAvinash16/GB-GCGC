@@ -9,9 +9,7 @@ import "font-awesome/css/font-awesome.css";
 import "bootstrap-social/bootstrap-social.css";
 import Navbar1 from "../user-components/Navbar1";
 import Footer from "../user-components/Footer";
-import LandingRoute from '../Components/LandingRoute';
 import AdminRoute from '../Admin-component/AdminRoute';
-import Header from '../Components/Header'
 import Dashboard from '../user-components/Dashboard';
 class LoginComponent extends Component {
     constructor(props){

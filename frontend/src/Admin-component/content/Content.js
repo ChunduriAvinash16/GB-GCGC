@@ -33,7 +33,6 @@ import Ita from "../Uploads/ita";
 import Companydetails from "../Uploads/companydetails";
 import EditTraining from "../EditTraining";
 import EditPlacement from "../EditPlacement";
-import LandingRoute from "../../Components/LandingRoute";
 const ColoredLine = ({ color }) => (
   <hr
     style={{
