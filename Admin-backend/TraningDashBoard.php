@@ -3,9 +3,9 @@ require_once 'auth.php';
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
-$year = '2022';
+$year = $_GET["year"];
 $students = [];
-$sql = "select * from training_dash where YOP=$year limit 4";
+$sql = "select * from training_dash where YOP=$year limit 5";
 $status="";
 $ct=0;
 if($result=mysqli_query($con,$sql)){

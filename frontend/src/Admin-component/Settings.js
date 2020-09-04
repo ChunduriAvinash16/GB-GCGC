@@ -322,16 +322,17 @@ class Settings extends React.Component {
                   </Row>
                   <Row>&nbsp;</Row>
                   <Row align="center">
-                    <Col>
-                      <input
+                    <Col align="center">
+                    <Button
                         type="submit"
-                        value="Update"
                         style={{
-                          backgroundColor: "blue",
+                          backgroundColor: "#2A324B",
+                          borderColor: "#2A324B",
                           color: "white",
-                          border: "white",
                         }}
-                      />
+                      >
+                        Update
+                      </Button>
                     </Col>
                   </Row>
                   <Row>&nbsp;</Row>
@@ -387,9 +388,10 @@ class Settings extends React.Component {
                       />
                     </Col>
                   </Form.Group>
+                  <br/>
                   <Form.Group as={Row} controlId="New Password">
                     <Form.Label column lg="4">
-                      8 New Password:
+                      New Password:
                     </Form.Label>
                     <Col lg="8">
                       <Form.Control
@@ -405,6 +407,7 @@ class Settings extends React.Component {
                       />
                     </Col>
                   </Form.Group>
+                  <br/>
                   <Form.Group as={Row} controlId="Confirm Password">
                     <Form.Label column lg="4">
                       Confirm Password:
@@ -423,6 +426,7 @@ class Settings extends React.Component {
                       />
                     </Col>
                   </Form.Group>
+                  <br/>
                   <Row>
                     <Col align="center">
                       <Button

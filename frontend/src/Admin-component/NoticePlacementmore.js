@@ -12,7 +12,7 @@ class PlacementTrainingmore extends Component {
   }
 
   componentDidMount(){
-    Axios.get("http://localhost:80/Admin-backend/PlacementsDashBoardmore.php")
+    Axios.get("http://localhost:80/Admin-backend/PlacementsDashBoardmore.php?id="+this.props.match.params.id)
     .then(response=>{
       this.setState({
         train:response.data,
@@ -27,12 +27,12 @@ class PlacementTrainingmore extends Component {
         <Card>
           <Card.Body>
             <Card.Title>
-              <h3 align="center">Notice Board-Placements</h3>
+              <h5 align="center">Notice Board-Placements</h5>
             </Card.Title>
             &nbsp;
             <div>
-              <Table size="sm" responsive>
-                <thead>
+              <Table size="sm" responsive striped>
+                <thead className="p-3" style={{backgroundColor:'#2A324B',color:'white',fontSize:'24px'}}>
                   <tr>
                     <th>S.No</th>
                     <th>Name of the Programme</th>

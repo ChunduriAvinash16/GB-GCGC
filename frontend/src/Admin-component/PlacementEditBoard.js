@@ -4,8 +4,16 @@ import RecordsListPlacement from './RecordsListPlacement';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlus,
+  faPencilAlt,
+  faMinusCircle,
+  faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 import {
+  NavbarBrand,
+  NavbarToggler,
+  Collapse,
+  Nav,
+  Jumbotron,
   Modal,
   ModalHeader,
   ModalBody,
@@ -59,7 +67,7 @@ class PlacementBoardEdit extends Component {
     });
   }
   componentDidMount(){
-    Axios.get("http://localhost:80/Admin-backend/PlacementsDashBoardEdit.php")
+    Axios.get("http://localhost:80/Admin-backend/PlacementsDashBoardEdit.php?year="+this.props.match.params.id)
     .then(response=>{
       this.setState({
         placement:response.data,
@@ -103,25 +111,24 @@ class PlacementBoardEdit extends Component {
           <Card.Body>
             <div className="inline">
               <Card.Title>
-                <h3 align="center">
+                <h5 align="center">
                   Notice Board-Placements
                   <Link onClick={this.toggleModal}>
-                    <FontAwesomeIcon icon={faPlus} size="xs" />
+                    <FontAwesomeIcon icon={faPlus} size="xs" className="p-1 fa-lg" style={{backgroundColor:'#2A324B',color:'white',fontSize:'20',borderRadius:'10'}}/>
                   </Link>
-                </h3>
+                </h5>
               </Card.Title>
             </div>
             &nbsp;
             <div>
-              <Table size="sm" responsive>
-                <thead>
+              <Table size="sm" responsive striped>
+                <thead className="p-3" style={{backgroundColor:'#2A324B',color:'white',fontSize:'24px'}}>
                   <tr>
                     <th>S.No</th>
                     <th>Name of the Company</th>
                     <th>Date</th>
                     <th>CTC</th>
-                    <th></th>
-                    <th></th>
+                    <th colspan="2">Operations</th>
                   </tr>
                 </thead>
                 <tbody>

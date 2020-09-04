@@ -57,7 +57,7 @@ onSubmittenth(e){
   render(){
   return (
     <div class="container-fluid">
-    <Card color="warning" className="Rounded p-3" >
+    <Card color="success" className="Rounded p-3" >
           <CardTitle align="left">{this.state.ssc}</CardTitle>
             <CardSubtitle align="left">Tenth Percentage <span className="gap"> <Button onClick={()=>{this.handleModaltenth()}}>Edit</Button></span></CardSubtitle> 
             <Modal show={this.state.show} onHide={()=>this.handleModaltenth()} >

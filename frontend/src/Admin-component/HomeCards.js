@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 class HomeCards extends Component {
   constructor(props){
     super(props);
+    this.onChangeYear = this.onChangeYear.bind(this);
     this.state={
       Eligible:0,
       Placed:0,
@@ -23,37 +24,70 @@ class HomeCards extends Component {
       name_of_program:"",
       status:"",
       dash:[],
-      train:[]
+      train:[],
       }
   }
+  onChangeYear(e) {
+        this.setState({
+            year: e.target.value
+        });
+         Axios.get("http://localhost:80/Admin-backend/AdminDashBoard.php?year="+e.target.value)
+   		.then((response)=>{
+    	this.setState({
+      		Eligible:response.data["Eligible"],
+      		Placed:response.data["Placed"],
+      		NotPlaced:response.data["Not_placed"],
+      		TotalDrives:response.data["total_drives"],
+      		HighestPackage:response.data["highest package"],
+      		AveragePacakge:response.data["average_package"],
+      		LeastPackage:response.data["least_package"],
+      		TOF:response.data["total_no.of_offers"]
+    	});
+    	console.log(response.data);
+  		})
+   		.catch(err=>console.log(err));
+   		Axios.get("http://localhost:80/Admin-backend/TraningDashBoard.php?year="+e.target.value)
+    		.then(response=>{
+      		this.setState({
+        		dash:response.data,
+        		from_date: response.data[0]["from_date"],
+        		to_date: response.data[0]["to_date"],
+        		name_of_program:response.data[0]["name_of_the_program"],
+        		status: response.data[0]["status"]
+      		})
+      		console.log(this.state.dash[1])
+    	})
+    	.catch(err=>console.log(err));
+  }
   componentDidMount()  {
-   Axios.get("http://localhost:80/Admin-backend/AdminDashBoard.php?year"+this.state.year)
-   .then((response)=>{
-    this.setState({
-      Eligible:response.data[0]["Eligible"],
-      Placed:response.data[0]["Placed"],
-      NotPlaced:response.data[0]["Not_placed"],
-      TotalDrives:response.data[0]["total_drives"],
-      HighestPackage:response.data[0]["highest package"],
-      AveragePacakge:response.data[0]["average_package"],
-      LeastPackage:response.data[0]["least_package"],
-      TOF:response.data[0]["total_no.of_offers"]
-    });
-  })
-   .catch(err=>console.log(err));
-    Axios.get("http://localhost:80/Admin-backend/TraningDashBoard.php")
-    .then(response=>{
-      this.setState({
-        dash:response.data,
-        from_date: response.data[0]["from_date"],
-        to_date: response.data[0]["to_date"],
-        name_of_program:response.data[0]["name_of_the_program"],
-        status: response.data[0]["status"]
-      })
-      console.log(this.state.dash[1])
+  	Axios.get("http://localhost:80/Admin-backend/AdminDashBoard.php?year="+2021)
+   		.then((response)=>{
+    	this.setState({
+      		Eligible:response.data["Eligible"],
+      		Placed:response.data["Placed"],
+      		NotPlaced:response.data["Not_placed"],
+      		TotalDrives:response.data["total_drives"],
+      		HighestPackage:response.data["highest package"],
+      		AveragePacakge:response.data["average_package"],
+      		LeastPackage:response.data["least_package"],
+      		TOF:response.data["total_no.of_offers"]
+    	});
+    	console.log(response.data);
+  		})
+   		.catch(err=>console.log(err));
+    Axios.get("http://localhost:80/Admin-backend/TraningDashBoard.php?year="+2021)
+    	.then(response=>{
+      	this.setState({
+        	dash:response.data,
+        	from_date: response.data[0]["from_date"],
+        	to_date: response.data[0]["to_date"],
+        	name_of_program:response.data[0]["name_of_the_program"],
+        	status: response.data[0]["status"]
+      	})
+      	console.log(this.state.dash[1])
     })
     .catch(err=>console.log(err));
-    Axios.get("http://localhost:80/Admin-backend/PlacementsDashBoard.php")
+    Axios.get("http://localhost:80/Admin-backend/PlacementsDashBoard.php?year="+2020)
     .then(response=>{
       this.setState({
         train:response.data,
@@ -69,10 +103,18 @@ class HomeCards extends Component {
 
    render() {
     return (
-      <div className="container-fluid">
+      <div className="container">
                   <div>
                     <Row className="pl-3">
-                    </Row>
+              <h4 className="p-1">Glimpse - </h4>
+              <select className="pr-1 pl-1" style={{backgroundColor:'#2A324B',borderColor:'#2A324B',fontSize:'25px',color:'white'}} value={this.state.year} onChange={this.onChangeYear}>
+              	<option value="2020">2020</option>
+              	<option value="2021">2021</option>
+              	<option value="2022">2022</option>
+              	<option value="2023">2023</option>
+              </select>
+            </Row>
+            <hr style={{ visibility: "visible" }} />                    
                   </div>
           <div className="row">      
           <div className="col-xs-12 col-lg-3 col-md-6 p-3">
@@ -154,7 +196,7 @@ class HomeCards extends Component {
                     align="right"
                     style={{ fontSize: "14px", fontFamily: "Segoe UI" }}
                   >
-                    {this.state.HighestPackage}
+                    {this.state.HighestPackage} LPA
                   </p>
                 </Card.Text>
               </Card.Body>
@@ -171,7 +213,7 @@ class HomeCards extends Component {
                     align="right"
                     style={{ fontSize: "14px", fontFamily: "Segoe UI" }}
                   >
-                    {this.state.LeastPackage}
+                    {this.state.AveragePacakge} LPA
                   </p>
                 </Card.Text>
               </Card.Body>
@@ -188,7 +230,7 @@ class HomeCards extends Component {
                     align="right"
                     style={{ fontSize: "14px", fontFamily: "Segoe UI" }}
                   >
-                    4LPA
+                   {this.state.LeastPackage} LPA
                   </p>
                 </Card.Text>
               </Card.Body>
@@ -226,7 +268,7 @@ class HomeCards extends Component {
                       Notice Board-Training
                     </Card.Title>
                   </div>
-                  <NavLink tag={Link} to={"/TrainingBoardEdit"}>
+                  <NavLink tag={Link} to={"/TrainingBoardEdit/"+this.state.year}>
                     <Button
                       style={{
                         backgroundColor: "#2A324B",
@@ -240,8 +282,8 @@ class HomeCards extends Component {
                 </div>
                 &nbsp;
                 <div>
-                  <Table size="sm" responsive>
-                    <thead>
+                  <Table size="sm" responsive striped>
+                    <thead style={{backgroundColor:'#2A324B',color:'white',fontSize:'24px'}}>
                       <tr>
                         <th>From</th>
                         <th>To</th>
@@ -262,7 +304,7 @@ class HomeCards extends Component {
                   </Table>
                 </div>
                 <Card.Text>
-                  <NavLink tag={Link} to={"/trainingdashboardmore"}>
+                  <NavLink tag={Link} to={"/trainingdashboardmore/"+this.state.year}>
                     More..
                   </NavLink>
                 </Card.Text>
@@ -281,7 +323,7 @@ class HomeCards extends Component {
                       Notice Board-Placements
                     </Card.Title>
                   </div>
-                  <NavLink tag={Link} to={"/PlacementEditBoard"}>
+                  <NavLink tag={Link} to={"/PlacementEditBoard/"+this.state.year}>
                     <Button
                       style={{
                         backgroundColor: "#2A324B",
@@ -295,8 +337,8 @@ class HomeCards extends Component {
                 </div>
                 &nbsp;
                 <div>
-                  <Table size="sm" responsive>
-                    <thead>
+                  <Table size="sm" responsive striped>
+                    <thead style={{backgroundColor:'#2A324B',color:'white',fontSize:'24px'}}>
                       <tr>
                         <th>S.No</th>
                         <th>Name of the Programme</th>
@@ -317,7 +359,7 @@ class HomeCards extends Component {
                   </Table>
                 </div>
                 <Card.Text>
-                  <NavLink tag={Link} to={"/placementdashboardmore"}>
+                  <NavLink tag={Link} to={"/placementdashboardmore/"+this.state.year}>
                     More..
                   </NavLink>
                 </Card.Text>

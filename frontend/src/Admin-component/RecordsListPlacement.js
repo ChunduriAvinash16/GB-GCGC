@@ -4,7 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Axios from 'axios';
 import {Redirect} from 'react-router';
 import {
-    faPencilAlt,
+    faPlus,
+    faEdit,
     faTrash,
   } from "@fortawesome/free-solid-svg-icons";
 export default class RecordList extends Component {
@@ -34,7 +35,7 @@ export default class RecordList extends Component {
         //let count = {this.state};
           <tr>
               <td>
-                  {this.props.obj.id}
+                  {this.props.obj.sno}
               </td>
                 <td>
                     {this.props.obj.Company_name}
@@ -49,9 +50,9 @@ export default class RecordList extends Component {
                     {this.props.obj.status}
                 </td>
                 <td>
-                    <Link to={"/editplacement/"+this.props.obj.id} ><FontAwesomeIcon icon={faPencilAlt} className="ml-2"/></Link>
+                    <Link to={"/editplacement/"+this.props.obj.id} ><FontAwesomeIcon icon={faEdit} className="ml-2 p-1 fa-lg" style={{backgroundColor:'#2A324B',color:'white',fontSize:'20',borderRadius:'10'}}/></Link>
                 
-                    <Link><FontAwesomeIcon icon={faTrash}  onClick={this.delete} className="ml-2"/></Link>
+                    <Link><FontAwesomeIcon icon={faTrash} onClick={this.delete} className="ml-2 p-1" style={{backgroundColor:'#2A324B',color:'white',fontSize:'20',borderRadius:'10'}}/></Link>
                 </td>
             </tr>  
     )

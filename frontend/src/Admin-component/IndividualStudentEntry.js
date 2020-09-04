@@ -30,8 +30,7 @@ onChangeid(e){
 
 render(){
   return (
-    <div className="IndividualStudentEntry">
-        <div>
+    <div className="container-fluid">
           <div
             className="Manage"
             style={{
@@ -43,9 +42,11 @@ render(){
           >
             Manage Individual Student
           </div>
-        </div>
+          &nbsp;
+          <hr></hr>
+          &nbsp;
         <div
-          className="Search container p-2"
+          className="Search container-fluid p-2"
           style={{
             backgroundColor: "#2A324B",
             color: "white",
@@ -56,7 +57,7 @@ render(){
         >
           Search Student
         </div>
-        <form className="container p-4" style={{ backgroundColor: "white" }}>
+        <form className="container-fluid p-4" style={{ backgroundColor: "white" }}>
           <br></br>
           <Row className="p-2">
             <Col

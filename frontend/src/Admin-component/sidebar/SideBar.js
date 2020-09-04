@@ -10,7 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { NavItem, NavLink, Nav } from "reactstrap";
 import classNames from "classnames";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 const SideBar = ({ isOpen, toggle }) => (
   <div className={classNames("sidebar", { "is-open": isOpen })}>
     <div>
@@ -49,13 +49,6 @@ const SideBar = ({ isOpen, toggle }) => (
           </NavItem>
           <hr/>
           <NavItem style={{"text-align":"left"}}>
-            <NavLink tag={Link} to={"/Uploads"}>
-              <FontAwesomeIcon icon={faUpload} className="mr-2" />
-              Uploads
-            </NavLink>
-          </NavItem>
-          <hr/>
-          <NavItem style={{"text-align":"left"}}>
             <NavLink tag={Link} to={"/settings"}>
               <FontAwesomeIcon icon={faCog} className="mr-2"/>
               Settings
@@ -63,7 +56,8 @@ const SideBar = ({ isOpen, toggle }) => (
           </NavItem>
           <hr/>
           <NavItem style={{"text-align":"left"}}>
-            <NavLink tag={Link} to={"/"}>
+            <NavLink tag={Link} onClick={ e=>{localStorage.clear();
+        window.location.href = '/login';}}>
               <FontAwesomeIcon icon={faSignOutAlt} className="mr-2" />
               Logout
             </NavLink>

@@ -1,6 +1,6 @@
 import React,{Component} from "react";
 import { Link, Switch, Route, Redirect } from "react-router-dom";
-import { BrowserRouter as Router, NavLink } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import {
   Nav,
   Navbar,
@@ -8,6 +8,7 @@ import {
   NavbarToggler,
   Collapse,
   NavItem,
+  NavLink,
   Jumbotron,
   Row
 } from "reactstrap";
@@ -30,7 +31,6 @@ class Navbar1 extends Component {
       redirect:false
     };
         this.toggleNav = this.toggleNav.bind(this);
-        this.handleclick=this.handleclick.bind(this);
   }
 
   toggleNav() {
@@ -49,9 +49,7 @@ class Navbar1 extends Component {
           })
         })
   }*/
-  handleclick() {
-    return <Redirect to="/login"></Redirect>
-  }
+
   render() {
     return (
       <div className="Navbar1">
@@ -60,17 +58,19 @@ class Navbar1 extends Component {
             <div className="container-fluid">
               <Row>
                 <div className="col-12 col-md-3 col-lg-3 col-x-1" style={{"textAlign": "initial"}}>
-                <NavbarBrand className="mr-auto">
-                <img src={require("../asstes/gitamlogo.png")} height="50" width="50" />
-                GITAM Bengaluru
-                </NavbarBrand>
+                  <NavbarBrand className="mr-auto">
+                    <NavLink tag={Link} to="/Dashboard">
+                    <img src={require("../asstes/gitamlogo.png")} height="50" width="50" />
+                      GITAM Bengaluru
+                    </NavLink>
+                  </NavbarBrand>
                 </div>
                 <div className="col-12 col-md-6 col-lg-7 col-x-1">
-                <h2 style={{"color":"aliceblue"}} >
+                    <h3 style={{"color":"aliceblue"}} >
                       Gitam Career Guidance Cell
-                    </h2>
+                    </h3>
                 </div>
-                <div className="col-12 col-md-2 col-lg-2 col-x-1" style={{"textAlign":"end"}}>
+                <div className="col-6 col-md-1 col-lg-1 col-x-1" style={{"textAlign":"end"}}>
                     {/*<NavLink
                     classNam="nav-link"
                       tag={Link}
@@ -78,7 +78,11 @@ class Navbar1 extends Component {
                     >
                      
                     </NavLink>*/}
-                    <i className="fa fa-cog fa-lg" style={{"color":"aliceblue"}}></i>
+                    <NavLink tag={Link} to="/changepassword">
+                      <i className="fa fa-cog fa-lg" style={{"color":"aliceblue"}}></i>
+                    </NavLink>
+                  </div>
+                  <div className="col-6 col-md-1 col-lg-1 col-x-1" style={{"textAlign":"end"}}>
                     {/*<NavLink
                       className="nav-link"
                       tag={Link}
@@ -87,8 +91,11 @@ class Navbar1 extends Component {
                     >
                     
                     </NavLink>*/}
-                
-                   <i className="fa fa-power-off fa-lg p-3" style={{"color":"aliceblue"}} ></i> 
+                     <NavLink tag={Link} onClick={ e=>{localStorage.clear();
+                              window.location.href = '/login';}}>
+                           <i className="fa fa-power-off fa-lg" style={{"color":"aliceblue"}} ></i> 
+                      </NavLink>
+                   
                    {/*<NavItem>
                     <NavLink
                       align="left"
@@ -118,8 +125,8 @@ class Navbar1 extends Component {
              </div>
           </Navbar>
           <Switch>
-            <Route path="/login"></Route>
              <Route exact path="/Dashboard" component={()=>(<div><Dashboard login={this.props.value}/></div>)}></Route>
+             <Route path="/changepassword" component={()=>(<Changepassword login={this.props.value}/>)}></Route>
           </Switch>
         </Router>
       </div>

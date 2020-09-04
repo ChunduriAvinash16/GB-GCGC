@@ -34,6 +34,7 @@ import EditTraining from "../EditTraining";
 import EditPlacement from "../EditPlacement";
 import Footer from "../../user-components/Footer";
 import IndividualStudent from "../IndividualStudent";
+import Login from "../../login-components/Login";
 const ColoredLine = ({ color }) => (
   <hr
     style={{
@@ -56,11 +57,6 @@ const Content = ({id,sidebarIsOpen, toggleSidebar}) => (
         path="/home"
         component={() => (
           <div>
-            <Row className="pl-3">
-              <h4 className="pr-3">Glimpse - </h4>
-              <Example />
-            </Row>
-            <hr style={{ visibility: "visible" }} />
             <HomeCards />
             &nbsp;
             <div></div>
@@ -106,39 +102,23 @@ const Content = ({id,sidebarIsOpen, toggleSidebar}) => (
       <Route exact path="/Page-1" component={() => "Page-1"} />
       <Route
         exact
-        path="/trainingdashboardmore"
-        component={() => (
-          <div>
-            <NoticeTraningmore />
-          </div>
-        )}
+        path="/trainingdashboardmore/:id"
+        component={NoticeTraningmore}
       />
       <Route
         exact
-        path="/placementdashboardmore"
-        component={() => (
-          <div>
-            <PlacementTrainingmore />
-          </div>
-        )}
+        path="/placementdashboardmore/:id"
+        component={PlacementTrainingmore}
       />
       <Route
         exact
-        path="/TrainingBoardEdit"
-        component={() => (
-          <div>
-            <TrainingBoardEdit />
-          </div>
-        )}
+        path={"/TrainingBoardEdit/:id"}
+        component={TrainingBoardEdit}
       />
       <Route
         exact
-        path="/PlacementEditBoard"
-        component={() => (
-          <div>
-            <PlacementBoardEdit />
-          </div>
-        )}
+        path={"/PlacementEditBoard/:id"}
+        component={PlacementBoardEdit}
       />
       <Route
         exact

@@ -11,7 +11,7 @@ class NoticeTraningmore extends Component {
       }
   }
   componentDidMount(){
-    Axios.get("http://localhost:80/Admin-backend/TrainingDashBoardmore.php")
+    Axios.get("http://localhost:80/Admin-backend/TrainingDashBoardmore.php?id="+this.props.match.params.id)
     .then(response=>{
       this.setState({
         dash:response.data,
@@ -26,23 +26,23 @@ class NoticeTraningmore extends Component {
         <Card>
           <Card.Body>
             <Card.Title>
-              <h3
+              <h5
                 align="center"
                 style={{ fontSize: "20px", fontFamily: "Segoe UI" }}
               >
                 Notice Board-Training
-              </h3>
+              </h5>
             </Card.Title>
             &nbsp;
             <Card.Text>
               <div>
-                <Table size="sm" responsive>
-                  <thead>
+                <Table size="sm" responsive striped>
+                  <thead className="p-3" style={{backgroundColor:'#2A324B',color:'white',fontSize:'24px'}}>
                     <tr>
                       <th>From</th>
                       <th>To</th>
                       <th>Name of the Programme</th>
-                      <th>status</th>
+                      <th>Status</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -52,8 +52,7 @@ class NoticeTraningmore extends Component {
                         <td>{item.to_date}</td>
                         <td>{item.name_of_the_program}</td>
                         <td>{item.status}</td>
-                        
-                        </tr>
+                      </tr>
                         ))}
                   </tbody>
                 </Table>

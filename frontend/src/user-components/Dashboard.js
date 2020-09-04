@@ -117,7 +117,7 @@ class Dashboard extends Component {
            <br></br>
            <Card>
             <Row style={{textAlign:"initial"}}>
-                <Col md="4"style={{"padding":"25px 25px 25px 25px"}}>
+                <Col md="4"style={{"padding":"10px"}}>
                   <img src={this.state.images} style={{"height":"100px","width":"100px"}}/>
                     Welcome {this.state.fname} {this.state.mname} {this.state.lname} 
                 </Col>
@@ -130,12 +130,14 @@ class Dashboard extends Component {
               <br/>
             <Card>
               <Collapsible trigger="PersonalDetails" triggerStyle={{"textAlign":"end"}}>
+                <hr/>
                   <Personaldetails login={this.props.login}/>
               </Collapsible>
             </Card>
             <br/>
             <Card>
               <Collapsible trigger="Academic Details">
+              <hr></hr>
               <CardBody>
                 <br/>
                   <Row style={{"paddind-left":"25px"}}>
@@ -186,6 +188,7 @@ class Dashboard extends Component {
           &nbsp;
           <Card>
               <Collapsible trigger="Leader Board">
+                <hr/>
                 <CardBody>
                     <br/>
                      <Leaderboard login={this.props.login}/>
@@ -195,6 +198,7 @@ class Dashboard extends Component {
           <br/>
           <Card>
             <Collapsible trigger="Job Suitability">
+              <hr></hr>
               <br></br>
                 <Row>
                   <Col md="6" className="pr-2 pt-2">
@@ -209,6 +213,7 @@ class Dashboard extends Component {
           <br></br>
           <Card>
             <Collapsible trigger="ARI">
+              <hr></hr>
                 <br/>
                   <ARI arii={this.props.login}/>
             </Collapsible>
@@ -216,6 +221,7 @@ class Dashboard extends Component {
           <br/>
           <Card>
             <Collapsible trigger="ARE">
+              <hr></hr>
               <br/>
               <Col  className="p-2">
                 <Cocubes cid={this.props.login}/>
@@ -228,6 +234,7 @@ class Dashboard extends Component {
           <br></br>
           <Card>
             <Collapsible trigger="ITA">
+              <hr></hr>
               <ITA aid={this.props.login}/>
             </Collapsible>
           </Card>
@@ -235,6 +242,7 @@ class Dashboard extends Component {
           <Card>
               <Collapsible trigger="Placement Analysis">
                 <br/>
+                <hr></hr>
               <Row>
               <Table striped className="placements" bordered responsive>
               <tbody>
