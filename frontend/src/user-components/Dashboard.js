@@ -25,6 +25,7 @@ import Cocubes from "./Cocubes";
 import Amcat from "./Amcat";
 import ITA from "./ITA";
 import Personaldetails from "./Personaldetails";
+import Placements from "./Placements";
 import Leaderboard from "./Leaderboard";
 
 
@@ -35,16 +36,25 @@ class Dashboard extends Component {
               student_id:"",
               SSC:0,
               inter:0,
+              mname:"",
+              images:"",
               gpa:0,
               fname:"",
+              pass_category:"",
               branch:"",
-              pass_category:""
+              ce:0,
+              noc:0,
+              nca:0,
+              olf:0,
+              wtc:0,
+              ttc:0,
+              gdc:0,
           }
       }
       /*change=async (e)=>{
           e.preventDefault();
+          login_id:this.state.student_id
           const obj={
-              login_id:this.state.student_id
           }
           const url="http://localhost:80/login-backend/studentdetails.php"
           Axios.post(url,obj)
@@ -75,9 +85,31 @@ class Dashboard extends Component {
             console.log(response.data)
             this.setState({
               fname:response.data['first_name'],
-              lname:response.data['last_name']
+              lname:response.data['last_name'],
+              mname:response.data['middle_name']
             })
-          })
+            })
+            Axios.get("http://localhost:80/login-backend/placementdetails.php?id="+this.props.login)
+            .then(response=>{
+              this.setState({
+                ce:response.data.count,
+                wtc:response.data.count1,
+                nca:response.data.count2,
+                gdc:response.data.count3,
+                ttc:response.data.count4,
+                olf:response.data.count5,
+                noc:response.data.count6
+              })
+              console.log(response.data);
+            })
+            {/*Axios.get("http://localhost:80/login-backend/images.php?id="+this.props.login)
+            .then(response => {
+              console.log(response.data);
+              this.setState({
+                images:response.data['images']
+              })
+
+            })*/}
       }
   render(){
   return (
@@ -85,12 +117,8 @@ class Dashboard extends Component {
            <br></br>
             <Row style={{textAlign:"initial"}}>
               <Col>
-                <img
-                      src="https://drive.google.com/thumbnail?id=10vHo98Gs3UUNlExAbFnlFtTxcyeNf2V6"
-                      height="100"
-                      width="100"
-                    ></img>
-                  Welcome <h5>{this.state.fname} {this.state.lname}</h5>
+              <img src={this.state.images}/>
+                  Welcome {this.state.fname} {this.state.mname} {this.state.lname} 
               </Col>
             </Row>
               <br/>
@@ -201,44 +229,32 @@ class Dashboard extends Component {
           <br></br>
           <Card>
               <Collapsible trigger="Placement Analysis">
+                <br/>
               <Row>
               <Table striped className="placements" bordered responsive>
-                  <tbody>
-                  <tr>
-                    <td md="6">Total Number of Companies:50</td>
-                    <td md="6">Number of written test cleared:0</td>
-                  </tr>
-                  <tr>
-                    <td md="6">Number of Companies Attended:0</td>
-                    <td md="6">Number of GD's cleared:0</td>
-                  </tr>
-                  <tr>
-                    <td md="6">Number of Companies Eligible:50</td>
-                    <td md="6">Number of technical test cleared:0</td>
-                  </tr>
-                  <tr>
-                    <td colSpan="2">Number of Offer Letters:0</td>
-                  </tr>
-                  </tbody>
-            </Table>
+              <tbody>
+              <tr>
+                <td md="6">Total Number of Companies: {this.state.noc}</td>
+                <td md="6">Number of written test cleared: {this.state.wtc}</td>
+              </tr>
+              <tr>
+                <td md="6">Number of Companies Attended: {this.state.nca}</td>
+                <td md="6">Number of GD's cleared: {this.state.gdc}</td>
+              </tr>
+              <tr>
+                <td md="6">Number of Companies Eligible: {this.state.ce}</td>
+                <td md="6">Number of technical test cleared: {this.state.ttc}</td>
+              </tr>
+              <tr>
+                <td colSpan="2">Number of Offer Letters: {this.state.olf}</td>
+              </tr>
+              </tbody>
+        </Table>
             </Row>
             <br></br>
             <br></br>
             <h6>Placements Analysis</h6>
-            <Table className="placements" responsive striped>
-              <thead>
-                <tr>
-                  <th>Date</th>
-                  <th>Company Logo</th>
-                  <th>Company Name</th>
-                  <th>Attendance</th>
-                  <th>Written Test</th>
-                  <th>GroupDiscussion</th>
-                  <th>Technical Test</th>
-                  <th>Personal Interview</th>
-                </tr>
-              </thead>
-              </Table>
+            <Placements login={this.props.login}/>
             </Collapsible>
           </Card>
       </div>

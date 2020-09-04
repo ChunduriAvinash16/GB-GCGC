@@ -21,7 +21,7 @@ class Footer extends React.Component {
             <div className="footer2">
               <div className="container">
                             <div className='row'>
-                              <div className="col"> </div>
+                              <div className="col-xl-1"> </div>
                               <div className='col-xl-1 col-lg-3 col-md-3 col-xs-12' ><img src={require('../asstes/Siddharth.jpg')} height="70" width="70"></img><br></br><div style={{fontSize:"9px",color:"white"}}><center>Siddharth</center></div></div><p>            </p>
                               <div className='col-xl-1 col-lg-3 col-md-3 col-xs-12' ><img src={require('../asstes/DeviPriya.jpg')} height="70" width="70"></img><br></br><div style={{fontSize:"9px",color:"white"}}><center>Devi Priya</center></div></div>
                               <div className='col-xl-1 col-lg-3 col-md-3 col-xs-12' ><img src={require('../asstes/Avinash.jpg')} height="70" width="70"></img><br></br><div style={{fontSize:"9px",color:"white"}}><center>Avinash</center></div></div>
@@ -37,8 +37,8 @@ class Footer extends React.Component {
                           
               </div>
               <br></br>
-              <p align="right" style={{ fontSize: "10px" }}>
-                               Under the Guidance of Dr. Kishor Buddha
+              <p align="right" style={{ fontSize: "15px" }}>
+                Under the Guidance of Dr. Kishor Buddha
               </p>
               <div className="row justify-content-center">
                 <div className="col-auto">
