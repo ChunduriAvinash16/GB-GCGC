@@ -13,7 +13,6 @@ import { Switch, Route } from "react-router-dom";
 import Example from "./DropDown";
 import Topbar from "./Topbar";
 import HomeCards from "../HomeCards";
-import Footer from "../../user-components/Footer";
 import NoticeTraningmore from "../NoticeTraningmore";
 import PlacementTrainingmore from "../NoticePlacementmore";
 import TrainingBoardEdit from "../TrainingBoardEdit";
@@ -33,6 +32,7 @@ import Ita from "../Uploads/ita";
 import Companydetails from "../Uploads/companydetails";
 import EditTraining from "../EditTraining";
 import EditPlacement from "../EditPlacement";
+import Footer from "../../user-components/Footer";
 const ColoredLine = ({ color }) => (
   <hr
     style={{

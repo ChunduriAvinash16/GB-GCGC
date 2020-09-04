@@ -75,8 +75,8 @@ class Login extends Component {
             <header>
             <div className="row banner">
                <div className="banner-text">
-                  <h1 className="responsive-headline">GB-GCGC</h1>
-                  <h3>GITAM Career Guidance Cell</h3>
+                  <h1 style={{"font-size":"150px"}}className="responsive-headline">GB-GCGC</h1>
+                  <h2 style={{"color":"white"}}>GITAM Career Guidance Cell</h2>
                   <hr />
                   <div id="BodyLogin" className='centered'>
                 <div className="centered" id="LOGIN">
@@ -85,7 +85,7 @@ class Login extends Component {
                             <h2 style={{"color":"white"}}>Login In</h2><hr/>
                             <form onSubmit={this.handleSubmit}>
                                 <div className="form-group">
-                                        <h5 style={{"color":"white","textAlign":"initial"}}>Login Id</h5>
+                                        <h5 style={{"color":"white","textAlign":"initial"}}>LoginId</h5>
                                         <input type="text" className="form-control" placeholder="LoginId" value={this.state.Login_id} onChange={this.handleAddLoginId}/>
                                 </div>
                                 <div className="form-group">
@@ -93,8 +93,8 @@ class Login extends Component {
                                     <input type="password" className="form-control" placeholder="Enter password"value={this.state.password} onChange={this.handleAddPassword}/>
                                 </div>
                                 <br/>
-                                <div className="form-group">
-                                    <button type="submit" className="btn btn-danger btn-block"style={{"backgroundColor":"#CC5200"}}>Submit</button>
+                                <div className="form-group" style={{"text-align":"-webkit-center"}}>
+                                    <button type="submit" className="btn btn-danger btn-block"style={{"backgroundColor":"#CC5200" ,"width": "100px","text-align": "center"}}>Submit</button>
                                  </div> 
                              </form>
                         </div>

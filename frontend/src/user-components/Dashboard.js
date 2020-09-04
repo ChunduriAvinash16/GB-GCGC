@@ -102,27 +102,32 @@ class Dashboard extends Component {
               })
               console.log(response.data);
             })
-            {/*Axios.get("http://localhost:80/login-backend/images.php?id="+this.props.login)
+            Axios.get("http://localhost:80/login-backend/images.php?id="+this.props.login)
             .then(response => {
               console.log(response.data);
               this.setState({
-                images:response.data['images']
+                images:response.data
               })
 
-            })*/}
+            })
       }
   render(){
   return (
         <div className='container-fluid'>
            <br></br>
+           <Card>
             <Row style={{textAlign:"initial"}}>
-              <Col>
-              <img src={this.state.images}/>
-                  Welcome {this.state.fname} {this.state.mname} {this.state.lname} 
-              </Col>
-            </Row>
+                <Col md="4"style={{"padding":"25px 25px 25px 25px"}}>
+                  <img src={this.state.images} style={{"height":"100px","width":"100px"}}/>
+                    Welcome {this.state.fname} {this.state.mname} {this.state.lname} 
+                </Col>
+                <Col>
+                  <h1 style={{"font-size": "xx-large","text-align": "end","padding": "35px","font-family": "Brush Script MT"}}>Have a Nice Day</h1>
+                </Col>
+              </Row>
+           </Card>
+            
               <br/>
-              {console.log(this.props.value)}
             <Card>
               <Collapsible trigger="PersonalDetails" triggerStyle={{"textAlign":"end"}}>
                   <Personaldetails login={this.props.login}/>

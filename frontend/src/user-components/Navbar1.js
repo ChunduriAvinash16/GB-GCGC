@@ -88,7 +88,7 @@ class Navbar1 extends Component {
                     
                     </NavLink>*/}
                 
-                <i className="fa fa-power-off fa-lg p-3" style={{"color":"aliceblue"}} ></i>
+                   <i className="fa fa-power-off fa-lg p-3" style={{"color":"aliceblue"}} ></i> 
                    {/*<NavItem>
                     <NavLink
                       align="left"
@@ -118,6 +118,7 @@ class Navbar1 extends Component {
              </div>
           </Navbar>
           <Switch>
+            <Route path="/login"></Route>
              <Route exact path="/Dashboard" component={()=>(<div><Dashboard login={this.props.value}/></div>)}></Route>
           </Switch>
         </Router>
