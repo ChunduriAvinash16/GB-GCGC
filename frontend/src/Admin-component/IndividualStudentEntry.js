@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Component } from "react";
 import { Container, Row, Col, Table } from "reactstrap";
 import {
   BrowserRouter as Router,
@@ -13,12 +13,24 @@ import {
 } from "reactstrap";
 import { Button } from "react-bootstrap";
 
-import IndividualStudent from "./IndividualStudent";
 
-function IndividualStudentEntry() {
+class IndividualStudentEntry extends Component {
+constructor(props){
+  super(props)
+  this.state={
+    id:""
+  }
+  this.onChangeid=this.onChangeid.bind(this);
+}
+onChangeid(e){
+  this.setState({
+    id:e.target.value
+  })
+}
+
+render(){
   return (
     <div className="IndividualStudentEntry">
-      <Router>
         <div>
           <div
             className="Manage"
@@ -80,34 +92,27 @@ function IndividualStudentEntry() {
                 type="text"
                 name="user"
                 className="container pt-1"
+                value={this.state.id}
+                onChange={this.onChangeid}
               />
             </Col>
           </Row>
           <Row>
             <Col lg="2"></Col>
             <Col lg="2"></Col>
-            <div className=" offset-md-5">
-              <Nav>
-                <NavLink tag={Link} to="/IndividualStudent">
-                  <br></br>
-                  <Button>Submit</Button>
-                </NavLink>
-              </Nav>
+            <div className="offset-md-5">
+              <NavLink tag={Redirect} to={"/IndividualStudent/"+this.state.id}>
+                <br></br>
+              <Button>Submit </Button>
+              </NavLink>
+              {console.log(this.state.id)}
             </div>
           </Row>
         </form>
         <Row>&nbsp;</Row>
-
-        <Switch>
-          <Route
-            exact
-            path="/IndividualStudent"
-            component={IndividualStudent}
-          />
-        </Switch>
-      </Router>
     </div>
   );
+}
 }
 
 export default IndividualStudentEntry;
