@@ -12,16 +12,13 @@ import {
 class Footer extends React.Component {
   render() {
     return (
-      <div className="footer">
-        <footer>
           <div className="footer">
             <div className="footer1 pt-2">
               <div>Developers</div>
             </div>
             <div className="footer2">
               <div className="container">
-                            <div className='row'>
-                              <div className="col-xl-1"> </div>
+                            <div className='row' style={{"justify-cotent":"center"}}>
                               <div className='col-xl-1 col-lg-3 col-md-3 col-xs-12' ><img src={require('../asstes/Siddharth.jpg')} height="70" width="70"></img><br></br><div style={{fontSize:"9px",color:"white"}}><center>Siddharth</center></div></div><p>            </p>
                               <div className='col-xl-1 col-lg-3 col-md-3 col-xs-12' ><img src={require('../asstes/DeviPriya.jpg')} height="70" width="70"></img><br></br><div style={{fontSize:"9px",color:"white"}}><center>Devi Priya</center></div></div>
                               <div className='col-xl-1 col-lg-3 col-md-3 col-xs-12' ><img src={require('../asstes/Avinash.jpg')} height="70" width="70"></img><br></br><div style={{fontSize:"9px",color:"white"}}><center>Avinash</center></div></div>
@@ -47,8 +44,6 @@ class Footer extends React.Component {
               </div>
             </div>
           </div>
-        </footer>
-      </div>
     );
   }
 }

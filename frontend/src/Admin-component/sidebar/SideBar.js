@@ -47,9 +47,6 @@ const SideBar = ({ isOpen, toggle }) => (
               Allstudents
             </NavLink>
           </NavItem>
-         
-
-         
           <hr/>
           <NavItem style={{"text-align":"left"}}>
             <NavLink tag={Link} to={"/settings"}>
