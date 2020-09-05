@@ -25,3 +25,10 @@ This Project will help to students where he/she is actually there.
 
 
 # start with localhost:3XXX/login 
+
+
+# Before Starting install packages
+npm i jspdf
+html i canvas
+npm i @material-ui/core
+npm i react-html-table-to-excel
