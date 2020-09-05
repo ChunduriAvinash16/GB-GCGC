@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Card, Table, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Tooltip from "@material-ui/core/Tooltip";
+
 import {
 
   Modal,
@@ -131,9 +133,12 @@ class TrainingBoardEdit extends Component {
                 <Card.Title>
                   <h5 align="center">
                     Notice Board-Training&nbsp;
+                    <Tooltip title="Add">
                     <Link onClick={this.toggleModal}>
-                      <FontAwesomeIcon icon={faPlus} size="xs" className="p-1 fa-lg" style={{backgroundColor:'#2A324B',color:'white',fontSize:'20',borderRadius:'10'}}/>
+                        <FontAwesomeIcon icon={faPlus} size="xs" className="p-1 fa-lg" style={{backgroundColor:'#2A324B',color:'white',fontSize:'20',borderRadius:'10'}}/>
                     </Link>
+                    </Tooltip>
+
                   </h5>
                 </Card.Title>
               </Col>
