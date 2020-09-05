@@ -28,7 +28,7 @@ class Cocubes extends Component {
                   WET:response.data[0]['WET'],
                   Personality:response.data[0]['Personality'],
               })
-              console.log(this.state.Overall_Aptitude)
+              console.log(this.state.Personality)
           })
           .catch(function(err){
               console.log(err);
@@ -45,7 +45,7 @@ class Cocubes extends Component {
         <Radar 
             data = {{
                 labels: ['Aptitude', 'English', 'Quantitative', 'Analytical', 'Domain', 'Computer Fundamentals', 
-                'Coding','WET','Personality'],
+                'Coding','WET'],
                 datasets: [
                   {
                     label: 'COCUBES1',
@@ -56,7 +56,7 @@ class Cocubes extends Component {
                     pointHoverBackgroundColor: '#fff',
                     pointHoverBorderColor: 'rgba(179,181,198,1)',
                     data: [this.state.Aptitude,this.state.English,this.state.Quantitative,this.state.Analytical,this.state.Domain,
-                        this.state.ComputerFundamentals,this.state.Coding,this.state.WET,this.state.Personality],
+                        this.state.ComputerFundamentals,this.state.Coding,this.state.WET],
                   },
                   {
                     label: 'COCUBES2',
