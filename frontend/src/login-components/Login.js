@@ -90,7 +90,7 @@ class Login extends Component {
                                 </div>
                                 <div className="form-group">
                                     <h5 style={{"color":"white","textAlign":"initial"}}>Password</h5>
-                                    <input type="password" className="form-control" placeholder="Enter password"value={this.state.password} onChange={this.handleAddPassword}/>
+                                    <input type="password" className="form-control" placeholder="Password"value={this.state.password} onChange={this.handleAddPassword}/>
                                 </div>
                                 <br/>
                                 <div className="form-group" style={{"text-align":"-webkit-center"}}>
