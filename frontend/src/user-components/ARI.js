@@ -56,10 +56,9 @@ class ARI extends Component {
             <Card className="Rounded p-3">
               <Bar
                 data={{
-                    labels: ['AT1','AT2','AT3','AT4','AT5','AT6','TT1','TT2','TT3','TT4','TT5','TT6','TT7','TT8','DT1','DT2','DT3','DT4'],
+                    labels: ['CT1','CT2','CT3','CT4','CT5','CT6','TT1','TT2','TT3','TT4','TT5','TT6','TT7','TT8','DT1','DT2','DT3','DT4'],
                 datasets: [
                         {
-                          label: ['marks'],
                           backgroundColor: ['lightblue','lightblue','lightblue','lightblue','lightblue','lightblue',
                             'lightgreen','lightgreen','lightgreen','lightgreen','lightgreen','lightgreen','lightgreen','lightgreen',
                             'pink','pink','pink','pink'

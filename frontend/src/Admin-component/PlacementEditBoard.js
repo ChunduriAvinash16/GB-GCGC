@@ -26,6 +26,7 @@ import {
 import { Link } from "react-router-dom";
 import Axios from 'axios';
 import {Redirect}  from 'react-router';
+import Tooltip from "@material-ui/core/Tooltip";
 
 class PlacementBoardEdit extends Component {
   constructor(props) {
@@ -113,9 +114,11 @@ class PlacementBoardEdit extends Component {
               <Card.Title>
                 <h5 align="center">
                   Notice Board-Placements
-                  <Link onClick={this.toggleModal}>
-                    <FontAwesomeIcon icon={faPlus} size="xs" className="p-1 fa-lg" style={{backgroundColor:'#2A324B',color:'white',fontSize:'20',borderRadius:'10'}}/>
-                  </Link>
+                  <Tooltip title="Add">
+                    <Link onClick={this.toggleModal}>
+                      <FontAwesomeIcon icon={faPlus} size="xs" className="p-1 fa-lg" style={{backgroundColor:'#2A324B',color:'white',fontSize:'20',borderRadius:'10'}}/>
+                    </Link>
+                  </Tooltip>
                 </h5>
               </Card.Title>
             </div>

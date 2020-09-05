@@ -10,7 +10,8 @@ import {
   NavItem,
   NavLink,
   Jumbotron,
-  Row
+  Row,
+  Col
 } from "reactstrap";
 import Leaderboard from "./Leaderboard";
 import Dashboard from "./Dashboard";
@@ -19,6 +20,8 @@ import Changepassword from "./Changepassword";
 import Login from "../login-components/Login";
 import Calender from "./Calender";
 import Axios from "axios";
+import Tooltip from "@material-ui/core/Tooltip";
+
 
 class Navbar1 extends Component {
   constructor(props) {
@@ -52,84 +55,41 @@ class Navbar1 extends Component {
 
   render() {
     return (
-      <div className="Navbar1">
         <Router>
         <Navbar dark color="dark" expand="lg">
-            <div className="container-fluid">
               <Row>
-                <div className="col-12 col-md-3 col-lg-3 col-x-1" style={{"textAlign": "initial"}}>
-                  <NavbarBrand className="mr-auto">
-                    <NavLink tag={Link} to="/Dashboard">
+                <div className="col-3 col-md-4 col-lg-3 col-x-1">
+                   <NavLink tag={Link} to="/Dashboard" style={{"color":"white","padding":"0px","text-align":"initial"}}>
                     <img src={require("../asstes/gitamlogo.png")} height="50" width="50" />
                       GITAM Bengaluru
                     </NavLink>
-                  </NavbarBrand>
                 </div>
-                <div className="col-12 col-md-6 col-lg-7 col-x-1">
-                    <h3 style={{"color":"aliceblue"}} >
-                      Gitam Career Guidance Cell
-                    </h3>
+                <div className="col-7 col-md-6 col-lg-7 col-x-1 pt-2" style={{"color":"aliceblue","font-size":"25px"}}>
+                      <h4 className="pr-3"> GITAM Career Guidance Cell </h4>
                 </div>
-                <div className="col-6 col-md-1 col-lg-1 col-x-1" style={{"textAlign":"end"}}>
-                    {/*<NavLink
-                    classNam="nav-link"
-                      tag={Link}
-                      to="/settings"
-                    >
+                <div className="col-1 col-md-1 pt-2" style={{"padding":"0px"}}>
+                      <NavLink tag={Link} to="/changepassword" style={{"text-align":"right","padding":"0px"}}>
+                        <Tooltip title="Settings">
+                        <i className="fa fa-cog fa-lg" style={{"color":"aliceblue"}}></i>
+                        </Tooltip>
+                      </NavLink>  
                      
-                    </NavLink>*/}
-                    <NavLink tag={Link} to="/changepassword">
-                      <i className="fa fa-cog fa-lg" style={{"color":"aliceblue"}}></i>
-                    </NavLink>
-                  </div>
-                  <div className="col-6 col-md-1 col-lg-1 col-x-1" style={{"textAlign":"end"}}>
-                    {/*<NavLink
-                      className="nav-link"
-                      tag={Link}
-                      to="/"
-                      style={{ color: "lightgreen" }}
-                    >
-                    
-                    </NavLink>*/}
-                     <NavLink tag={Link} onClick={ e=>{localStorage.clear();
-                              window.location.href = '/login';}}>
-                           <i className="fa fa-power-off fa-lg" style={{"color":"aliceblue"}} ></i> 
-                      </NavLink>
-                   
-                   {/*<NavItem>
-                    <NavLink
-                      align="left"
-                      className="nav-link active"
-                      tag={Link}
-                      to="/Dashboard1"
-                      style={{ color: "lightgreen" }}
-                    >
-                    </NavLink>
-                   </NavItem>*/}
+                </div>
+                      <div className="col-1 col-md-1 pt-2">
+                        <NavLink tag={Link} style={{"text-align":"left","padding":"0px"}} onClick={ e=>{localStorage.clear();
+                                window.location.href = '/login';}}>
+                                  <Tooltip title="Log Out">
+                                    <i className="fa fa-power-off fa-lg" style={{"color":"aliceblue"}} ></i> 
+                                  </Tooltip>
+                        </NavLink> 
                 </div>
               </Row>
-             
-                          
-               
-                  {/*<NavItem>
-                    <NavLink
-                      align="left"
-                      className="nav-link "
-                      tag={Link}
-                      to="/changepassword"
-                      style={{ color: "lightgreen" }}
-                    >
-                      <span class="fa fa-key"></span>&nbsp;Change Password
-                    </NavLink>
-                  </NavItem>*/}
-             </div>
           </Navbar>
           <Switch>
              <Route exact path="/Dashboard" component={()=>(<div><Dashboard login={this.props.value}/></div>)}></Route>
              <Route path="/changepassword" component={()=>(<Changepassword login={this.props.value}/>)}></Route>
           </Switch>
         </Router>
-      </div>
     );
   }
 }
