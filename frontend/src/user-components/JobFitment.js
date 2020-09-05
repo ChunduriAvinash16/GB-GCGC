@@ -43,7 +43,7 @@ class JobFitment extends Component {
         />
         <CardText align='center'>
           Description : You are {(this.state.result)} % suitable to the industry with your current
-          performance in all the tests conducted by T&P
+          performance in all the tests conducted by GCGC
         </CardText>
       </Card>
   );

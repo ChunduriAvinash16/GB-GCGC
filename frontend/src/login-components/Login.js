@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Axios from 'axios';
-import {Col} from 'reactstrap';
+import {Col,Row} from 'reactstrap';
 import { useHistory ,Link, Redirect} from 'react-router-dom';
 class Login extends Component {
     constructor(props){
@@ -73,46 +73,50 @@ class Login extends Component {
 
         return (
             <header>
-            <div className="row banner">
-               <div className="banner-text">
-                  <h1 style={{"font-size":"150px"}}className="responsive-headline">GB-GCGC</h1>
-                  <h2 style={{"color":"white"}}>GITAM Career Guidance Cell</h2>
-                  <hr />
-                  <div id="BodyLogin" className='centered'>
-                <div className="centered" id="LOGIN">
-                    <div className="auth-inner" id="INNER_LOGIN">
-                        <div className="auth-wrapper">
-                            <h2 style={{"color":"white"}}>Login In</h2><hr/>
-                            <form onSubmit={this.handleSubmit}>
-                                <div className="form-group">
-                                        <h5 style={{"color":"white","textAlign":"initial"}}>LoginId</h5>
-                                        <input type="text" className="form-control" placeholder="LoginId" value={this.state.Login_id} onChange={this.handleAddLoginId}/>
-                                </div>
-                                <div className="form-group">
-                                    <h5 style={{"color":"white","textAlign":"initial"}}>Password</h5>
-                                    <input type="password" className="form-control" placeholder="Enter password"value={this.state.password} onChange={this.handleAddPassword}/>
-                                </div>
-                                <br/>
-                                <div className="form-group" style={{"text-align":"-webkit-center"}}>
-                                    <button type="submit" className="btn btn-danger btn-block"style={{"backgroundColor":"#CC5200" ,"width": "100px","text-align": "center"}}>Submit</button>
-                                 </div> 
-                             </form>
+                 <div className="row banner">
+                    <div className="banner-text">
+                            <h1 style={{"font-size":"150px"}}className="responsive-headline">GB-GCGC</h1>
+                            <h2 style={{"color":"white"}}>GITAM Career Guidance Cell</h2>
+                            <hr />
+                        <div id="BodyLogin" className='centered container-fluid'>
+                        <div className="centered" id="LOGIN">
+                            <div className="auth-inner" id="INNER_LOGIN">
+                                <div className="auth-wrapper">
+                                    <form onSubmit={this.handleSubmit}>
+                                        <Row>
+                                            <Col>   
+                                                <div className="form-group">
+                                                <input type="text" className="form-control" placeholder="LoginId" value={this.state.Login_id} onChange={this.handleAddLoginId}/>
+                                                </div>
+                                            </Col>
+                                            <Col>
+                                                <div className="form-group">
+                                                    <input type="password" className="form-control" placeholder="Password"value={this.state.password} onChange={this.handleAddPassword}/>
+                                                </div>    
+                                            </Col>
+                                            <Col style={{"text-align":"intial"}}>
+                                                <div className="form-group" style={{"text-align":"-webkit-center"}}>
+                                                    <button type="submit" className="btn btn-danger btn-block"style={{"backgroundColor":"#CC5200" ,"width": "100px","text-align": "center"}}>Submit</button>
+                                                </div> 
+                                            </Col>
+                                    </Row>
+                                </form>
+                            </div>
                         </div>
                     </div>
+                        </div>
+                        <footer>
+                            <ul className="social container-fluid">
+                                <li><a href="https://twitter.com/gbplacements"><i className='fa fa-twitter'></i></a></li>
+                                <li><a href="https://www.facebook.com/gitamblrplacements"><i className='fa fa-facebook'></i></a></li>
+                                <li><a href="https://instagram.com/gbplacements"><i className='fa fa-instagram'></i></a></li>
+                                <li><a href="https://www.youtube.com/channel/UCTdcKs5RAOcQ-qm2qOXI2Ng"><i className='fa fa-youtube'></i></a></li>
+                                <li><a href="https://www.linkedin.com/in/gitamblrplacements/"><i className='fa fa-linkedin'></i></a></li>
+                            </ul>
+                            <p style={{"color":"white"}} >Copyright GITAM,BENGALURU © 2020. All rights reserved.</p>
+                        </footer>
+                    </div>
                 </div>
-            </div>
-                  <ul className="social">
-                     <li><a href="https://twitter.com/gbplacements"><i className='fa fa-twitter'></i></a></li>
-                     <li><a href="https://www.facebook.com/gitamblrplacements"><i className='fa fa-facebook'></i></a></li>
-                     <li><a href="https://instagram.com/gbplacements"><i className='fa fa-instagram'></i></a></li>
-                     <li><a href="https://www.youtube.com/channel/UCTdcKs5RAOcQ-qm2qOXI2Ng"><i className='fa fa-youtube'></i></a></li>
-                     <li><a href="https://www.linkedin.com/in/gitamblrplacements/"><i className='fa fa-linkedin'></i></a></li>
-                  </ul>
-               </div>
-               <p style={{"color":"white"}} >Copyright GITAM,BENGALURU © 2020. All rights reserved.</p>
-
-            </div>
-
             </header>
          );
     }

@@ -2,8 +2,14 @@ import React,{Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container,Row,Col,Button,Card,Table} from 'reactstrap';
 import axios from 'axios';
+import ReactHTMLTableToExcel from 'react-html-table-to-excel'; 
 import Students from './AllRecordsList';
-
+import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import Slider from '@material-ui/core/Slider';
+import { withStyles } from '@material-ui/core/styles';
+import jsPDF from 'jspdf';  
+import html2canvas from 'html2canvas';  
 export default class AllStudents extends Component{    
     constructor(props){
         super(props);
@@ -137,7 +143,7 @@ export default class AllStudents extends Component{
                 studentno: 0
             };
             console.log(obj);
-            axios.post("http://localhost:80/Admin-backend/Allstudent-details.php",obj)
+            axios.post("http://localhost/Admin-backend/Allstudent-details.php",obj)
             .then((response)=>{
             console.log(response.data);
             this.state.studentno=response.data.length;
@@ -146,7 +152,6 @@ export default class AllStudents extends Component{
             .catch(err=>console.log(err));
             console.log(this.state.students);
         }
-
    /* componentDidMount(){
         axios.get('http://localhost/GBGCGCV-2.0/admin/src/components/Allstudent-details.php?category='+this.state.category)
         .then(response=>{
@@ -156,6 +161,22 @@ export default class AllStudents extends Component{
             console.log(error);
         })
     }*/
+    printDocument() {  
+    const input = document.getElementById('Data');  
+    html2canvas(input)  
+      .then((canvas) => {  
+        var imgWidth = 200;  
+        var pageHeight = 290;  
+        var imgHeight = canvas.height * imgWidth / canvas.width;  
+        var heightLeft = imgHeight;  
+        const imgData = canvas.toDataURL('image/png');  
+        const pdf = new jsPDF('p', 'mm', 'a4')  
+        var position = 0;  
+        var heightLeft = imgHeight;  
+        pdf.addImage(imgData, 'png', 0, position, imgWidth, imgHeight);  
+        pdf.save("download.pdf");  
+      });  
+  }  
     StudentsList(){
         return this.state.students.map(function(object,i){
             return <Students obj={object} key={i}/>;
@@ -164,7 +185,7 @@ export default class AllStudents extends Component{
     render(){   
         return(
             <div className="AllStudents" style={{backgroundColor:'#C7CCDB'}}>
-            <Container fluid>
+            <Container>
                 <Row>
                     <Col className="Heading" align="left" style={{fontSize:"20px",fontFamily: "Segoe UI",fontWeight:"600"}}>
                     Manage Students
@@ -331,14 +352,29 @@ export default class AllStudents extends Component{
                                 <Col></Col>
                                 <Col></Col>
                             </Row>
-                            <div className={"form-group"}>
-                                <input type={"submit"} value={"Submit"} className={"btn btn-primary"} style={{backgroundColor:"#2A324B",color:"white",borderColor:"#2A324B"}}/>
+                            <div className="form-group">
+                                <input type="submit" value="Submit" className="btn btn-primary" style={{backgroundColor:"#2A324B",color:"white",borderColor:"#2A324B"}}/>
                             </div>
                         </form> 
                     </Col>
                 </Row>
+                <Row style={{backgroundColor:'white'}}>
+                	<Col align="right" styles={{padding:'10'}}>
+                		<div>
+                			<Button onClick={this.printDocument} variant="contained" color="secondary">Generate Pdf</Button>
+                			&nbsp;<ReactHTMLTableToExcel  
+                    			className="btn btn-secondary"  
+                    			table="Data"  
+                    			filename="Filtered Students"  
+                    			sheet="Sheet1"  
+                    			buttonText="Generate Excel"
+                    			style={{backgroundColor:"#2A324B",color:"white",borderColor:"#2A324B"}} 
+                    		/>
+                    	</div>
+                    </Col>
+                </Row>
                 <Row>
-            <Table responsive striped style={{backgroundColor:'white'}}>
+            <Table id="Data" responsive striped style={{backgroundColor:'white'}}>
                     <thead style={{backgroundColor:'#2A324B',color:'white'}}>
                         <tr>
                             <th>ID</th>

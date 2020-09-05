@@ -10,7 +10,8 @@ import {
   NavItem,
   NavLink,
   Jumbotron,
-  Row
+  Row,
+  Col
 } from "reactstrap";
 import Leaderboard from "./Leaderboard";
 import Dashboard from "./Dashboard";
@@ -57,71 +58,29 @@ class Navbar1 extends Component {
         <Navbar dark color="dark" expand="lg">
             <div className="container-fluid">
               <Row>
-                <div className="col-12 col-md-3 col-lg-3 col-x-1" style={{"textAlign": "initial"}}>
-                  <NavbarBrand className="mr-auto">
-                    <NavLink tag={Link} to="/Dashboard">
+                <div className="col-12 col-md-4 col-lg-3 col-x-1">
+                   <NavLink tag={Link} to="/Dashboard" style={{"color":"white"}}>
                     <img src={require("../asstes/gitamlogo.png")} height="50" width="50" />
                       GITAM Bengaluru
                     </NavLink>
-                  </NavbarBrand>
                 </div>
-                <div className="col-12 col-md-6 col-lg-7 col-x-1">
-                    <h3 style={{"color":"aliceblue"}} >
-                      Gitam Career Guidance Cell
-                    </h3>
+                <div className="col-12 col-md-6 col-lg-7 col-x-1" style={{"color":"aliceblue","font-size":"25px"}}>
+                      GITAM Career Guidance Cell
                 </div>
-                <div className="col-6 col-md-1 col-lg-1 col-x-1" style={{"textAlign":"end"}}>
-                    {/*<NavLink
-                    classNam="nav-link"
-                      tag={Link}
-                      to="/settings"
-                    >
-                     
-                    </NavLink>*/}
-                    <NavLink tag={Link} to="/changepassword">
-                      <i className="fa fa-cog fa-lg" style={{"color":"aliceblue"}}></i>
-                    </NavLink>
-                  </div>
-                  <div className="col-6 col-md-1 col-lg-1 col-x-1" style={{"textAlign":"end"}}>
-                    {/*<NavLink
-                      className="nav-link"
-                      tag={Link}
-                      to="/"
-                      style={{ color: "lightgreen" }}
-                    >
-                    
-                    </NavLink>*/}
-                     <NavLink tag={Link} onClick={ e=>{localStorage.clear();
+                <div className="col">
+                      <Col>
+                      <NavLink tag={Link} to="/changepassword">
+                        <i className="fa fa-cog fa-lg" style={{"color":"aliceblue"}}></i>
+                      </NavLink>  
+                      </Col>
+                      <Col>
+                      <NavLink tag={Link} onClick={ e=>{localStorage.clear();
                               window.location.href = '/login';}}>
                            <i className="fa fa-power-off fa-lg" style={{"color":"aliceblue"}} ></i> 
-                      </NavLink>
-                   
-                   {/*<NavItem>
-                    <NavLink
-                      align="left"
-                      className="nav-link active"
-                      tag={Link}
-                      to="/Dashboard1"
-                      style={{ color: "lightgreen" }}
-                    >
-                    </NavLink>
-                   </NavItem>*/}
+                      </NavLink> 
+                      </Col>
                 </div>
               </Row>
-             
-                          
-               
-                  {/*<NavItem>
-                    <NavLink
-                      align="left"
-                      className="nav-link "
-                      tag={Link}
-                      to="/changepassword"
-                      style={{ color: "lightgreen" }}
-                    >
-                      <span class="fa fa-key"></span>&nbsp;Change Password
-                    </NavLink>
-                  </NavItem>*/}
              </div>
           </Navbar>
           <Switch>
