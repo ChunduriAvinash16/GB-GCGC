@@ -251,11 +251,11 @@ class Dashboard extends Component {
                 <td md="6">Number of written test cleared: {this.state.wtc}</td>
               </tr>
               <tr>
-                <td md="6">Number of Companies Attended: {this.state.nca}</td>
+                <td md="6">Number of Companies Eligible: {this.state.ce}</td>
                 <td md="6">Number of GD's cleared: {this.state.gdc}</td>
               </tr>
               <tr>
-                <td md="6">Number of Companies Eligible: {this.state.ce}</td>
+              <td md="6">Number of Companies Attended: {this.state.nca}</td>
                 <td md="6">Number of technical test cleared: {this.state.ttc}</td>
               </tr>
               <tr>
@@ -266,8 +266,8 @@ class Dashboard extends Component {
             </Row>
             <br></br>
             <br></br>
-            <h6>Placements Analysis</h6>
-            <Placements login={this.props.login}/>
+              <h6>Placements Analysis of {this.props.login}</h6>
+              <Placements login={this.props.login}/>
             </Collapsible>
           </Card>
       </div>

@@ -105,7 +105,7 @@ class HomeCards extends Component {
     return (
       <div className="container">
                   <div>
-                    <Row className="pl-3">
+                  <Row className="pl-3">
               <h4 className="p-1">Glimpse - </h4>
               <select className="pr-1 pl-1" style={{backgroundColor:'#2A324B',borderColor:'#2A324B',fontSize:'25px',color:'white'}} value={this.state.year} onChange={this.onChangeYear}>
               	<option value="2020">2020</option>
