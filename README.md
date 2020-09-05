@@ -30,7 +30,7 @@ This Project will help to students where he/she is actually there.
 # Before Starting install packages
 <pre>
 npm i jspdf
-npm i canvas
+npm i html-canvas
 npm i @material-ui/core
 npm i react-html-table-to-excel
 
