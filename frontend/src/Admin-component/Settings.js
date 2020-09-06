@@ -165,7 +165,7 @@ class Settings extends React.Component {
 
   render() {
     return (
-      <Container fluid>
+      <Container>
         <Row
           style={{
             backgroundColor: "#2A324B",

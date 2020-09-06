@@ -22,7 +22,7 @@ const Topbar = ({ toggleSidebar }) => {
     <Navbar
       color="light"
       light
-      className="navbar shadow-sm p-2 mb-5 bg-white rounded"
+      className="navbar shadow-sm p-2 mb-5 bg-white navbar navbar-lg"
       expand="lg"
     >
       <Button color="info" onClick={toggleSidebar}>
@@ -31,7 +31,7 @@ const Topbar = ({ toggleSidebar }) => {
       <NavbarToggler onClick={toggleTopbar} />
       <Collapse isOpen={topbarIsOpen} navbar className="ml-auto pb-2">
         <div className="ml-auto pt-2">
-          <img src={require("./Pic1.jpeg")} align="right" width="75px" />
+          <img src={require("./Pic1.jpeg")} align="right" width="75px"/>
           <p className="pt-3" align="center">
             {" "}
             Welcome Kishor Buddha

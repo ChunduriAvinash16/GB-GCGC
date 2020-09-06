@@ -11,6 +11,8 @@ import {
 import { NavItem, NavLink, Nav } from "reactstrap";
 import classNames from "classnames";
 import { Link, Redirect } from "react-router-dom";
+import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
+import DropdownItem from "react-bootstrap/esm/DropdownItem";
 const SideBar = ({ isOpen, toggle }) => (
   <div className={classNames("sidebar", { "is-open": isOpen })}>
     <div>
@@ -27,35 +29,35 @@ const SideBar = ({ isOpen, toggle }) => (
       </div>
       <div className="side-menu">
         <Nav vertical className="list-unstyled pb-3">
-          <NavItem style={{"text-align":"left"}}>
+          <NavItem style={{"textAlign":"left"}}>
             <NavLink tag={Link} to={"/home"}>
               <FontAwesomeIcon icon={faHome} className="mr-2" />
               Home
             </NavLink>
           </NavItem>
           <hr/>
-          <NavItem style={{"text-align":"left"}}>
+          <NavItem style={{"textAlign":"left"}}>
             <NavLink tag={Link} to={"/IndividualStudentEntry"}>
               <FontAwesomeIcon icon={faChalkboardTeacher} className="mr-2" />
               Individual student
             </NavLink>
           </NavItem>
           <hr/>
-          <NavItem style={{"text-align":"left"}}>
+          <NavItem style={{"textAlign":"left"}}>
             <NavLink tag={Link} to={"/allstudents"}>
               <FontAwesomeIcon icon={faUserEdit} className="mr-2" />
               Allstudents
             </NavLink>
           </NavItem>
           <hr/>
-          <NavItem style={{"text-align":"left"}}>
+          <NavItem style={{"textAlign":"left"}}>
             <NavLink tag={Link} to={"/settings"}>
               <FontAwesomeIcon icon={faCog} className="mr-2"/>
               Settings
             </NavLink>
           </NavItem>
           <hr/>
-          <NavItem style={{"text-align":"left"}}>
+          <NavItem style={{"textAlign":"left"}}>
             <NavLink tag={Link} onClick={ e=>{localStorage.clear();
         window.location.href = '/login';}}>
               <FontAwesomeIcon icon={faSignOutAlt} className="mr-2" />

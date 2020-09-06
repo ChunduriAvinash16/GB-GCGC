@@ -93,7 +93,7 @@ class EditTraining extends Component {
     }
     render(){
      return (
-        <div>
+        <div className="container">
             <Form onSubmit={this.handleSubmit}>
               <FormGroup>
                 <Label htmlfor="username">Year Of Passing</Label>

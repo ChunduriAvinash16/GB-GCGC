@@ -7,13 +7,14 @@ import {
 } from "reactstrap";
 
 import Axios from 'axios';
+import { ThemeProvider } from "react-bootstrap";
 
 
 class Amcat extends Component {
   constructor(props){
     super(props);
     this.state={
-        LogicalAbility:0, EnglishComprehension:0, QuantitativeAbility:0, Automata:0, AutomataFix:0, Domain1:0, Domain2:0,
+        id:"",LogicalAbility:0, EnglishComprehension:0, QuantitativeAbility:0, Automata:0, AutomataFix:0, Domain1:0, Domain2:0,
         student_id:321710306006,
     }
 };
@@ -21,6 +22,7 @@ componentDidMount(){
     Axios.get("http://localhost/login-backend/are_amcat.php?id="+this.props.aid)
     .then(response => {
         this.setState({
+            id:response.data[0]['Assessment_ID'],
             LogicalAbility:response.data[0]['1_Logical_Ability_900M'],
             EnglishComprehension:response.data[0]['2_English_Comprehension_900M'],
             QuantitativeAbility:response.data[0]['3_Quantitative_Ability_900M'],
@@ -39,6 +41,9 @@ componentDidMount(){
 
 
   render(){
+    if(this.state.id==="NI" || this.state.id=="NA"){
+      return(<div></div>)
+    }
   return (
     <div className="Amcat">
       <Card className="Rounded p-3">
