@@ -11,17 +11,7 @@ This Project will help to students where he/she is actually there.
 </pre>
 <h3> Contributors </h3>
 <ul>
-    <li>
-        <a href="https://github.com/sidrockzz">
-            Siddharth
-        </a>
-    </li>   
-    <li>
-        <a href="https://github.com/gvsreevarsha/"> 
-            Varsha
-        </a>
-    </li>
- <ul>
+
 
 
 # start with localhost:3XXX/login 
