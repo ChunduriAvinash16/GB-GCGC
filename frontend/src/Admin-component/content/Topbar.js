@@ -11,8 +11,8 @@ const Topbar = ({ toggleSidebar }) => {
   const toggleTopbar = () => setTopbarOpen(!topbarIsOpen);
 
   return (
-    <Navbar
-      className="navbar shadow-sm p-2 mb-5 rounded"
+    <Navbar 
+      className="navbar shadow-sm p-2 mb-5 navbar-fixed-top"
       expand="lg"
       style={{ backgroundColor: "#767B91", color: "white" }}
     >
