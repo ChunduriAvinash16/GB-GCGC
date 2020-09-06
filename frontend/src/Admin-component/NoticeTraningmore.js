@@ -22,7 +22,7 @@ class NoticeTraningmore extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="container">
         <Card>
           <Card.Body>
             <Card.Title>

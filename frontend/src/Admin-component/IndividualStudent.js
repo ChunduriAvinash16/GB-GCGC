@@ -33,6 +33,7 @@ import Pass from "./component/Pass";
 import Section from "./component/Section";
 import CurrentJob from "../user-components/CurrentJob";
 import Placements from "../user-components/Placements";
+import Dashboard from "../user-components/Dashboard";
 
 class IndividualStudent extends React.Component {
   constructor(props){
@@ -65,8 +66,12 @@ class IndividualStudent extends React.Component {
 
   render() {
     return (
+      /*<div className="container">
+           <Dashboard login={this.props.match.params.id}></Dashboard>
+
+      </div>*/
       <div className="IndividualStudent">
-        <div class="container-fluid">
+        <div class="container">
           <br></br>
           {console.log(this.props.match.params.id)}
           <Row>
@@ -97,7 +102,7 @@ class IndividualStudent extends React.Component {
           </Collapsible>
         </div>
         <br></br>
-        <div class="container-fluid">
+        <div class="container">
           <Row>
             <Col md="6" className="p-2">
               <JobFitment fitid={this.props.match.params.id}/>
@@ -108,12 +113,14 @@ class IndividualStudent extends React.Component {
           </Row>
         </div>
         <br></br>
-        <Card>
-          <CardTitle>ARI</CardTitle>
-          <ARI arii={this.props.match.params.id}/>
-        </Card>
+        <div className="container">
+          <Card>
+            <CardTitle>ARI</CardTitle>
+            <ARI arii={this.props.match.params.id}/>
+          </Card>
+        </div>
         <br></br>
-        <div class="container-fluid">
+        <div class="container">
             <Row>
               <Col md="6" className="p-2">
                 <Cocubes cid={this.props.match.params.id}/>
@@ -124,12 +131,15 @@ class IndividualStudent extends React.Component {
             </Row>
         </div>
         <br></br>
-        <Card>
-          <CardTitle>ITA</CardTitle>
-          <ITA aid={this.props.match.params.id}/>
-        </Card> 
+        <div className="container">
+          <Card>
+            <CardTitle>ITA</CardTitle>
+            <ITA aid={this.props.match.params.id}/>
+          </Card>
+        </div>
         <br></br>
-        <Card>
+        <div className="container">
+             <Card>
           <CardTitle><h4>Placements Analysis</h4></CardTitle>
             <br/>
               <Row>
@@ -157,7 +167,9 @@ class IndividualStudent extends React.Component {
             <br></br>
             <Placements login={this.props.match.params.id}/>
           </Card>
-      </div>
+        </div>
+      
+    </div>
     );
   }
 }

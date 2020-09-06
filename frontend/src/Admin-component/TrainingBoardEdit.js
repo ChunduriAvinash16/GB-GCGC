@@ -125,7 +125,7 @@ class TrainingBoardEdit extends Component {
       return <Redirect to={"/home"}/>
     }
     return (
-      <div>
+      <div className="container">
         <Card>
           <Card.Body>
             <div className="row">

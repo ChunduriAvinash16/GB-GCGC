@@ -10,7 +10,7 @@ class Cocubes extends Component {
   constructor(props){
     super(props);
     this.state={
-        Aptitude:0, English:0, Quantitative:0, Analytical:0, Domain:0, ComputerFundamentals:0, Coding:0,WET:0,Personality:0,
+      id:0, Remarks:"", Aptitude:0, English:0, Quantitative:0, Analytical:0, Domain:0, ComputerFundamentals:0, Coding:0,WET:0,Personality:0,
         student_id:321710306006,
     }
 };
@@ -18,6 +18,7 @@ class Cocubes extends Component {
           Axios.get("http://localhost/login-backend/are_cocubes.php?id="+this.props.cid)
           .then(response => {
               this.setState({
+                  id:response.data[0]['Assessment_ID'],
                   Aptitude:response.data[0]['Overall_Aptitude'],
                   English:response.data[0]['English'],
                   Quantitative:response.data[0]['Quantitative'],
@@ -27,6 +28,7 @@ class Cocubes extends Component {
                   Coding:response.data[0]['Coding'],
                   WET:response.data[0]['WET'],
                   Personality:response.data[0]['Personality'],
+                  Remarks:response.data[0]["Remarks"]
               })
               console.log(this.state.Personality)
           })
@@ -37,6 +39,11 @@ class Cocubes extends Component {
 
 
   render(){
+    if (this.state.id==0){
+      return(  <div>
+        </div>);
+    }
+    else{
   return (
     <div className="Cocubes">
       <Card className="Rounded p-3">
@@ -75,5 +82,6 @@ class Cocubes extends Component {
     </div>
   );
 }
+  }
 }
 export default Cocubes;

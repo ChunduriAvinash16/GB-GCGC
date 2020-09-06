@@ -30,7 +30,7 @@ onChangeid(e){
 
 render(){
   return (
-    <div className="container-fluid">
+    <div className="container">
           <div
             className="Manage"
             style={{

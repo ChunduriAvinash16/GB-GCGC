@@ -171,3 +171,7 @@ Card {
   flex-wrap: wrap;
 
 }
+
+.container-fluid{
+  padding:0px;
+}
