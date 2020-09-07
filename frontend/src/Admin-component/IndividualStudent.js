@@ -113,16 +113,16 @@ class IndividualStudent extends React.Component {
         <div class="container-fluid">
           <Row>
             <Col md="6" className="p-2">
-              <Cocubes />
+              <Cocubes cid={this.props.match.params.id}/>
             </Col>
             <Col md="6" className="p-2">
-              <Amcat />
+              <Amcat aid={this.props.match.params.id}/>
             </Col>
           </Row>
         </div>
         <br></br>
 
-        <ITA />
+        <ITA aid={this.props.match.params.id} />
 
         <br></br>
         <h6>Placements Analysis</h6>
