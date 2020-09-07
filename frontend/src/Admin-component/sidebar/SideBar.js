@@ -9,6 +9,8 @@ import {
   faChalkboardTeacher,
   faSignOutAlt,
   faEdit,
+  faGraduationCap,
+  faUsers
 } from "@fortawesome/free-solid-svg-icons";
 import { NavItem, NavLink, Nav } from "reactstrap";
 import classNames from "classnames";
@@ -50,11 +52,13 @@ const SideBar = ({ isOpen, toggle }) => (
                 <ul style={{"padding":"0px"}}>
                 <li className="pl-3">
                   <NavLink tag={Link} to={"/user-staff"}>
+                  <FontAwesomeIcon icon={faUsers} className="mr-2" />
                     Staff
                   </NavLink>
                 </li>
                 <li className="pl-3">
                   <NavLink tag={Link} to={"/user-student"}>
+                  <FontAwesomeIcon icon={faGraduationCap} className="mr-2" />
                     Student
                   </NavLink>
                 </li>
