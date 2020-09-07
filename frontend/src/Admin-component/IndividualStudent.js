@@ -72,7 +72,9 @@ class IndividualStudent extends React.Component {
       </div>*/
       <div className="IndividualStudent">
         <div class="container">
+          <Button type="submit">submit</Button>
           <br></br>
+          <Collapsible trigger="Academic Details" style={{"textAlign":"c"}}>
           {console.log(this.props.match.params.id)}
           <Row>
             <Col md="4">
@@ -100,9 +102,11 @@ class IndividualStudent extends React.Component {
               </Col>
             </Row>
           </Collapsible>
+          </Collapsible>
         </div>
         <br></br>
         <div class="container">
+        <Collapsible trigger="Job Fitment Curve">
           <Row>
             <Col md="6" className="p-2">
               <JobFitment fitid={this.props.match.params.id}/>
@@ -111,34 +115,42 @@ class IndividualStudent extends React.Component {
               <CurrentJob jobid={this.props.match.params.id}/>
             </Col>
           </Row>
+          </Collapsible>
         </div>
         <br></br>
         <div className="container">
+          <Collapsible trigger="ARI">
           <Card>
             <CardTitle>ARI</CardTitle>
             <ARI arii={this.props.match.params.id}/>
           </Card>
+      </Collapsible>
         </div>
         <br></br>
         <div class="container">
+        <Collapsible trigger="ARE">
             <Row>
               <Col md="6" className="p-2">
                 <Cocubes cid={this.props.match.params.id}/>
-              </Col>
+                </Col>
               <Col md="6" className="p-2">
                 <Amcat aid={this.props.match.params.id} />
-              </Col>
+                </Col>
             </Row>
+            </Collapsible>
         </div>
         <br></br>
         <div className="container">
+        <Collapsible trigger="ITA" >
           <Card>
             <CardTitle>ITA</CardTitle>
             <ITA aid={this.props.match.params.id}/>
           </Card>
+          </Collapsible>
         </div>
         <br></br>
         <div className="container">
+        <Collapsible trigger="Placements Analysis">
              <Card>
           <CardTitle><h4>Placements Analysis</h4></CardTitle>
             <br/>
@@ -167,8 +179,8 @@ class IndividualStudent extends React.Component {
             <br></br>
             <Placements login={this.props.match.params.id}/>
           </Card>
+          </Collapsible>
         </div>
-      
     </div>
     );
   }
