@@ -20,6 +20,7 @@ import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
 import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import DropdownItem from "react-bootstrap/esm/DropdownItem";
 import Collapsible from "react-collapsible";
+import UserIcon from "./UserIcon";
 const SideBar = ({ isOpen, toggle }) => (
   <div className={classNames("sidebar", { "is-open": isOpen })}>
     <div>
@@ -44,7 +45,7 @@ const SideBar = ({ isOpen, toggle }) => (
           </li>
           <hr/>
           <span className="pl-3" style={{"textAlign":"initial"}}>
-              <Collapsible className ="pl-1  fa fa" trigger={ "User"}>
+              <Collapsible className ="pl-1  fa fa" trigger={<UserIcon/>}>
               <Nav vertical className="list-unstyled pb-3">
                 <ul style={{"padding":"0px"}}>
                 <li className="pl-3">
