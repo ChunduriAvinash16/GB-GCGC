@@ -67,7 +67,7 @@ const SideBar = ({ isOpen, toggle }) => (
               </Nav>
               </Collapsible>
             </span>
-          <hr/>
+            <hr/>
           <li>
             <NavLink tag={Link} to={"/assessment"}>
                 <FontAwesomeIcon icon={faEdit} className="mr-2"/>
