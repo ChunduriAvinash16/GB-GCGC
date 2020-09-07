@@ -142,7 +142,7 @@ class Settings extends React.Component {
     Axios.post(
       "http://localhost/Admin-backend/updateSettings.php?id=" + this.props.sid,
       obj
-    ).then((res) => console.log(res.data), this.setState({ redirect: true }));
+    ).then((res) => console.log(res.data), this.setState({ redirect: true }),alert("Updated"));
   }
   onSubmitPassword(e) {
     e.preventDefault();
@@ -160,7 +160,9 @@ class Settings extends React.Component {
         oldpassword:"",
       newpassword:"",
     verifypassword:"" 
-  }));
+  }),
+  alert("Password Updated Successfully")
+  );
   }
 
   render() {
@@ -371,7 +373,7 @@ class Settings extends React.Component {
                 <Col lg="8">
                   <Row>&nbsp;</Row>
                   <Form.Group as={Row} controlId="Old Password">
-                    <Form.Label column lg="4">
+                    <Form.Label column lg="4" style={{"font-size":"16px","color":"#212529"}}>
                       Old Password:
                     </Form.Label>
                     <Col lg="8">
@@ -390,7 +392,7 @@ class Settings extends React.Component {
                   </Form.Group>
                   <br/>
                   <Form.Group as={Row} controlId="New Password">
-                    <Form.Label column lg="4">
+                    <Form.Label column lg="4" style={{"font-size":"16px","color":"#212529"}}>
                       New Password:
                     </Form.Label>
                     <Col lg="8">
@@ -409,7 +411,7 @@ class Settings extends React.Component {
                   </Form.Group>
                   <br/>
                   <Form.Group as={Row} controlId="Confirm Password">
-                    <Form.Label column lg="4">
+                    <Form.Label column lg="4" style={{"font-size":"16px","color":"#212529"}}>
                       Confirm Password:
                     </Form.Label>
                     <Col lg="8">

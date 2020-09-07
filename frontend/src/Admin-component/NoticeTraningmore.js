@@ -7,7 +7,6 @@ class NoticeTraningmore extends Component {
     super(props);
     this.state={
       dash:[],
-      year:"2021"
       }
   }
   componentDidMount(){
