@@ -33,6 +33,7 @@ import BtechMarks from "./component/BtechMarks";
 import Branch from "./component/Branch";
 import Pass from "./component/Pass";
 import Section from "./component/Section";
+import RecordsListPlaceAnalysis from "./component/RecordsListPlaceAnalysis";
 
 class IndividualStudent extends React.Component {
   constructor(props){
@@ -45,6 +46,7 @@ class IndividualStudent extends React.Component {
               wtc:0,
               ttc:0,
               gdc:0,
+              Records:[]
     }
   }
   componentDidMount(){
@@ -61,7 +63,20 @@ class IndividualStudent extends React.Component {
       })
     })
     .catch(err=>console.log(err));
+    Axios.get("http://localhost/login-backend/placements.php?id="+this.props.match.params.id)
+    .then(responses => {
+        this.setState({Records: responses.data});
+        console.log(this.state.Records);
+    })
+    .catch(function (error){
+        console.log(error);
+    })
   }
+  RecordsList(){
+    return this.state.Records.map(function (object,i){
+        return <RecordsListPlaceAnalysis obj={object} key={i} login={321710303054}/>;
+    });
+}
 
   render() {
     return (
@@ -169,6 +184,9 @@ class IndividualStudent extends React.Component {
               <th>Personal Interview</th>
             </tr>
           </thead>
+          <tbody>
+            {this.RecordsList()}
+          </tbody>
         </Table>
         </Collapsible>
       </div>
