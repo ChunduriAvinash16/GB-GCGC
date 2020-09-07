@@ -26,10 +26,33 @@ class ARI extends React.Component {
       CRT1:0,CRT2:0,CRT3:0,
     };
     this.handleModalITA = this.handleModalITA.bind(this);
+    this.onChangeSST1=this.onChangeSST1.bind(this);
+    this.onChangeSST2=this.onChangeSST2.bind(this);
+    this.onChangeTT1=this.onChangeTT1.bind(this);
+    this.onChangeTT2=this.onChangeTT2.bind(this);
+    this.onChangeTT3=this.onChangeTT3.bind(this);
+    this.onChangeTT4=this.onChangeTT4.bind(this);
+    this.onChangeTT5=this.onChangeTT5.bind(this);
+    this.onChangeCRT1=this.onChangeCRT1.bind(this);
+    this.onChangeCRT2=this.onChangeCRT2.bind(this);
+    this.onChangeCRT3=this.onChangeCRT3.bind(this);
   }
   handleModalITA() {
     this.setState({ show: !this.state.show });
   }
+  onChangeSST1(e){this.setState({SST1:e.target.value})}
+  onChangeSST2(e){this.setState({SST2:e.target.value})}
+  onChangeTT1(e){this.setState({TT1:e.target.value})}
+  onChangeTT2(e){this.setState({TT2:e.target.value})}
+  onChangeTT3(e){this.setState({TT3:e.target.value})}
+  onChangeTT4(e){this.setState({TT4:e.target.value})}
+  onChangeTT5(e){this.setState({TT5:e.target.value})}
+  onChangeCRT1(e){this.setState({CRT1:e.target.value})}
+  onChangeCRT2(e){this.setState({CRT2:e.target.value})}
+  onChangeCRT3(e){this.setState({CRT3:e.target.value})}
+
+
+
       componentDidMount(){
         Axios.get("http://localhost:80/login-backend/ita.php?id="+this.props.aid)
         .then(response => {
@@ -128,6 +151,8 @@ class ARI extends React.Component {
                             type="text"
                             style={{ width: "50px" }}
                             name="asst1"
+                            value={this.state.SST1}
+                            onChange={this.onChangeSST1}
                           />
                         </td>
                         <td>
@@ -135,6 +160,9 @@ class ARI extends React.Component {
                             type="text"
                             style={{ width: "50px" }}
                             name="asst2"
+                            value={this.state.SST2}
+                            onChange={this.onChangeSST2}
+
                           />
                         </td>
                         <td></td>
@@ -148,6 +176,9 @@ class ARI extends React.Component {
                             type="text"
                             style={{ width: "50px" }}
                             name="aat1"
+                            value={this.state.TT1}
+                            onChange={this.onChangeTT1}
+
                           />
                         </td>
                         <td>
@@ -155,6 +186,9 @@ class ARI extends React.Component {
                             type="text"
                             style={{ width: "50px" }}
                             name="aat2"
+                            value={this.state.TT2}
+                            onChange={this.onChangeTT2}
+
                           />
                         </td>
                         <td>
@@ -162,6 +196,9 @@ class ARI extends React.Component {
                             type="text"
                             style={{ width: "50px" }}
                             name="aat3"
+                            value={this.state.TT3}
+                            onChange={this.onChangeTT3}
+
                           />
                         </td>
                         <td>
@@ -169,6 +206,9 @@ class ARI extends React.Component {
                             type="text"
                             style={{ width: "50px" }}
                             name="aat4"
+                            value={this.state.TT4}
+                            onChange={this.onChangeTT4}
+
                           />
                         </td>
                         <td>
@@ -176,6 +216,8 @@ class ARI extends React.Component {
                             type="text"
                             style={{ width: "50px" }}
                             name="aat5"
+                            value={this.state.TT5}
+                            onChange={this.onChangeTT5}
                           />
                         </td>
                       </tr>
@@ -186,6 +228,8 @@ class ARI extends React.Component {
                             type="text"
                             style={{ width: "50px" }}
                             name="acrt1"
+                            value={this.state.CRT1}
+                            onChange={this.onChangeCRT1}
                           />
                         </td>
                         <td>
@@ -193,6 +237,8 @@ class ARI extends React.Component {
                             type="text"
                             style={{ width: "50px" }}
                             name="acrt2"
+                            value={this.state.CRT2}
+                            onChange={this.onChangeCRT2}
                           />
                         </td>
                         <td>
@@ -200,6 +246,8 @@ class ARI extends React.Component {
                             type="text"
                             style={{ width: "50px" }}
                             name="acrt3"
+                            value={this.state.CRT3}
+                            onChange={this.onChangeCRT3}
                           />
                         </td>
                         <td></td>
