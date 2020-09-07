@@ -47,11 +47,7 @@ const SideBar = ({ isOpen, toggle }) => (
             </NavLink>
           </li>
           <hr/>
-<<<<<<< HEAD
-          <nav className="pl-3" style={{"textAlign":"initial"}}>
-=======
           <span className="pl-3" style={{"textAlign":"initial"}}>
->>>>>>> 703792d28c873994ea6cd0e918c73c5fefb21d08
               <Collapsible className ="pl-1  fa fa" trigger={<UserIcon/>}>
               <Nav vertical className="list-unstyled pb-3">
                 <ul style={{"padding":"0px"}}>
@@ -70,7 +66,7 @@ const SideBar = ({ isOpen, toggle }) => (
                 </ul>
               </Nav>
               </Collapsible>
-            </nav>
+            </span>
             <hr/>
           <li>
             <NavLink tag={Link} to={"/assessment"}>
