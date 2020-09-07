@@ -33,6 +33,7 @@ import BtechMarks from "./component/BtechMarks";
 import Branch from "./component/Branch";
 import Pass from "./component/Pass";
 import Section from "./component/Section";
+import RecordsListPlaceAnalysis from "./component/RecordsListPlaceAnalysis";
 
 class IndividualStudent extends React.Component {
   constructor(props){
@@ -45,6 +46,7 @@ class IndividualStudent extends React.Component {
               wtc:0,
               ttc:0,
               gdc:0,
+              Records:[]
     }
   }
   componentDidMount(){
@@ -61,7 +63,20 @@ class IndividualStudent extends React.Component {
       })
     })
     .catch(err=>console.log(err));
+    Axios.get("http://localhost/login-backend/placements.php?id="+this.props.match.params.id)
+    .then(responses => {
+        this.setState({Records: responses.data});
+        console.log(this.state.Records);
+    })
+    .catch(function (error){
+        console.log(error);
+    })
   }
+  RecordsList(){
+    return this.state.Records.map(function (object,i){
+        return <RecordsListPlaceAnalysis obj={object} key={i} login={321710303054}/>;
+    });
+}
 
   render() {
     return (
@@ -120,10 +135,10 @@ class IndividualStudent extends React.Component {
           <Collapsible trigger="ARE">
           <Row>
             <Col md="6" className="p-2">
-              <Cocubes cid={this.props.match.params.id}/>
+            <Cocubes cid={this.props.match.params.id}/>
             </Col>
             <Col md="6" className="p-2">
-              <Amcat aid={this.props.match.params.id}/>
+            <Amcat aid={this.props.match.params.id}/>
             </Col>
           </Row>
           </Collapsible>
@@ -133,48 +148,50 @@ class IndividualStudent extends React.Component {
         <ITA aid={this.props.match.params.id}/>
         </Collapsible>
         <br></br>
-          <Collapsible trigger="Placement Analysis">
-          <h6>Placements Analysis</h6>
-          <Table className="placements" striped bordered responsive>
-            <tbody>
-              <tr>
-                <td md="6">Total Number of Companies:50</td>
-                <td md="6">Number of written test cleared:0</td>
-              </tr>
-              <tr>
-                <td md="6">Number of Companies Attended:0</td>
-                <td md="6">Number of GD's cleared:0</td>
-              </tr>
-              <tr>
-                <td md="6">Number of Companies Eligible:50</td>
-                <td md="6">Number of technical test cleared:0</td>
-              </tr>
-              <tr>
-                <td colspan="2">Number of Offer Letters:0</td>
-              </tr>
-            </tbody>
-          </Table>
-          <br></br>
-          <h6>Placements Analysis</h6>
-          <Table className="placementanalysis" responsive>
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Company Logo</th>
-                <th>Company Name</th>
-                <th>Attendance</th>
-                <th>Written Test</th>
-                <th>GroupDiscussion</th>
-                <th>Technical Test</th>
-                <th>Personal Interview</th>
-              </tr>
-            </thead>
-          </Table>
-          </Collapsible>
+        <Collapsible trigger="Placement Analysis">
+        <h6>Placements Analysis</h6>
+        <Table className="placements" striped bordered responsive>
+          <tbody>
+            <tr>
+    <td md="6">Total Number of Companies: {this.state.noc}</td>
+    <td md="6">Number of written test cleared:{this.state.wtc}</td>
+            </tr>
+            <tr>
+    <td md="6">Number of Companies Attended:{this.state.ce}</td>
+    <td md="6">Number of GD's cleared:{this.state.gdc}</td>
+            </tr>
+            <tr>
+    <td md="6">Number of Companies Eligible:{this.state.nca}</td>
+              <td md="6">Number of technical test cleared:{this.state.ttc}</td>
+            </tr>
+            <tr>
+              <td colspan="2">Number of Offer Letters:{this.state.olf}</td>
+            </tr>
+          </tbody>
+        </Table>
+        <br></br>
+        <h6>Placements Analysis</h6>
+        <Table className="placementanalysis" responsive>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Company Logo</th>
+              <th>Company Name</th>
+              <th>Attendance</th>
+              <th>Written Test</th>
+              <th>GroupDiscussion</th>
+              <th>Technical Test</th>
+              <th>Personal Interview</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.RecordsList()}
+          </tbody>
+        </Table>
+        </Collapsible>
       </div>
     );
   }
 }
-
 
 export default IndividualStudent;
