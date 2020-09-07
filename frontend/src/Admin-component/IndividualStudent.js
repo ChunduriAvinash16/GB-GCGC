@@ -67,6 +67,7 @@ class IndividualStudent extends React.Component {
     return (
       <div className="IndividualStudent">
       <div class="container-fluid">
+      <Collapsible trigger="Academic Details">
         <br></br>
         {console.log(this.props.match.params.id)}
         <Row>
@@ -95,22 +96,28 @@ class IndividualStudent extends React.Component {
             </Col>
           </Row>
         </Collapsible>
+        </Collapsible>
       </div>
         <br></br>
         <div class="container-fluid">
+          <Collapsible trigger="Job Fitment Curve">
           <Row>
             <Col md="6" className="p-2">
-              <JobFitment />
+              <JobFitment jf={this.props.match.params.id} />
             </Col>
             <Col md="6" className="p-2">
-              <CurrentJobS />
+              <CurrentJobS cs={this.props.match.params.id}/>
             </Col>
           </Row>
+          </Collapsible>
         </div>
         <br></br>
+        <Collapsible trigger="ARI">
         <ARI />
+        </Collapsible>
         <br></br>
         <div class="container-fluid">
+          <Collapsible trigger="ARE">
           <Row>
             <Col md="6" className="p-2">
               <Cocubes />
@@ -119,12 +126,14 @@ class IndividualStudent extends React.Component {
               <Amcat />
             </Col>
           </Row>
+          </Collapsible>
         </div>
         <br></br>
-
+        <Collapsible trigger="TAR">
         <ITA />
-
+        </Collapsible>
         <br></br>
+        <Collapsible trigger="Placement Analysis">
         <h6>Placements Analysis</h6>
         <Table className="placements" striped bordered responsive>
           <tbody>
@@ -161,6 +170,7 @@ class IndividualStudent extends React.Component {
             </tr>
           </thead>
         </Table>
+        </Collapsible>
       </div>
     );
   }
