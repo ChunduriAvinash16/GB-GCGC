@@ -47,9 +47,11 @@ a:focus {
   padding: 1.25em;
 }
 
-.sidebar ul p {
-  color: #fff;
+.Collapsible{
+  text-align:left
 }
+
+
 
 .menu-open {
   background: #6d7fcc;
@@ -57,7 +59,6 @@ a:focus {
 
 li:hover {
   color: #7386d5;
-  background: #fff;
 }
 
 li{

@@ -42,15 +42,24 @@ const SideBar = ({ isOpen, toggle }) => (
             </NavLink>
           </li>
           <hr/>
-          <li>
-          
-              <Collapsible className ="pl-3" trigger={ <FontAwesomeIcon icon={faUser} className="mr-2"/>}value="User">
-                <div className="pl-3">
-                  <FontAwesomeIcon icon={faUser} className="mr-2"/>User
-                </div>
+          <span className="pl-3" style={{"textAlign":"initial"}}>
+              <Collapsible className ="pl-1  fa fa" trigger={ "User"}>
+              <Nav vertical className="list-unstyled pb-3">
+                <ul style={{"padding":"0px"}}>
+                <li className="pl-3">
+                  <NavLink tag={Link} to={"/user-staff"}>
+                    Staff
+                  </NavLink>
+                </li>
+                <li className="pl-3">
+                  <NavLink tag={Link} to={"/user-student"}>
+                    Student
+                  </NavLink>
+                </li>
+                </ul>
+              </Nav>
               </Collapsible>
-          </li>
-
+            </span>
           <hr/>
           <li>
             <NavLink tag={Link} to={"/IndividualStudentEntry"}>
