@@ -129,7 +129,7 @@ class Dashboard extends Component {
             
               <br/>
             <Card>
-              <Collapsible trigger="PersonalDetails" triggerStyle={{"textAlign":"end"}}>
+              <Collapsible trigger="PersonalDetails" style={{"text-align":"center"}}>
                 <hr/>
                   <Personaldetails login={this.props.login}/>
               </Collapsible>
