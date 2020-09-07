@@ -67,6 +67,7 @@ class IndividualStudent extends React.Component {
     return (
       <div className="IndividualStudent">
       <div class="container-fluid">
+      <Collapsible trigger="Academic Details">
         <br></br>
         {console.log(this.props.match.params.id)}
         <Row>
@@ -95,22 +96,28 @@ class IndividualStudent extends React.Component {
             </Col>
           </Row>
         </Collapsible>
+        </Collapsible>
       </div>
         <br></br>
         <div class="container-fluid">
+          <Collapsible trigger="Job Fitment Curve">
           <Row>
             <Col md="6" className="p-2">
-              <JobFitment />
+              <JobFitment jf={this.props.match.params.id} />
             </Col>
             <Col md="6" className="p-2">
-              <CurrentJobS />
+              <CurrentJobS cs={this.props.match.params.id}/>
             </Col>
           </Row>
+          </Collapsible>
         </div>
         <br></br>
+        <Collapsible trigger="ARI">
         <ARI />
+        </Collapsible>
         <br></br>
         <div class="container-fluid">
+          <Collapsible trigger="ARE">
           <Row>
             <Col md="6" className="p-2">
               <Cocubes cid={this.props.match.params.id}/>
@@ -119,51 +126,55 @@ class IndividualStudent extends React.Component {
               <Amcat aid={this.props.match.params.id}/>
             </Col>
           </Row>
+          </Collapsible>
         </div>
         <br></br>
-
-        <ITA aid={this.props.match.params.id} />
-
+        <Collapsible trigger="TAR">
+        <ITA aid={this.props.match.params.id}/>
+        </Collapsible>
         <br></br>
-        <h6>Placements Analysis</h6>
-        <Table className="placements" striped bordered responsive>
-          <tbody>
-            <tr>
-              <td md="6">Total Number of Companies:50</td>
-              <td md="6">Number of written test cleared:0</td>
-            </tr>
-            <tr>
-              <td md="6">Number of Companies Attended:0</td>
-              <td md="6">Number of GD's cleared:0</td>
-            </tr>
-            <tr>
-              <td md="6">Number of Companies Eligible:50</td>
-              <td md="6">Number of technical test cleared:0</td>
-            </tr>
-            <tr>
-              <td colspan="2">Number of Offer Letters:0</td>
-            </tr>
-          </tbody>
-        </Table>
-        <br></br>
-        <h6>Placements Analysis</h6>
-        <Table className="placementanalysis" responsive>
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Company Logo</th>
-              <th>Company Name</th>
-              <th>Attendance</th>
-              <th>Written Test</th>
-              <th>GroupDiscussion</th>
-              <th>Technical Test</th>
-              <th>Personal Interview</th>
-            </tr>
-          </thead>
-        </Table>
+          <Collapsible trigger="Placement Analysis">
+          <h6>Placements Analysis</h6>
+          <Table className="placements" striped bordered responsive>
+            <tbody>
+              <tr>
+                <td md="6">Total Number of Companies:50</td>
+                <td md="6">Number of written test cleared:0</td>
+              </tr>
+              <tr>
+                <td md="6">Number of Companies Attended:0</td>
+                <td md="6">Number of GD's cleared:0</td>
+              </tr>
+              <tr>
+                <td md="6">Number of Companies Eligible:50</td>
+                <td md="6">Number of technical test cleared:0</td>
+              </tr>
+              <tr>
+                <td colspan="2">Number of Offer Letters:0</td>
+              </tr>
+            </tbody>
+          </Table>
+          <br></br>
+          <h6>Placements Analysis</h6>
+          <Table className="placementanalysis" responsive>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Company Logo</th>
+                <th>Company Name</th>
+                <th>Attendance</th>
+                <th>Written Test</th>
+                <th>GroupDiscussion</th>
+                <th>Technical Test</th>
+                <th>Personal Interview</th>
+              </tr>
+            </thead>
+          </Table>
+          </Collapsible>
       </div>
     );
   }
 }
+
 
 export default IndividualStudent;
