@@ -120,17 +120,17 @@ class IndividualStudent extends React.Component {
           <Collapsible trigger="ARE">
           <Row>
             <Col md="6" className="p-2">
-              <Cocubes />
+            <Cocubes cid={this.props.match.params.id}/>
             </Col>
             <Col md="6" className="p-2">
-              <Amcat />
+            <Amcat aid={this.props.match.params.id}/>
             </Col>
           </Row>
           </Collapsible>
         </div>
         <br></br>
         <Collapsible trigger="TAR">
-        <ITA />
+        <ITA aid={this.props.match.params.id}/>
         </Collapsible>
         <br></br>
         <Collapsible trigger="Placement Analysis">
@@ -138,19 +138,19 @@ class IndividualStudent extends React.Component {
         <Table className="placements" striped bordered responsive>
           <tbody>
             <tr>
-              <td md="6">Total Number of Companies:50</td>
-              <td md="6">Number of written test cleared:0</td>
+    <td md="6">Total Number of Companies: {this.state.noc}</td>
+    <td md="6">Number of written test cleared:{this.state.wtc}</td>
             </tr>
             <tr>
-              <td md="6">Number of Companies Attended:0</td>
-              <td md="6">Number of GD's cleared:0</td>
+    <td md="6">Number of Companies Attended:{this.state.ce}</td>
+    <td md="6">Number of GD's cleared:{this.state.gdc}</td>
             </tr>
             <tr>
-              <td md="6">Number of Companies Eligible:50</td>
-              <td md="6">Number of technical test cleared:0</td>
+    <td md="6">Number of Companies Eligible:{this.state.nca}</td>
+              <td md="6">Number of technical test cleared:{this.state.ttc}</td>
             </tr>
             <tr>
-              <td colspan="2">Number of Offer Letters:0</td>
+              <td colspan="2">Number of Offer Letters:{this.state.olf}</td>
             </tr>
           </tbody>
         </Table>
