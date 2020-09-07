@@ -113,7 +113,7 @@ class IndividualStudent extends React.Component {
         </div>
         <br></br>
         <Collapsible trigger="ARI">
-        <ARI />
+        <ARI ari={this.props.match.params.id}/>
         </Collapsible>
         <br></br>
         <div class="container-fluid">
