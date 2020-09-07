@@ -103,10 +103,10 @@ class IndividualStudent extends React.Component {
           <Collapsible trigger="Job Fitment Curve">
           <Row>
             <Col md="6" className="p-2">
-              <JobFitment />
+              <JobFitment jf={this.props.match.params.id} />
             </Col>
             <Col md="6" className="p-2">
-              <CurrentJobS />
+              <CurrentJobS cs={this.props.match.params.id}/>
             </Col>
           </Row>
           </Collapsible>
