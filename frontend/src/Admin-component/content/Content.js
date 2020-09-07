@@ -35,6 +35,9 @@ import EditPlacement from "../EditPlacement";
 import Footer from "../../user-components/Footer";
 import IndividualStudent from "../IndividualStudent";
 import Login from "../../login-components/Login";
+import UserStaff from "../../Admin-component/UserStaff"
+import UserStudent from "../../Admin-component/UserStudent";
+import Assessment from "../../Admin-component/Assessment";
 const ColoredLine = ({ color }) => (
   <hr
     style={{
@@ -140,6 +143,9 @@ const Content = ({id,sidebarIsOpen, toggleSidebar}) => (
       <Route exact path={"/edit/:id"} component={EditTraining}/>
       <Route exact path={"/editplacement/:id"} component={EditPlacement}/>
       <Route path={"/IndividualStudent/:id"} component={IndividualStudent}/>
+      <Route path="/user-staff" component={UserStaff}/>
+      <Route path="/user-student" component={UserStudent}/>
+      <Route path="/assessment" component={Assessment}/>
     </Switch>
     <Footer />
   </Container>

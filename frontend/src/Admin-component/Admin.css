@@ -47,17 +47,22 @@ a:focus {
   padding: 1.25em;
 }
 
-.sidebar ul p {
-  color: #fff;
+.Collapsible{
+  text-align:left
 }
+
+
 
 .menu-open {
   background: #6d7fcc;
 }
 
-.nav-item:hover {
+li:hover {
   color: #7386d5;
-  background: #fff;
+}
+
+li{
+  text-align: left;
 }
 
 .items-menu {
@@ -175,3 +180,5 @@ Card {
 .container-fluid{
   padding:0px;
 }
+
+

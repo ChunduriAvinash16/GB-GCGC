@@ -9,7 +9,7 @@ const AdminRoute = (props) =>{
     const toggleSidebar = () => setSidebarOpen(!sidebarIsOpen);
     return (
     <Router>
-        <div className="Admin wrapper">
+        <div className="Admin">
             <SideBar toggle={toggleSidebar} isOpen={sidebarIsOpen} />
             {console.log(props.value)}
             <Content id={props.value} toggleSidebar={toggleSidebar} sidebarIsOpen={sidebarIsOpen} />
