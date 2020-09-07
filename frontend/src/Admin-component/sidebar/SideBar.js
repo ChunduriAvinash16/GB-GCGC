@@ -9,6 +9,9 @@ import {
   faChalkboardTeacher,
   faSignOutAlt,
   faEdit,
+  faGraduationCap,
+  faUsers,
+  faUserGraduate
 } from "@fortawesome/free-solid-svg-icons";
 import { NavItem, NavLink, Nav } from "reactstrap";
 import classNames from "classnames";
@@ -44,17 +47,23 @@ const SideBar = ({ isOpen, toggle }) => (
             </NavLink>
           </li>
           <hr/>
+<<<<<<< HEAD
           <nav className="pl-3" style={{"textAlign":"initial"}}>
+=======
+          <span className="pl-3" style={{"textAlign":"initial"}}>
+>>>>>>> 703792d28c873994ea6cd0e918c73c5fefb21d08
               <Collapsible className ="pl-1  fa fa" trigger={<UserIcon/>}>
               <Nav vertical className="list-unstyled pb-3">
                 <ul style={{"padding":"0px"}}>
                 <li className="pl-3">
                   <NavLink tag={Link} to={"/user-staff"}>
+                  <FontAwesomeIcon icon={faUsers} className="mr-2" />
                     Staff
                   </NavLink>
                 </li>
                 <li className="pl-3">
                   <NavLink tag={Link} to={"/user-student"}>
+                  <FontAwesomeIcon icon={faGraduationCap} className="mr-2" />
                     Student
                   </NavLink>
                 </li>
@@ -67,6 +76,13 @@ const SideBar = ({ isOpen, toggle }) => (
             <NavLink tag={Link} to={"/assessment"}>
                 <FontAwesomeIcon icon={faEdit} className="mr-2"/>
                 Assessment
+            </NavLink>
+          </li>
+          <hr/>
+          <li>
+            <NavLink tag={Link} to={"/Placements"}>
+              <FontAwesomeIcon icon={faUserGraduate} className="mr-2" />
+              Placements
             </NavLink>
           </li>
           <hr/>
