@@ -42,6 +42,7 @@ class CurrentJobS extends React.Component {
     this.onChangeSoftwareEngineer = this.onChangeSoftwareEngineer.bind(this);
     this.onChangeSoftwareDeveloper = this.onChangeSoftwareDeveloper.bind(this);
     this.onChangeSoftwareTester = this.onChangeSoftwareTester.bind(this);
+    this.onSubmitCurrentJob = this.onSubmitCurrentJob.bind(this)
   }
   handleModalcurrentjob() {
     this.setState({ show: !this.state.show });
@@ -83,12 +84,12 @@ class CurrentJobS extends React.Component {
   }
   onChangeSoftwareDeveloper(e){
     this.setState({
-      Software_Developer: e.target.value
+      SoftwareDeveloper: e.target.value
     })
   }
   onChangeSoftwareTester(e){
     this.setState({
-      Software_Tester: e.target.value
+      SoftwareTester: e.target.value
     })
   }
   componentDidMount(){
@@ -114,6 +115,24 @@ class CurrentJobS extends React.Component {
     .catch(function(err){
     console.log(err);
     })
+}
+onSubmitCurrentJob(e){
+  e.preventDefault();
+  const obj = {
+    Analyst: this.state.Analyst,
+    CustomerSales: this.state.CustomerSales,
+    PlantEngineer: this.state.PlantEngineer,
+    RRDEngineer: this.state.RRDEngineer,
+    NetworkEngineer: this.state.NetworkEngineer,
+    OperationsEngineer: this.state.OperationsEngineer,
+    SoftwareEngineer: this.state.SoftwareEngineer,
+    SoftwareDeveloper: this.state.SoftwareDeveloper,
+    SoftwareTester: this.state.SoftwareTester
+  }
+  console.log(obj);
+  Axios.post(
+    "http://localhost/Admin-backend/CurrentJobIndividual.php?id=" + this.props.cs,obj)
+    .then((res) => console.log(res.data),alert("Updated"));
 }
   render() {
     return (
@@ -212,6 +231,7 @@ class CurrentJobS extends React.Component {
             onHide={() => this.handleModalcurrentjob()}
           >
             <Modal.Header closeButton>Edit </Modal.Header>
+            <form onSubmit={this.onSubmitCurrentJob}>
             <Modal.Body>
               <Table className="CurrentJobSEdit" responsive>
                 <tr>
@@ -271,8 +291,9 @@ class CurrentJobS extends React.Component {
               </Table>
             </Modal.Body>
             <Modal.Footer>
-              <Button>Submit</Button>
+              <Button type="submit" >Submit</Button>
             </Modal.Footer>
+            </form>
           </Modal>
         </Card>
       </div>
