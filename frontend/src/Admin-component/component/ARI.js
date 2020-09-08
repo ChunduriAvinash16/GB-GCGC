@@ -42,6 +42,7 @@ class ARI extends React.Component {
     this.onChangeDT2 = this.onChangeDT2.bind(this);
     this.onChangeDT3 = this.onChangeDT3.bind(this);
     this.onChangeDT4 = this.onChangeDT4.bind(this);
+    this.onSubmitARI = this.onSubmitARI.bind(this);
   }
   handleModalARI() {
     this.setState({ show: !this.state.show });
@@ -165,6 +166,33 @@ class ARI extends React.Component {
         console.log(err);
     })
 }
+onSubmitARI(e){
+  e.preventDefault();
+  const obj ={
+    AT1:this.state.AT1,
+    AT2:this.state.AT2,
+    AT3:this.state.AT3,
+    AT4:this.state.AT4,
+    AT5:this.state.AT5,
+    AT6:this.state.AT6,
+    TT1:this.state.TT1,
+    TT2:this.state.TT2,
+    TT3:this.state.TT3,
+    TT4:this.state.TT4,
+    TT5:this.state.TT5,
+    TT6:this.state.TT6,
+    TT7:this.state.TT7,
+    TT8:this.state.TT8,
+    DT1:this.state.DT1,
+    DT2:this.state.DT2,
+    DT3:this.state.DT3,
+    DT4:this.state.DT4,
+  }
+  console.log(obj);
+  Axios.post(
+    "http://localhost/Admin-backend/ARIIndividual.php?id=" + this.props.ari,obj)
+    .then((res) => console.log(res.data),alert("Updated"));
+}
   render() {
     return (
       <div class="container-fluid">
@@ -223,6 +251,7 @@ class ARI extends React.Component {
                 style={{ maxWidth: "1600px", width: "80%" }}
               >
                 <Modal.Header closeButton>Edit ARI Marks</Modal.Header>
+                <form onSubmit={this.onSubmitARI}>
                 <Modal.Body>
                   <form>
                     <Table className="ARIedit" responsive>
@@ -418,8 +447,9 @@ class ARI extends React.Component {
                   </form>
                 </Modal.Body>
                 <Modal.Footer>
-                  <Button>Submit</Button>
+                  <Button type="submit">Submit</Button>
                 </Modal.Footer>
+                </form>
               </Modal>
             </Card>
           </Col>
