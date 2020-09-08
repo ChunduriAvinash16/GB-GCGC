@@ -12,7 +12,6 @@ import {
   Table,
 } from "reactstrap";
 import { Button, Modal } from "react-bootstrap";
-import { BarExample } from "./comp/SimpleBarchart";
 import { Bar } from "react-chartjs-2";
 import "chartjs-plugin-datalabels";
 import  Axios from 'axios';

@@ -12,7 +12,6 @@ import {
   Table,
 } from "reactstrap";
 import { Button, Modal } from "react-bootstrap";
-import { DoughnutExample } from "./comp/Doughnut";
 import Axios from "axios";
 import { Doughnut } from "react-chartjs-2";
 
