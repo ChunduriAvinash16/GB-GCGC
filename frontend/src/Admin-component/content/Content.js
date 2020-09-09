@@ -10,7 +10,6 @@ import {
   Row,
 } from "reactstrap";
 import { Switch, Route } from "react-router-dom";
-import Example from "./DropDown";
 import Topbar from "./Topbar";
 import HomeCards from "../HomeCards";
 import NoticeTraningmore from "../NoticeTraningmore";

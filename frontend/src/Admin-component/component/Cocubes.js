@@ -2,13 +2,11 @@ import React from "react";
 import {
   Card,
   CardSubtitle,
-
   Table,
 } from "reactstrap";
 import { Button, Modal } from "react-bootstrap";
 import {Radar} from 'react-chartjs-2';
 import Axios from 'axios';
-import { TimelineMonth } from "@syncfusion/ej2-react-schedule";
 
 
 class Cocubes extends React.Component {
@@ -16,8 +14,9 @@ class Cocubes extends React.Component {
     super();
     this.state = {
       show: false,
-      id:0, Remarks:"", Aptitude:0, English:0, Quantitative:0, Analytical:0, Domain:0, ComputerFundamentals:0, 
-      Coding:0,WET:0,Personality:0
+      cocubes_id:"", Remarks:"", Aptitude:"", English:"",
+       Quantitative:"", Analytical:"", Domain:"", ComputerFundamentals:"", 
+      Coding:"",WET:"",Personality:""
     };
     this.handleModalcocubes = this.handleModalcocubes.bind(this);
     this.onChangeApptitude=this.onChangeApptitude.bind(this);
@@ -28,8 +27,12 @@ class Cocubes extends React.Component {
     this.onChangeCF=this.onChangeCF.bind(this);
     this.onChangeCoding=this.onChangeCoding.bind(this);
     this.onChangeWET=this.onChangeWET.bind(this);
+    this.onaHandleCocubes=this.onHandleCocubes.bind(this);
   }
-  onChangeApptitude(e){this.setState({Apptitude:e.target.value})}
+  handleModalcocubes() {
+    this.setState({ show: !this.state.show });
+  }
+  onChangeApptitude(e){this.setState({Aptitude:e.target.value})}
   onChangeEnglish(e){this.setState({English:e.target.value})}
   onChangeQuant(e){this.setState({Quantitative:e.target.value})}
   onChangeAnalytical(e){this.setState({Analytical:e.target.value})}
@@ -41,7 +44,7 @@ class Cocubes extends React.Component {
     Axios.get("http://localhost/login-backend/are_cocubes.php?id="+this.props.cid)
     .then(response => {
         this.setState({
-            id:response.data[0]['Assessment_ID'],
+            cocubes_id:response.data[0]['Assessment_ID'],
             Aptitude:response.data[0]['Overall_Aptitude'],
             English:response.data[0]['English'],
             Quantitative:response.data[0]['Quantitative'],
@@ -59,14 +62,26 @@ class Cocubes extends React.Component {
         console.log(err);
     })
 }
-  handleModalcocubes() {
-    this.setState({ show: !this.state.show });
+
+
+  onHandleCocubes(e){
+    e.preventdefault();
+    const obj={
+      Cocubes_id:this.state.cocubes_id,
+      Overall_Aptitude:this.state.Aptitude,
+      English:this.state.English,
+      Quantitative:this.state.Quantitative,
+      Analytical:this.state.Analytical,
+      Domain:this.state.Domain,
+      ComputerFundamentals:this.state.ComputerFundamentals,
+      Coding:this.state.Coding,
+      WET:this.state.WET
+    }
+    console.log(obj);
+    Axios.post("http://localhost/Admin-backend/UpdateCocubes.php?id="+ this.props.cid,obj)
+    .then((res) => console.log(res.data),alert("Updated"));
   }
   render() {
-    if (this.state.id==0){
-      return(  <div>
-        </div>);
-    }
     return (
       <div class="container-fluid">
         <Card className="Rounded p-3">
@@ -116,12 +131,12 @@ class Cocubes extends React.Component {
             style={{ maxWidth: "1600px", width: "80%" }}
           >
             <Modal.Header closeButton>Edit Cocubes Marks</Modal.Header>
+            <form onSubmit={this.onHandleCocubes}>
             <Modal.Body>
-              <form>
                 <Table className="cocubesedit" responsive>
                   <thead>
                     <tr>
-                      <th>Apptitude</th>
+                      <th>Aptitude</th>
                       <th>English</th>
                       <th>Quants</th>
                       <th>Domain</th>
@@ -136,7 +151,7 @@ class Cocubes extends React.Component {
                     <td>
                         <input
                           type="text"
-                          name="Apptitude"
+                          name="Aptitude"
                           style={{ width: "50px" }}
                           value={this.state.Aptitude}
                           onChange={this.onChangeApptitude}
@@ -209,11 +224,11 @@ class Cocubes extends React.Component {
                     </tr>
                   </tbody>
                 </Table>
-              </form>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button>Submit</Button>
-            </Modal.Footer>
+                </Modal.Body>
+              <Modal.Footer>
+                <Button type="submit">Submit</Button>
+              </Modal.Footer>
+            </form>
           </Modal>
         </Card>
       </div>

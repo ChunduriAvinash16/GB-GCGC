@@ -12,7 +12,6 @@ import {
   Table,
 } from "reactstrap";
 import { Button, Modal } from "react-bootstrap";
-import { BarChart } from "./comp/Barchart";
 import { Bar } from 'react-chartjs-2'; 
 import Axios from 'axios';
 class ARI extends React.Component {

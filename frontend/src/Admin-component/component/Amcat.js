@@ -30,6 +30,7 @@ class Amcat extends React.Component {
     this.onChangeDomain2=this.onChangeDomain2.bind(this);
     this.onChangeAutomata=this.onChangeAutomata.bind(this);
     this.onChangeAutomataFix=this.onChangeAutomataFix.bind(this);
+    this.handleSubmit=this.handleSubmit.bind(this);
   }
   handleModalamcat() {
     this.setState({ show: !this.state.show });
@@ -67,6 +68,21 @@ class Amcat extends React.Component {
     .catch(function(err){
         console.log(err);
     })
+}
+handleSubmit(e){
+  e.preventDefault();
+  const obj={
+    LogicalAbility:this.state.LogicalAbility,
+    EnglishComprehension:this.state.EnglishComprehension,
+    QuantitativeAbility:this.state.QuantitativeAbility,
+    Automata:this.state.Automata,
+    AutomataFix:this.state.AutomataFix,
+    Domain1:this.state.Domain1,
+    Domain2:this.state.Domain2
+  }
+  Axios.post("http://localhost/Admin-backend/UpdateAmcat.php?id="+this.props.aid,obj)
+  .then(res=>alert("Updated"));
+  console.log(obj);
 }
   render() {
     if(this.state.id==="NI" || this.state.id=="NA"){
@@ -120,8 +136,8 @@ class Amcat extends React.Component {
             style={{ maxWidth: "1600px", width: "80%" }}
           >
             <Modal.Header closeButton>Edit Amcat Marks</Modal.Header>
+            <form onSubmit={this.handleSubmit}>
             <Modal.Body>
-              <form>
                 <Table className="amcatedit" responsive>
                   <thead>
                     <tr>
@@ -202,11 +218,12 @@ class Amcat extends React.Component {
                     </tr>
                   </tbody>
                 </Table>
-              </form>
             </Modal.Body>
             <Modal.Footer>
               <Button>Submit</Button>
             </Modal.Footer>
+            </form>
+
           </Modal>
         </Card>
       </div>
