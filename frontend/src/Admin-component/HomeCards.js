@@ -57,7 +57,15 @@ class HomeCards extends Component {
       		})
       		console.log(this.state.dash[1])
     	})
-    	.catch(err=>console.log(err));
+      .catch(err=>console.log(err));
+      Axios.get("http://localhost:80/Admin-backend/PlacementsDashBoard.php?year="+e.target.value)
+      .then(response=>{
+        this.setState({
+          train:response.data,
+        })
+        console.log(this.state.train[1])
+      })
+      .catch(err=>console.log(err));
   }
   componentDidMount()  {
   	Axios.get("http://localhost:80/Admin-backend/AdminDashBoard.php?year="+2021)

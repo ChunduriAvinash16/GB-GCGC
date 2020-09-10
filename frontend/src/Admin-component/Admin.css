@@ -47,15 +47,12 @@ a:focus {
   padding: 1.25em;
 }
 
-
-
-
 .menu-open {
   background: #6d7fcc;
 }
 
 li:hover {
-  color: #7386d5;
+  color: #343742;
 }
 
 li{
