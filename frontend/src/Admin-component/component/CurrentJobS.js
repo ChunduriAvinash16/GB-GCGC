@@ -140,7 +140,6 @@ onSubmitCurrentJob(e){
         <Card className="Rounded p-3">
           <CardSubtitle align="left">Current Job Suitability</CardSubtitle>
           <hr></hr>
-
           <div class="container-fluid">
             <Row>
             <Col lg="4" md="6" sm="12">

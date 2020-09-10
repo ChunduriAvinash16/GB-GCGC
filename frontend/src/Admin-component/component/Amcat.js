@@ -152,6 +152,7 @@ handleSubmit(e){
                   </thead>
                   <tbody>
                     <tr>
+                      <td>Logical</td>
                       <td>
                         <input
                           type="text"
