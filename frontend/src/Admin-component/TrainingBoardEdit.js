@@ -31,7 +31,7 @@ class TrainingBoardEdit extends Component {
     this.state = {
       isModalOpen1: false,
       isModalOpen: false,
-      Year:2022,
+      Year:"",
       edit:[],
       isNavOpen: false,
       YOP:"",
