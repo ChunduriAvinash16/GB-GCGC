@@ -1,7 +1,7 @@
 import React, { Component,useState } from 'react';
 import { Container, Row, Col, Card,Button} from "reactstrap";
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-
+import Axios from 'axios';
 import {
     faUser,
   } from "@fortawesome/free-solid-svg-icons";
@@ -55,11 +55,10 @@ class Placements extends Component{
         this.onChangePackageOffered = this.onChangePackageOffered.bind(this);
         this.onChangeSSC = this.onChangeSSC.bind(this);
         this.onChangeYOP = this.onChangeYOP.bind(this);
+        this.onChangeCampus=this.onChangeCampus.bind(this);
     }
     
-    onSubmitAddPlacements(e){
 
-    }
     onChangeCompanyName(e){
         this.setState({
             CompanyName:e.target.value
@@ -136,6 +135,29 @@ class Placements extends Component{
             dropdownOpen1:!this.state.dropdownOpen1
         })
     }
+    onSubmitAddPlacements(e){
+        e.preventDefault();
+        const obj={
+            CompanyName:this.state.CompanyName,
+            YOP:this.state.YOP,
+            DateOfInter:this.state.DateOfInter,
+            Campus:this.state.Campus,
+            JobDescript:this.state.JobDescript,
+            Branch:this.state.Branch,
+            Gender:this.state.Gender,
+            PackageOffered:this.state.PackageOffered,
+            Backlogs:this.state.Backlogs,
+            CompanyURL:this.state.CompanyURL,
+            SSC:this.state.SSC,
+            Inter:this.state.Inter,
+            ListOfStudents:this.state.ListOfStudents,
+            selected: this.state.selected
+        }
+        console.log(obj);
+        Axios.post("http://localhost:80/Admin-backend/AddPlacements.php",obj)
+        .then((res)=>alert(res.data))
+        .catch((err)=>console.log(err));
+    }
     render(){
         const {selected} = this.state.selected;
         return( 
@@ -173,7 +195,7 @@ class Placements extends Component{
                             </Col>
                         <Col lg="3"  style={{textAlign:"left"}}>Campus</Col>
                             <Col lg="3" style={{"width":"inherit"}}>
-                            <select className="form-control" onChange={this.onChangeCampus}>
+                            <select className="form-control" onChange={this.onChangeCampus} required>
                             <option value={"Vishakapatnam"}>Vishakapatnam</option>
                             <option value={"Hyderabad"}>Hyderabad</option>
                             <option value={"Bengaluru"}>Bengaluru</option>
@@ -183,7 +205,7 @@ class Placements extends Component{
                 <br/>
                 <Row>
                     <Col lg="3"  style={{textAlign:"left"}}>Job Description</Col>
-                        <Col lg="3"><textarea className="form-control" style={{height:"90px"}}/></Col>
+                        <Col lg="3"><textarea className="form-control"  onChange={this.onChangeJobDescript} style={{height:"90px"}}/></Col>
                          <Col lg="6">
                             <Row>
                                 <Col lg="6"  style={{textAlign:"left"}}>Branch</Col>
@@ -253,7 +275,7 @@ class Placements extends Component{
                 <Row>
                     <Col lg="3"  style={{textAlign:"left"}}>List Of Students</Col>
                         <Col lg="3">
-                            <input required type="file" onChange={this.onChangeListOfStudents}/>
+                            <input type="file" onChange={this.onChangeListOfStudents}/>
                         </Col>
                     <Col lg="3"  style={{textAlign:"left"}}>Inter Percentage Above</Col>
                         <Col lg="3">
