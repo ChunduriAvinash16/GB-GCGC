@@ -84,7 +84,7 @@ class Login extends Component {
                                 <div className="auth-wrapper">
                                     <form onSubmit={this.handleSubmit}>
                                         <Row>
-                                            <Col>   
+                                            <Col >   
                                                 <div className="form-group">
                                                 <input type="text" className="form-control" placeholder="LoginId" value={this.state.Login_id} onChange={this.handleAddLoginId}/>
                                                 </div>

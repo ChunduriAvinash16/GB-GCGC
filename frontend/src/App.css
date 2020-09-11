@@ -118,7 +118,6 @@ header .banner {
    vertical-align: middle;
    margin: 0 auto;
    width: 85%;
-   padding-bottom: 30px;
    text-align: center;
 }
 
@@ -216,7 +215,6 @@ ul#nav li a {
 
 footer {
    padding-top: 48px;
-   margin-bottom: 48px;
    color: #303030; 
    font-size: 14px;
    text-align: center;

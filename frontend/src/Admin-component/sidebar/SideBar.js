@@ -39,7 +39,7 @@ const SideBar = ({ isOpen, toggle }) => (
         <h4>Menu</h4>
       </div>
       <div className="side-menu">
-        <Nav vertical className="list-unstyled pb-3">
+        <Nav vertical className="pb-3">
           <li>
           <NavLink tag={Link} to={"/home"}>
               <FontAwesomeIcon icon={faHome} className="mr-2" />
@@ -49,7 +49,7 @@ const SideBar = ({ isOpen, toggle }) => (
           <hr/>
           <span className="pl-3" style={{"textAlign":"initial"}}>
               <Collapsible className ="pl-1  fa fa" trigger={<UserIcon/>}>
-              <Nav vertical className="list-unstyled pb-3">
+              <Nav vertical className="list-unstyled">
                 <ul style={{"padding":"0px"}}>
                 <li className="pl-3">
                   <NavLink tag={Link} to={"/user-staff"}>
@@ -89,29 +89,28 @@ const SideBar = ({ isOpen, toggle }) => (
             </NavLink>
           </li>
           <hr/>
-
             <li>            
               <NavLink tag={Link} to={"/allstudents"}>
               <FontAwesomeIcon icon={faUserEdit} className="mr-2" />
               Allstudents
               </NavLink>
-            </li>    
-            <hr/>
-
+            </li>  
+            <hr/>  
               <li>        
                 <NavLink tag={Link} to={"/settings"}>
                 <FontAwesomeIcon icon={faCog} className="mr-2"/>
                 Settings
                 </NavLink>
-             </li>          
-              <hr/>
+             </li>     
+             <hr/>     
               <li>          
                 <NavLink tag={Link} onClick={ e=>{localStorage.clear();
                   window.location.href = '/login';}}>
                         <FontAwesomeIcon icon={faSignOutAlt} className="mr-2" />
                         Logout
                       </NavLink>
-                </li>        
+                </li>   
+                <hr/>     
 </Nav>
       </div>
     </div>
