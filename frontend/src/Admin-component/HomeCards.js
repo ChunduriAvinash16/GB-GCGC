@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Card, CardColumns, Button, Table } from "react-bootstrap";
 import { render } from "react-dom";
-import { NavItem, Navbar, NavLink,Row } from "reactstrap";
+import { NavItem, Navbar, NavLink,Row,Col } from "reactstrap";
 import "../App";
 import Axios from 'axios';
 import { Link } from "react-router-dom";
@@ -263,7 +263,13 @@ class HomeCards extends Component {
           </div>
         </div>
         &nbsp;
+   
         <div className="row">
+                <Row  style={{color: "white",fontSize: "14px"}}>
+                    <Col xs="12" className="p-2" align="center">
+                        <h4  className="p-1 "style={{color: "#212529",textAlign:"left"}}>Notice Board</h4>
+                    </Col>
+                </Row>
           <div className="col-xs-12 col-lg-6 col-md-12 p-2">
             <Card>
               <Card.Body>
@@ -271,9 +277,8 @@ class HomeCards extends Component {
                   <div className="col-9">
                     <Card.Title
                       class="p-2"
-                      style={{ fontSize: "20px", fontFamily: "Segoe UI" }}
-                    >
-                      Notice Board-Training
+                      style={{ fontSize: "20px",textAlign:"left"}}>
+                     Training
                     </Card.Title>
                   </div>
                   <NavLink tag={Link} to={"/TrainingBoardEdit/"+this.state.year}>
@@ -326,9 +331,8 @@ class HomeCards extends Component {
                   <div className="col-9">
                     <Card.Title
                       class="p-2"
-                      style={{ fontSize: "20px", fontFamily: "Segoe UI" }}
-                    >
-                      Notice Board-Placements
+                      style={{ fontSize: "20px",textAlign:"left"}}>
+                     Placements
                     </Card.Title>
                   </div>
                   <NavLink tag={Link} to={"/PlacementEditBoard/"+this.state.year}>
