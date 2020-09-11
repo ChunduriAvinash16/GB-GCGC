@@ -132,8 +132,7 @@ class Cocubes extends React.Component {
             <Modal.Header closeButton>Edit Cocubes Marks</Modal.Header>
             <form onSubmit={this.onHandleCocubes}>
             <Modal.Body>
-                <Table className="cocubesedit" responsive>
-                  <tbody>
+                <Table responsive>
                     <tr>
                       <td>Aptitude</td>
                       <td>
@@ -182,7 +181,6 @@ class Cocubes extends React.Component {
                           <input type="text" name="WET"  value={this.state.WET} onChange={this.onChangeWET}/>
                         </td>
                     </tr>
-                  </tbody>
                 </Table>
                 </Modal.Body>
               <Modal.Footer>
