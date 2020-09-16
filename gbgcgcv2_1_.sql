@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 11, 2020 at 06:26 AM
+-- Generation Time: Sep 12, 2020 at 04:54 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.2.32
 
@@ -45401,66 +45401,75 @@ CREATE TABLE `companies` (
   `about_the_company` text DEFAULT NULL,
   `HR_name` varchar(50) DEFAULT NULL,
   `Technical_interviwer_name` varchar(70) DEFAULT NULL,
-  `date_of_recruitment` date DEFAULT NULL
+  `date_of_recruitment` date DEFAULT NULL,
+  `job_description` varchar(255) DEFAULT NULL,
+  `branch` varchar(50) DEFAULT NULL,
+  `gender` varchar(10) DEFAULT NULL,
+  `backlogs` int(11) DEFAULT NULL,
+  `ssc_cutoff` double DEFAULT NULL,
+  `12th_cutoff` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `companies`
 --
 
-INSERT INTO `companies` (`company_id`, `company_name`, `company_logo`, `website_company`, `employee_strength`, `annual_turnover`, `about_the_company`, `HR_name`, `Technical_interviwer_name`, `date_of_recruitment`) VALUES
-(1001, 'IHS MARKIT', 'https://cdn.ihsmarkit.com/www2/a/p/media/images/ihsmarkit.svg', 'https://ihsmarkit.com/index.html', 14000, 4, 'IHS Markit Ltd is a London?based global information provider formed in 2016 with the merger of IHS Inc. and Markit Ltd.', NULL, NULL, NULL),
-(1002, 'Zensar', 'https://www.zensar.com/blogs/wp-content/uploads/2018/08/Zensar_Logo_PNG.png', 'https://www.zensar.com/', 11000, 567, 'Zensar Technologies Limited is a publicly traded software and services company with offices in 29 locations. The company\'s stock trades on the Bombay Stock Exchange and on the National Stock Exchange of India under the ticker symbol ZENSARTECH. A subsidiary of RPG Group, the company\'s chairman is Forbes-listed billionaire Harsh Goenka.', NULL, NULL, NULL),
-(1003, 'Verizon', 'https://scontent.fcok1-1.fna.fbcdn.net/v/t1.0-9/40322395_10160810488945123_7225935936083722240_n.png?_nc_cat=1&_nc_sid=7aed08&_nc_ohc=P9cAffoyA4sAX-TTwSy&_nc_ht=scontent.fcok1-1.fna&oh=d6daf7cc36c9eaa2cdbcc4ecc7d0870c&oe=5EDF1487', 'https://www.verizonwireless.com/', 1, 132, 'Verizon Communications Inc. is an American multinational telecommunications conglomerate and a corporate component of the Dow Jones Industrial Average. The company is based at 1095 Avenue of the Americas in Midtown Manhattan, New York City, but is incorporated in Delaware.', NULL, NULL, NULL),
-(1004, 'HashedIn', 'https://hashedin.com/wp-content/uploads/2018/08/home-sprite.png', 'https://hashedin.com/', 500, 20, 'HashedIn, a company founded in the year 2010, is a services company focused on building SaaS products and design-led product engineering. Leveraging its SaaS development expertise, HashedIn has been transforming enterprises using its cutting technology by bringing in Multi-tenancy, cloudification, next-gen UI/UX, and modularity.', NULL, NULL, NULL),
-(1005, 'TCS Codevita', 'https://d3g1bypfq0q5lj.cloudfront.net/var/www/preoffer/public/system/avatars/datas/300317/original/Contest-Banner--CodeVita-Season-9-cc.jpg?1584421606', 'https://www.tcscodevita.com/CodevitaV8/index.jsp', 440, 22, 'TATA Consultancy Services Limited is the biggest Indian multinational information technology service and consulting company, and is headquartered in Mumbai, Maharashtra, India. It is a subsidiary of Tata Group and operates in 149 locations across 46 countries.', NULL, NULL, NULL),
-(1006, 'TCS ninja', 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/TATA_Consultancy_Services_Logo.svg/1920px-TATA_Consultancy_Services_Logo.svg.png', 'https://www.tcs.com/', 440, 22, 'TATA Consultancy Services Limited is the biggest Indian multinational information technology service and consulting company, and is headquartered in Mumbai, Maharashtra, India. It is a subsidiary of Tata Group and operates in 149 locations across 46 countries.', NULL, NULL, NULL),
-(1007, 'TCS digital', 'https://en.wikipedia.org/wiki/Tata_Consultancy_Services#/media/File:TATA_Consultancy_Services_Logo.svg', 'https://www.tcs.com/', 440, 22, 'TATA Consultancy Services Limited is the biggest Indian multinational information technology service and consulting company, and is headquartered in Mumbai, Maharashtra, India. It is a subsidiary of Tata Group and operates in 149 locations across 46 countries.', NULL, NULL, NULL),
-(1008, 'MuSigma', 'https://www.mu-sigma.com/wp-content/uploads/2019/08/MuSigma-logo-3.png', 'https://www.mu-sigma.com/', 3500, 1, 'Mu Sigma is an Indian management consulting firm that primarily offers data analytics services. The firm\'s name is derived from the statistical terms \"Mu (?)\" and \"Sigma (?)\" which symbolize the mean and the standard deviation, respectively, of a probability distribution. Mu Sigma is headquartered in Chicago, Illinois and has a global delivery center in Bangalore.', NULL, NULL, NULL),
-(1009, 'Infosys', 'https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg', 'https://www.infosys.com/', 240, 13, 'Infosys Limited, is an Indian multinational corporation that provides business consulting, information technology and outsourcing services. It has its headquarters in Bangalore, Karnataka, India. Infosys is the second-largest Indian IT company after Tata Consultancy Services by 2017 revenue and 596th largest public company in the world based on revenue. On March 29, 2019, its market capitalisation was $46.52 billion. The credit rating of the company is A? (rating by Standard & Poor\'s).', NULL, NULL, NULL),
-(1010, 'Sach', 'https://en.wikipedia.org/wiki/Goldman_Sachs#/media/File:Goldman_Sachs.svg', 'https://www.goldmansachs.com/', 0, 37, '', NULL, NULL, NULL),
-(1011, 'JusPay', 'https://www.juspay.in/images/logo.png', 'https://www.juspay.in/', 0, 0, '', NULL, NULL, NULL),
-(1012, 'Nineleaps', 'https://www.nineleaps.com/wp-content/themes/nineleaps/assets/img/nineleaps-logo.svg', 'https://www.nineleaps.com/', 0, 0, '', NULL, NULL, NULL),
-(1013, 'Inszoom', 'https://www.inszoom.com/wp-content/uploads/2018/04/inszoom-logo.svg', 'https://www.inszoom.com/', 0, 0, '', NULL, NULL, NULL),
-(1014, 'Amazon', 'https://amazon-blogs-brightspot-lower.s3.amazonaws.com/d2/1f/a16b673f45c9bd48d69b1c4cf430/amazon-logo-rgb-wht.svg', 'https://www.aboutamazon.com/', 0, 0, '', NULL, NULL, NULL),
-(1015, 'Sabre', 'https://assets.sabre.com/common/edl/img/sabre-logo-slab.svg', 'https://www.sabre.com/', 0, 0, '', NULL, NULL, NULL),
-(1016, 'Byjus', 'https://cdn1.byjus.com/home/logo.svg', 'https://byjus.com/', 0, 0, '', NULL, NULL, NULL),
-(1017, 'Darwin Box', 'https://darwinbox.com/img/logo.svg', 'https://darwinbox.com/', 0, 0, '', NULL, NULL, NULL),
-(1018, 'FSS', 'https://www.fsstech.com/themes/fss/images/new-logo1.jpg', 'https://www.fsstech.com/', 0, 0, '', NULL, NULL, NULL),
-(1019, 'Axiscades', 'http://www.axiscades.com/images/logo.png', 'http://www.axiscades.com/', 0, 0, '', NULL, NULL, NULL),
-(1020, 'HPE', 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Hewlett_Packard_Enterprise_logo.svg/1920px-Hewlett_Packard_Enterprise_logo.svg.png', 'https://www.hpe.com/in/en/home.html', 0, 0, '', NULL, NULL, NULL),
-(1021, 'Nextech', 'https://scontent.fcok1-1.fna.fbcdn.net/v/t1.0-9/10011305_10151945035885872_1844777354_n.png?_nc_cat=111&_nc_sid=85a577&_nc_ohc=xM8ZnTxg95AAX8rr5iV&_nc_ht=scontent.fcok1-1.fna&oh=ac7f2b89c45e24d5ae0a9bd2a6be3a41&oe=5EDDEB6F', 'https://www.nextech.com/', 0, 0, '', NULL, NULL, NULL),
-(1022, 'Emphasis', 'https://www.mphasis.com/content/dam/mphasis-com/global/logo/logo.png', 'https://www.mphasis.com/', 0, 0, '', NULL, NULL, NULL),
-(1023, 'Tally', 'https://resources.tallysolutions.com/wp-content/themes/tally/assets/images/logo.svg', 'https://tallysolutions.com/', 0, 0, '', NULL, NULL, NULL),
-(1024, 'Cognizant', 'https://www.cognizant.com/content/dam/cognizant_foundation/Dotcomimage/COG-Logo-White.svg', 'https://www.cognizant.com/', 0, 0, '', NULL, NULL, NULL),
-(1025, 'Wipro', 'https://www.wipro.com/content/dam/nexus/en/brand/Wipro-Logo-w88X70h-Px.png', 'https://www.wipro.com/en-IN/', 0, 0, '', NULL, NULL, NULL),
-(1026, 'Jk Techsoft', 'https://jktech.com/wp-content/themes/jktech/images/jkt-logo.svg', 'https://jktech.com/', 0, 0, '', NULL, NULL, NULL),
-(1027, 'ALKHOLOCKS', 'https://img1.wsimg.com/isteam/ip/5267d0fb-9b18-4f72-9ee8-f040053a28ad/logo/d4256bb8-cf62-4301-9b9e-79a971cb7ba9.png/:/rs=h:164/qt=q:95', 'https://alkholocks.com/', 0, 0, '', NULL, NULL, NULL),
-(1028, 'CtrlS', 'https://cdn.techinasia.com/data/images/a8a7ea797b240f322db45fe85baa5c68.jpg', 'https://www.ctrls.in/', 0, 0, '', NULL, NULL, NULL),
-(1029, 'IBM', 'https://media-exp1.licdn.com/dms/image/C4E0BAQGnYJiWaENTZA/company-logo_200_200/0?e=2159024400&v=beta&t=TvNAXe1EJt1BJGGLpCxmZ3Fomf5E4RnIO0Jt0BGpClM', 'https://www.ibm.com/in-en', 0, 0, '', NULL, NULL, NULL),
-(1030, 'Young Man', 'https://youngman.co.in/wp-content/uploads/2017/07/logo.png', 'https://youngman.co.in/', 0, 0, '', NULL, NULL, NULL),
-(1031, 'Cargill', 'https://www.cargill.com/image/1432075835913/cargill-logo.png', 'https://www.cargill.com/about/company-overview', 0, 0, '', NULL, NULL, NULL),
-(1032, 'iDisha', NULL, 'https://www.bloomberg.com/profile/company/1649113D:IN', 0, 0, '', NULL, NULL, NULL),
-(1033, 'PayGyft', 'https://www.paygyft.com/resources/assets/user/img/logo-white.svg', 'https://www.paygyft.com/', 0, 0, '', NULL, NULL, NULL),
-(1034, 'Lido', 'https://media.glassdoor.com/sqlm/2874987/lido-squarelogo-1568977469577.png', 'https://economictimes.indiatimes.com/company/lido-private-limited-/U74999MH1943PTC004011', 0, 0, '', NULL, NULL, NULL),
-(1035, 'Commvault', 'https://www.commvault.com/wp-content/uploads/2019/08/Commvault-Logo-social.jpg', 'https://www.commvault.com/', 0, 0, '', NULL, NULL, NULL),
-(1036, 'Shenzyn', 'https://www.shenzyn.com/assets/sheImages/logo8.svg', 'https://www.shenzyn.com/', 0, 0, '', NULL, NULL, NULL),
-(1037, 'UpGrad', 'https://s3.amazonaws.com/owler-image/logo/upgrad_owler_20190704_175419_original.png', 'https://www.upgrad.com/', 0, 0, '', NULL, NULL, NULL),
-(1038, 'CodeHall', 'http://www.codehall.in/img/codehall-logo-dark.png', 'http://www.codehall.in/', 0, 0, '', NULL, NULL, NULL),
-(1039, 'IG Infotech', 'https://www.iggroup.com/sites/ig-group/files/client-logo.png', 'https://www.iggroup.com/', 0, 0, '', NULL, NULL, NULL),
-(1040, 'Intellipaat', 'https://alpha.intellipaat.com/wp-content/themes/intellipaat/images/logo.png', 'https://intellipaat.com/', 0, 0, '', NULL, NULL, NULL),
-(1041, 'Tech Mahindra', 'https://cache.techmahindra.com/static/img/logo.png', 'https://www.techmahindra.com/en-in/?f=1796934980', 0, 0, '', NULL, NULL, NULL),
-(1042, 'Johnson', 'https://jnj-content-lab.brightspotcdn.com/ed/89/5e6ef7f5492391d0df08115fdbd6/logo-site-white-header.ebc00039f680cf6954c3c7e2f8c25d20.png', 'https://www.jnj.com/', 0, 0, '', NULL, NULL, NULL),
-(1043, 'Collins Aeropace', 'https://www.collinsaerospace.com/-/media/project/collinsaerospace/collinsaerospace-website/common/images/ca-navigation-logo.png?h=89&w=318&rev=37c884aa7ccf42a292a5f3ac05f7847a&hash=085C3F3EA97FE1623B311833E1AFD472', 'https://www.collinsaerospace.com/en', 0, 0, '', NULL, NULL, NULL),
-(1044, 'Sacha', 'https://sacha.engineering/wp-content/uploads/2018/12/Firmenlogo-2018Transp.png', 'https://sacha.engineering/our-history/', 0, 0, '', NULL, NULL, NULL),
-(1045, 'UHG', 'https://www.unitedhealthgroup.com/content/dam/UHG/Images/media/UHG(R)_RGB.jpg', 'https://www.unitedhealthgroup.com/', 0, 0, '', NULL, NULL, NULL),
-(1046, 'Vedantu', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Vedantulogo_orange.png/220px-Vedantulogo_orange.png', 'https://www.vedantu.com/', 0, 0, '', NULL, NULL, NULL),
-(1047, 'RAVE', 'https://pbs.twimg.com/profile_images/554976662199091200/Gp0vzcyS_400x400.jpeg', 'https://rave.io/', 0, 0, '', NULL, NULL, NULL),
-(1048, 'Aliens Developers', 'https://1.bp.blogspot.com/-_CR2MRwLoDc/UGhDlTIIy6I/AAAAAAAACNc/6_rkCNWTPHU/s1600/logo_Aliens-Group.jpg', 'https://aliensgroup.in/html/careers.html', 0, 0, '', NULL, NULL, NULL),
-(1049, 'TEK System', 'https://www.teksystems.com/-/media/teksystems/images/logos/allegis-logo-dark.png?h=48&la=en-IN&w=182&hash=9B4C6F6DCEBD6E95C33221FBC43FB4CA', 'https://www.teksystems.com/en-in', 0, 0, '', NULL, NULL, NULL),
-(1050, 'Reverie', 'https://reverieinc.com/wp-content/uploads/2018/07/Reverie-Horizontal-Logo-_-High-RES-1.svg', 'https://reverieinc.com/', 0, 0, '', NULL, NULL, NULL),
-(1051, 'DXC Technology', 'https://economictimes.indiatimes.com/thumb/msid-67465114,width-1200,height-900,resizemode-4,imgsize-28771/dxc-tech-agencies.jpg?from=mdr', 'https://www.dxc.technology/', 138000, 1348750000000, 'DXC Technology helps our customers across the entire Enterprise Technology Stack with differentiated industry solutions. We modernize IT, optimize data architectures, and make everything secure, scalable and orchestrated across public, private and hybrid clouds.', NULL, NULL, NULL),
-(1052, 'Mindtree', 'https://www.freshersvoice.com/wp-content/uploads/2017/01/Mindtree-Off-Campus.jpg', 'https://www.mindtree.com/', 21991, 78399000000, NULL, NULL, NULL, NULL);
+INSERT INTO `companies` (`company_id`, `company_name`, `company_logo`, `website_company`, `employee_strength`, `annual_turnover`, `about_the_company`, `HR_name`, `Technical_interviwer_name`, `date_of_recruitment`, `job_description`, `branch`, `gender`, `backlogs`, `ssc_cutoff`, `12th_cutoff`) VALUES
+(1, 'dxc', NULL, 'dxc', NULL, 0, NULL, NULL, NULL, '2020-09-05', 'dxc', NULL, 'Both', 0, 87, 85),
+(1001, 'IHS MARKIT', 'https://cdn.ihsmarkit.com/www2/a/p/media/images/ihsmarkit.svg', 'https://ihsmarkit.com/index.html', 14000, 4, 'IHS Markit Ltd is a London?based global information provider formed in 2016 with the merger of IHS Inc. and Markit Ltd.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1002, 'Zensar', 'https://www.zensar.com/blogs/wp-content/uploads/2018/08/Zensar_Logo_PNG.png', 'https://www.zensar.com/', 11000, 567, 'Zensar Technologies Limited is a publicly traded software and services company with offices in 29 locations. The company\'s stock trades on the Bombay Stock Exchange and on the National Stock Exchange of India under the ticker symbol ZENSARTECH. A subsidiary of RPG Group, the company\'s chairman is Forbes-listed billionaire Harsh Goenka.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1003, 'Verizon', 'https://scontent.fcok1-1.fna.fbcdn.net/v/t1.0-9/40322395_10160810488945123_7225935936083722240_n.png?_nc_cat=1&_nc_sid=7aed08&_nc_ohc=P9cAffoyA4sAX-TTwSy&_nc_ht=scontent.fcok1-1.fna&oh=d6daf7cc36c9eaa2cdbcc4ecc7d0870c&oe=5EDF1487', 'https://www.verizonwireless.com/', 1, 132, 'Verizon Communications Inc. is an American multinational telecommunications conglomerate and a corporate component of the Dow Jones Industrial Average. The company is based at 1095 Avenue of the Americas in Midtown Manhattan, New York City, but is incorporated in Delaware.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1004, 'HashedIn', 'https://hashedin.com/wp-content/uploads/2018/08/home-sprite.png', 'https://hashedin.com/', 500, 20, 'HashedIn, a company founded in the year 2010, is a services company focused on building SaaS products and design-led product engineering. Leveraging its SaaS development expertise, HashedIn has been transforming enterprises using its cutting technology by bringing in Multi-tenancy, cloudification, next-gen UI/UX, and modularity.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1005, 'TCS Codevita', 'https://d3g1bypfq0q5lj.cloudfront.net/var/www/preoffer/public/system/avatars/datas/300317/original/Contest-Banner--CodeVita-Season-9-cc.jpg?1584421606', 'https://www.tcscodevita.com/CodevitaV8/index.jsp', 440, 22, 'TATA Consultancy Services Limited is the biggest Indian multinational information technology service and consulting company, and is headquartered in Mumbai, Maharashtra, India. It is a subsidiary of Tata Group and operates in 149 locations across 46 countries.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1006, 'TCS ninja', 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/TATA_Consultancy_Services_Logo.svg/1920px-TATA_Consultancy_Services_Logo.svg.png', 'https://www.tcs.com/', 440, 22, 'TATA Consultancy Services Limited is the biggest Indian multinational information technology service and consulting company, and is headquartered in Mumbai, Maharashtra, India. It is a subsidiary of Tata Group and operates in 149 locations across 46 countries.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1007, 'TCS digital', 'https://en.wikipedia.org/wiki/Tata_Consultancy_Services#/media/File:TATA_Consultancy_Services_Logo.svg', 'https://www.tcs.com/', 440, 22, 'TATA Consultancy Services Limited is the biggest Indian multinational information technology service and consulting company, and is headquartered in Mumbai, Maharashtra, India. It is a subsidiary of Tata Group and operates in 149 locations across 46 countries.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1008, 'MuSigma', 'https://www.mu-sigma.com/wp-content/uploads/2019/08/MuSigma-logo-3.png', 'https://www.mu-sigma.com/', 3500, 1, 'Mu Sigma is an Indian management consulting firm that primarily offers data analytics services. The firm\'s name is derived from the statistical terms \"Mu (?)\" and \"Sigma (?)\" which symbolize the mean and the standard deviation, respectively, of a probability distribution. Mu Sigma is headquartered in Chicago, Illinois and has a global delivery center in Bangalore.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1009, 'Infosys', 'https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg', 'https://www.infosys.com/', 240, 13, 'Infosys Limited, is an Indian multinational corporation that provides business consulting, information technology and outsourcing services. It has its headquarters in Bangalore, Karnataka, India. Infosys is the second-largest Indian IT company after Tata Consultancy Services by 2017 revenue and 596th largest public company in the world based on revenue. On March 29, 2019, its market capitalisation was $46.52 billion. The credit rating of the company is A? (rating by Standard & Poor\'s).', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1010, 'Sach', 'https://en.wikipedia.org/wiki/Goldman_Sachs#/media/File:Goldman_Sachs.svg', 'https://www.goldmansachs.com/', 0, 37, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1011, 'JusPay', 'https://www.juspay.in/images/logo.png', 'https://www.juspay.in/', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1012, 'Nineleaps', 'https://www.nineleaps.com/wp-content/themes/nineleaps/assets/img/nineleaps-logo.svg', 'https://www.nineleaps.com/', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1013, 'Inszoom', 'https://www.inszoom.com/wp-content/uploads/2018/04/inszoom-logo.svg', 'https://www.inszoom.com/', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1014, 'Amazon', 'https://amazon-blogs-brightspot-lower.s3.amazonaws.com/d2/1f/a16b673f45c9bd48d69b1c4cf430/amazon-logo-rgb-wht.svg', 'https://www.aboutamazon.com/', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1015, 'Sabre', 'https://assets.sabre.com/common/edl/img/sabre-logo-slab.svg', 'https://www.sabre.com/', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1016, 'Byjus', 'https://cdn1.byjus.com/home/logo.svg', 'https://byjus.com/', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1017, 'Darwin Box', 'https://darwinbox.com/img/logo.svg', 'https://darwinbox.com/', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1018, 'FSS', 'https://www.fsstech.com/themes/fss/images/new-logo1.jpg', 'https://www.fsstech.com/', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1019, 'Axiscades', 'http://www.axiscades.com/images/logo.png', 'http://www.axiscades.com/', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1020, 'HPE', 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Hewlett_Packard_Enterprise_logo.svg/1920px-Hewlett_Packard_Enterprise_logo.svg.png', 'https://www.hpe.com/in/en/home.html', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1021, 'Nextech', 'https://scontent.fcok1-1.fna.fbcdn.net/v/t1.0-9/10011305_10151945035885872_1844777354_n.png?_nc_cat=111&_nc_sid=85a577&_nc_ohc=xM8ZnTxg95AAX8rr5iV&_nc_ht=scontent.fcok1-1.fna&oh=ac7f2b89c45e24d5ae0a9bd2a6be3a41&oe=5EDDEB6F', 'https://www.nextech.com/', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1022, 'Emphasis', 'https://www.mphasis.com/content/dam/mphasis-com/global/logo/logo.png', 'https://www.mphasis.com/', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1023, 'Tally', 'https://resources.tallysolutions.com/wp-content/themes/tally/assets/images/logo.svg', 'https://tallysolutions.com/', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1024, 'Cognizant', 'https://www.cognizant.com/content/dam/cognizant_foundation/Dotcomimage/COG-Logo-White.svg', 'https://www.cognizant.com/', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1025, 'Wipro', 'https://www.wipro.com/content/dam/nexus/en/brand/Wipro-Logo-w88X70h-Px.png', 'https://www.wipro.com/en-IN/', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1026, 'Jk Techsoft', 'https://jktech.com/wp-content/themes/jktech/images/jkt-logo.svg', 'https://jktech.com/', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1027, 'ALKHOLOCKS', 'https://img1.wsimg.com/isteam/ip/5267d0fb-9b18-4f72-9ee8-f040053a28ad/logo/d4256bb8-cf62-4301-9b9e-79a971cb7ba9.png/:/rs=h:164/qt=q:95', 'https://alkholocks.com/', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1028, 'CtrlS', 'https://cdn.techinasia.com/data/images/a8a7ea797b240f322db45fe85baa5c68.jpg', 'https://www.ctrls.in/', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1029, 'IBM', 'https://media-exp1.licdn.com/dms/image/C4E0BAQGnYJiWaENTZA/company-logo_200_200/0?e=2159024400&v=beta&t=TvNAXe1EJt1BJGGLpCxmZ3Fomf5E4RnIO0Jt0BGpClM', 'https://www.ibm.com/in-en', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1030, 'Young Man', 'https://youngman.co.in/wp-content/uploads/2017/07/logo.png', 'https://youngman.co.in/', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1031, 'Cargill', 'https://www.cargill.com/image/1432075835913/cargill-logo.png', 'https://www.cargill.com/about/company-overview', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1032, 'iDisha', NULL, 'https://www.bloomberg.com/profile/company/1649113D:IN', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1033, 'PayGyft', 'https://www.paygyft.com/resources/assets/user/img/logo-white.svg', 'https://www.paygyft.com/', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1034, 'Lido', 'https://media.glassdoor.com/sqlm/2874987/lido-squarelogo-1568977469577.png', 'https://economictimes.indiatimes.com/company/lido-private-limited-/U74999MH1943PTC004011', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1035, 'Commvault', 'https://www.commvault.com/wp-content/uploads/2019/08/Commvault-Logo-social.jpg', 'https://www.commvault.com/', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1036, 'Shenzyn', 'https://www.shenzyn.com/assets/sheImages/logo8.svg', 'https://www.shenzyn.com/', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1037, 'UpGrad', 'https://s3.amazonaws.com/owler-image/logo/upgrad_owler_20190704_175419_original.png', 'https://www.upgrad.com/', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1038, 'CodeHall', 'http://www.codehall.in/img/codehall-logo-dark.png', 'http://www.codehall.in/', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1039, 'IG Infotech', 'https://www.iggroup.com/sites/ig-group/files/client-logo.png', 'https://www.iggroup.com/', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1040, 'Intellipaat', 'https://alpha.intellipaat.com/wp-content/themes/intellipaat/images/logo.png', 'https://intellipaat.com/', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1041, 'Tech Mahindra', 'https://cache.techmahindra.com/static/img/logo.png', 'https://www.techmahindra.com/en-in/?f=1796934980', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1042, 'Johnson', 'https://jnj-content-lab.brightspotcdn.com/ed/89/5e6ef7f5492391d0df08115fdbd6/logo-site-white-header.ebc00039f680cf6954c3c7e2f8c25d20.png', 'https://www.jnj.com/', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1043, 'Collins Aeropace', 'https://www.collinsaerospace.com/-/media/project/collinsaerospace/collinsaerospace-website/common/images/ca-navigation-logo.png?h=89&w=318&rev=37c884aa7ccf42a292a5f3ac05f7847a&hash=085C3F3EA97FE1623B311833E1AFD472', 'https://www.collinsaerospace.com/en', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1044, 'Sacha', 'https://sacha.engineering/wp-content/uploads/2018/12/Firmenlogo-2018Transp.png', 'https://sacha.engineering/our-history/', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1045, 'UHG', 'https://www.unitedhealthgroup.com/content/dam/UHG/Images/media/UHG(R)_RGB.jpg', 'https://www.unitedhealthgroup.com/', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1046, 'Vedantu', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Vedantulogo_orange.png/220px-Vedantulogo_orange.png', 'https://www.vedantu.com/', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1047, 'RAVE', 'https://pbs.twimg.com/profile_images/554976662199091200/Gp0vzcyS_400x400.jpeg', 'https://rave.io/', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1048, 'Aliens Developers', 'https://1.bp.blogspot.com/-_CR2MRwLoDc/UGhDlTIIy6I/AAAAAAAACNc/6_rkCNWTPHU/s1600/logo_Aliens-Group.jpg', 'https://aliensgroup.in/html/careers.html', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1049, 'TEK System', 'https://www.teksystems.com/-/media/teksystems/images/logos/allegis-logo-dark.png?h=48&la=en-IN&w=182&hash=9B4C6F6DCEBD6E95C33221FBC43FB4CA', 'https://www.teksystems.com/en-in', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1050, 'Reverie', 'https://reverieinc.com/wp-content/uploads/2018/07/Reverie-Horizontal-Logo-_-High-RES-1.svg', 'https://reverieinc.com/', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1051, 'DXC Technology', 'https://economictimes.indiatimes.com/thumb/msid-67465114,width-1200,height-900,resizemode-4,imgsize-28771/dxc-tech-agencies.jpg?from=mdr', 'https://www.dxc.technology/', 138000, 1348750000000, 'DXC Technology helps our customers across the entire Enterprise Technology Stack with differentiated industry solutions. We modernize IT, optimize data architectures, and make everything secure, scalable and orchestrated across public, private and hybrid clouds.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1052, 'Mindtree', 'https://www.freshersvoice.com/wp-content/uploads/2017/01/Mindtree-Off-Campus.jpg', 'https://www.mindtree.com/', 21991, 78399000000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1111132, 'dxc', NULL, 'dxc', NULL, 0, NULL, NULL, NULL, '2020-09-05', 'dxc', NULL, 'Both', 0, 87, 85),
+(1111133, 'dxc', NULL, 'dxc', NULL, 0, NULL, NULL, NULL, '2020-09-05', 'dxc', NULL, 'Both', 0, 87, 85);
 
 -- --------------------------------------------------------
 
@@ -45479,6 +45488,8 @@ CREATE TABLE `company-yop` (
 --
 
 INSERT INTO `company-yop` (`cid`, `YOP`, `LPA`) VALUES
+(0, 2021, 3),
+(1, 2021, 3),
 (1001, 2020, 0),
 (1002, 2020, 0),
 (1003, 2020, 0),
@@ -45530,7 +45541,8 @@ INSERT INTO `company-yop` (`cid`, `YOP`, `LPA`) VALUES
 (1049, 2020, 0),
 (1050, 2020, 0),
 (1051, 2021, 3.6),
-(1052, 2021, 4);
+(1052, 2021, 4),
+(1111129, 2021, 3);
 
 -- --------------------------------------------------------
 
@@ -66826,7 +66838,7 @@ ALTER TABLE `campus_data`
 -- AUTO_INCREMENT for table `companies`
 --
 ALTER TABLE `companies`
-  MODIFY `company_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1111113;
+  MODIFY `company_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1111134;
 
 --
 -- AUTO_INCREMENT for table `events`

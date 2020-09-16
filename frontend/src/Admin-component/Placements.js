@@ -1,12 +1,6 @@
-import React, { Component,useState } from 'react';
-import { Container, Row, Col, Card,Button} from "reactstrap";
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import React, { Component} from 'react';
+import { Row, Col, Button} from "reactstrap";
 import Axios from 'axios';
-import {
-    faUser,
-  } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {MultiSelectComponent} from "@syncfusion/ej2-react-dropdowns";
 import MultiSelect from "@khanacademy/react-multi-select";
 
 
@@ -19,7 +13,7 @@ const options = [
   ];
 class Placements extends Component{
     constructor(props){
-        super(props);
+        super();
         this.state={
             dropdownOpen:false,
             setDropdownOpen:false,
@@ -159,7 +153,6 @@ class Placements extends Component{
         .catch((err)=>console.log(err));
     }
     render(){
-        const {selected} = this.state.selected;
         return( 
         <div className="container">
                 <Row  style={{backgroundColor: "#2A324B",color: "white",fontSize: "14px",fontWeight: "700"}}>
