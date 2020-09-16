@@ -31,7 +31,7 @@ class TrainingBoardEdit extends Component {
     this.state = {
       isModalOpen1: false,
       isModalOpen: false,
-      Year:2022,
+      Year:"",
       edit:[],
       isNavOpen: false,
       YOP:"",
@@ -125,7 +125,7 @@ class TrainingBoardEdit extends Component {
       return <Redirect to={"/home"}/>
     }
     return (
-      <div>
+      <div className="container">
         <Card>
           <Card.Body>
             <div className="row">

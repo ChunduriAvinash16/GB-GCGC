@@ -7,7 +7,6 @@ class NoticeTraningmore extends Component {
     super(props);
     this.state={
       dash:[],
-      year:"2021"
       }
   }
   componentDidMount(){
@@ -22,7 +21,7 @@ class NoticeTraningmore extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="container">
         <Card>
           <Card.Body>
             <Card.Title>

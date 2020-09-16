@@ -47,17 +47,16 @@ a:focus {
   padding: 1.25em;
 }
 
-.sidebar ul p {
-  color: #fff;
-}
-
 .menu-open {
   background: #6d7fcc;
 }
 
-.nav-item:hover {
-  color: #7386d5;
-  background: #fff;
+li:hover {
+  color: #343742;
+}
+
+li{
+  text-align: left;
 }
 
 .items-menu {
@@ -170,4 +169,19 @@ Card {
   display: flex;
   flex-wrap: wrap;
 
+}
+
+.container-fluid{
+  padding:0px;
+}
+
+
+.control-pane #multisection.control-section, .control-section #custom-filtering {
+  width: 80%;
+  margin: 0 auto;
+  min-width: 185px;
+}
+.e-bigger .control-pane #multisection.control-section,
+.e-bigger .control-section #custom-filtering {
+  width: 100%;
 }

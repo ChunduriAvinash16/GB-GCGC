@@ -36,6 +36,54 @@ class ARI extends Component {
         })
     }
     render(){
+      if(this.state.SST1==0 && this.state.SST2==0){
+        return(<div>
+          <Bar
+          style={{height:"500"}}
+          data={{
+                    labels: ["TT1","TT2","TT3","TT4","TT5","CRT1","CRT2","CRT3"],
+                    datasets: [
+                    {
+                        label: "Attendance",
+                        backgroundColor: "lightblue",
+                        borderColor: "lightblue",
+                        borderWidth: 1,
+                        hoverBackgroundColor: "lightblue",
+                        hoverBorderColor: "lightblue",
+                        data: [this.state.TT1,this.state.TT2,this.state.TT3,this.state.TT4,
+                        this.state.TT5,this.state.CRT1,this.state.CRT2,this.state.CRT3],
+                    },
+                    {
+                        label: "Average Attendance",
+                        backgroundColor: "pink",
+                        borderColor: "pink",
+                        borderWidth: 1,
+                        hoverBackgroundColor: "pink",
+                        hoverBorderColor: "pink",
+                        data: [40, 65, 59, 80, 81, 56, 55],
+                    },
+                    ],
+                }
+            }
+          options={{
+            scales: {
+              yAxes: [
+                {
+                  ticks: {
+                    beginAtZero: true,
+                    min: 0,
+                    max: 100,
+                    stepSize: 20,
+                  },
+                },
+              ],
+            },
+          }}
+        />
+      </div>
+
+        )
+      }
     return (
         <div className="container-fluid">
         <Bar

@@ -18,9 +18,9 @@ class Leaderboard extends Component {
                 console.log(error);
             })
     }
-     StudentsList(){
+     StudentsList(id){
         return this.state.students.map(function (object,i){
-            return <Students obj={object} key={i} login={321710303054}/>;
+            return <Students sid={id} obj={object} key={i} login={321710303054}/>;
         });
     }
   render() {
@@ -39,7 +39,7 @@ class Leaderboard extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.StudentsList()}
+            {this.StudentsList(this.props.login)}
           </tbody>
         </Table>
       </div>

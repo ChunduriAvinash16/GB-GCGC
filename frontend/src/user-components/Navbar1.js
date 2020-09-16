@@ -18,7 +18,6 @@ import Dashboard from "./Dashboard";
 import Personaldetails from "./Personaldetails";
 import Changepassword from "./Changepassword";
 import Login from "../login-components/Login";
-import Calender from "./Calender";
 import Axios from "axios";
 import Tooltip from "@material-ui/core/Tooltip";
 

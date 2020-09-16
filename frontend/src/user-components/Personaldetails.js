@@ -68,7 +68,7 @@ class Personaldetails extends Component {
 
   render() {
     return (
-      <div className="container-fluid">
+      <div className="container-fluid" id="form">
         <Row>
           <Col>&nbsp;</Col>
         </Row>

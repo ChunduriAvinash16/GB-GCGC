@@ -34,9 +34,6 @@ class Footer extends React.Component {
                           
               </div>
               <br></br>
-              <p align="right" style={{ fontSize: "15px" }}>
-                Under the Guidance of Dr. Kishor Buddha
-              </p>
               <div className="row justify-content-center">
                 <div className="col-auto">
                   <p>Copyright GITAM,BENGALURU © 2020. All rights reserved.</p>

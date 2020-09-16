@@ -27,6 +27,7 @@ import ITA from "./ITA";
 import Personaldetails from "./Personaldetails";
 import Placements from "./Placements";
 import Leaderboard from "./Leaderboard";
+import { timers } from "jquery";
 
 
 class Dashboard extends Component {
@@ -108,7 +109,6 @@ class Dashboard extends Component {
               this.setState({
                 images:response.data
               })
-
             })
       }
   render(){
@@ -118,7 +118,7 @@ class Dashboard extends Component {
            <Card>
             <Row style={{textAlign:"initial"}}>
                 <Col md="4"style={{"padding":"10px"}}>
-                  <img src={this.state.images} style={{"height":"100px","width":"100px"}}/>
+                  <img src={this.state.images} style={{"height":"100px","width":"100px","border-radius": "50%"}}/>
                     Welcome {this.state.fname} {this.state.mname} {this.state.lname} 
                 </Col>
                 <Col>
@@ -129,7 +129,7 @@ class Dashboard extends Component {
             
               <br/>
             <Card>
-              <Collapsible trigger="PersonalDetails" triggerStyle={{"textAlign":"end"}}>
+              <Collapsible trigger="PersonalDetails" triggerStyle={{"textAlign":"end"}} style={{"textAlign":"center"}}>
                 <hr/>
                   <Personaldetails login={this.props.login}/>
               </Collapsible>
@@ -270,6 +270,7 @@ class Dashboard extends Component {
               <Placements login={this.props.login}/>
             </Collapsible>
           </Card>
+          <br/>
       </div>
   );
 }
