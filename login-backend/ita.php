@@ -11,7 +11,6 @@ if($result=mysqli_query($con,$sql)){
     while($row=mysqli_fetch_assoc($result)){
         $students[] = $row;
        // printf("%s"$row["Program"])
-        
     }
     //$students[]=mysqli_fetch_assoc(mysqli_query($con,"SELECT AVG(att) as average FROM ita WHERE Program=$row["Program"]"));
     echo(json_encode($students));

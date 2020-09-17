@@ -95,7 +95,7 @@ class HomeCards extends Component {
       	console.log(this.state.dash[1])
     })
     .catch(err=>console.log(err));
-    Axios.get("http://localhost:80/Admin-backend/PlacementsDashboard.php?year="+2020)
+    Axios.get("http://localhost:80/Admin-backend/PlacementsDashboard.php?year="+2021)
     .then(response=>{
       this.setState({
         train:response.data,
