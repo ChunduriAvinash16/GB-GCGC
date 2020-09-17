@@ -9,6 +9,7 @@
     $request = json_decode($postdata);
     $oldpassword= $request->oldpassword;
     $newpassword= $request->newpassword;    
+    
     $verifypassword= $request->verifypassword;
     $sql="SELECT * FROM `user` WHERE `user_id`=$id";
     $result=mysqli_query($con,$sql);

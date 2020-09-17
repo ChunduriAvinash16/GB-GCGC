@@ -50,7 +50,7 @@ class EditPlacement extends Component  {
       });
     }
     componentDidMount(){
-      Axios.get("http://localhost:80/Admin-backend/PlacementsDashBoardUpdate.php?id="+this.props.match.params.id)
+      Axios.get("http://localhost:80/Admin-backend/PlacementsDashBoardUpdate.php?year="+this.props.match.params.id)
       .then(response=>{
         this.setState({
           placement:response.data,
