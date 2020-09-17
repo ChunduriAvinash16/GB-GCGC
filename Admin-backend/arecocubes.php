@@ -16,7 +16,7 @@ if(isset($postdata) && !empty($postdata)){
     $Assessmentdate= $request->Assessmentdate;
     $AssessmentID= $request->AssessmentID; 
     $OverallAptitude= $request->OverallAptitude;   
-    $English= $request->English;   
+    $English $request->English;   
     $Quantitative= $request->Quantitative;
     $Analytical= $request->Analytical;                                          
     $Domian= $request->Domian; 
