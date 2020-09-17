@@ -36,7 +36,7 @@ import IndividualStudent from "../IndividualStudent";
 import Login from "../../login-components/Login";
 import UserStaff from "../../Admin-component/UserStaff"
 import UserStudent from "../../Admin-component/UserStudent";
-import Assessment from "../../Admin-component/Assessment";
+import UserAssessment from "../../Admin-component/component/userassessment";
 import Placements from "../../Admin-component/Placements";
 import StudentView from "../../Admin-component/StudentView";
 import Dashboard from "../../user-components/Dashboard";
@@ -148,7 +148,7 @@ const Content = ({id,sidebarIsOpen, toggleSidebar}) => (
       <Route path={"/DashBoard"} component={Dashboard}/>
       <Route path="/user-staff" component={UserStaff}/>
       <Route path="/user-student" component={UserStudent}/>
-      <Route path="/assessment" component={Assessment}/>
+      <Route path="/assessment" component={UserAssessment}/>
       <Route path="/Placements" component={Placements}/>
     </Switch>
     <Footer />
