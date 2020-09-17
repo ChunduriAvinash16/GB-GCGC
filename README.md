@@ -19,8 +19,22 @@ This Project will help to students where he/she is actually there.
 
 # Before Starting install packages
 <pre>
-    npm i jspdf
-    npm i html-canvas
-    npm i @material-ui/core
-    npm i react-html-table-to-excel
+    `npm i jspdf`
+    `npm i html-canvas`
+    `npm i @material-ui/core`
+    `npm i react-html-table-to-excel`
+</pre>
+
+# For Linux Users use this query to add "group by" Unrestrcited
+
+`SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));`
+
+# At khanacademy/react-multi-select/dist/get-string.js
+<pre>
+var strings = {
+    selectSomeItems: "Select Department...",
+    allItemsAreSelected: "All Departments are selected",
+    selectAll: "Select All",
+    search: "Search"
+};
 </pre>

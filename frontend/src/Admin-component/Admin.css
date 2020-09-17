@@ -47,18 +47,12 @@ a:focus {
   padding: 1.25em;
 }
 
-.Collapsible{
-  text-align:left
-}
-
-
-
 .menu-open {
   background: #6d7fcc;
 }
 
 li:hover {
-  color: #7386d5;
+  color: #343742;
 }
 
 li{
@@ -182,3 +176,12 @@ Card {
 }
 
 
+.control-pane #multisection.control-section, .control-section #custom-filtering {
+  width: 80%;
+  margin: 0 auto;
+  min-width: 185px;
+}
+.e-bigger .control-pane #multisection.control-section,
+.e-bigger .control-section #custom-filtering {
+  width: 100%;
+}
