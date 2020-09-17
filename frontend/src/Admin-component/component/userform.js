@@ -256,3 +256,4 @@ class Personaldetails extends Component {
 }
 
 export default Personaldetails;
+

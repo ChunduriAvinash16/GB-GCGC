@@ -36,7 +36,7 @@ import IndividualStudent from "../IndividualStudent";
 import Login from "../../login-components/Login";
 import UserStaff from "../../Admin-component/UserStaff"
 import UserStudent from "../../Admin-component/UserStudent";
-import Assessment from "../../Admin-component/Assessment";
+import UserAssessment from "../../Admin-component/component/userassessment";
 import Placements from "../../Admin-component/Placements";
 import StudentView from "../../Admin-component/StudentView";
 import Dashboard from "../../user-components/Dashboard";
