@@ -6,7 +6,12 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 
 $recordListuserstaff = [];
 
-$sql = "select Emp_Id,Emp_Name,Email_id,Campus,Department,Mobile_No from staff_details";
+$show=$_GET["show"];
+
+if($show=="0" )
+$sql = "select Emp_Id,Emp_Name,Email_id,Campus,Department,Mobile_No from staff_details ";
+else
+$sql = "select Emp_Id,Emp_Name,Email_id,Campus,Department,Mobile_No from staff_details LIMIT $show";
 
 if($result=mysqli_query($con,$sql)){
     $cr=0;

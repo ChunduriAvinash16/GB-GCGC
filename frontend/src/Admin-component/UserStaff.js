@@ -17,7 +17,9 @@ class  UserStaff extends Component {
 	constructor(props) {
 	    super(props);
 	    this.onChangesearch = this.onChangesearch.bind(this);
-     	
+     	this.onChangeshow = this.onChangeshow.bind(this);
+     	this.onChangesearch = this.onChangesearch.bind(this);
+
 	    this.state = {
 	      Emp_Id:"",
       	  Emp_Name:"",
@@ -25,14 +27,10 @@ class  UserStaff extends Component {
       	  Campus:"",
       	  Department:"",
       	  Mobile_No:"",
-      	  sortby:'nill',
-	      staff:[],
-	      recordListuserstaff:[],
-	      students:[]	    
+      	  show:"0",
+	      recordListuserstaff:[]
 	  };
 	}
-	
-
 	
 
 	componentDidMount()  {
@@ -48,7 +46,7 @@ class  UserStaff extends Component {
 		    };
 
 		    console.log(obj);
-    	Axios.get("http://localhost:80/Admin-backend/userstaff.php",obj)
+    	Axios.get("http://localhost:80/Admin-backend/userstaff.php?show="+0,obj)
     	.then(response=>{
       	this.setState({
         	recordListuserstaff:response.data,
@@ -64,6 +62,25 @@ class  UserStaff extends Component {
     
     }
 
+    onChangeshow(e) {
+        this.setState({
+            show: e.target.value
+        });
+        Axios.get("http://localhost:80/Admin-backend/userstaff.php?show="+e.target.value)
+   		.then(response=>{
+	      	this.setState({
+	        	recordListuserstaff:response.data,
+	        	Emp_Id: response.data[0]["Emp_Id"],
+	        	Emp_Name: response.data[0]["Emp_Name"],
+	        	Email_id:response.data[0]["Email_id"],
+	        	Campus: response.data[0]["Campus"],
+	        	Department: response.data[0]["Department"],
+	        	Mobile_No: response.data[0]["Mobile_No"]
+	      	})
+      		console.log(this.state.recordListuserstaff)
+   		})
+   		.catch(err=>console.log(err));
+   	}
 
 
     StaffList(){
@@ -89,13 +106,20 @@ class  UserStaff extends Component {
       });  
   }
 
-  onChangesearch(e) {
-        Axios.get("http://localhost/Admin-backend/Students.php?search="+e.target.value)
+  	onChangesearch(e) {
+        Axios.get("http://localhost/Admin-backend/Staffsearch.php?search="+e.target.value)
           .then(response => {
           	console.log(response.data);
               this.setState({
-                  students:response.data
+                recordListuserstaff:response.data,
+	        	Emp_Id: response.data[0]["Emp_Id"],
+	        	Emp_Name: response.data[0]["Emp_Name"],
+	        	Email_id:response.data[0]["Email_id"],
+	        	Campus: response.data[0]["Campus"],
+	        	Department: response.data[0]["Department"],
+	        	Mobile_No: response.data[0]["Mobile_No"]
               })  
+              console.log(this.state.recordListuserstaff)
           })
           .catch(function(err){
               console.log(err);
@@ -104,7 +128,7 @@ class  UserStaff extends Component {
 
 	render(){
 	    return (
-	        <div className="container">
+	        <div>
 	        	<Row style={{backgroundColor: "#2A324B",color: "white",fontSize: "14px",fontFamily: "Segoe UI",fontWeight: "700"}}>
 		            <Col xs="12" className="p-2" align="center">
 		              <div>Staff Details</div>
@@ -114,7 +138,7 @@ class  UserStaff extends Component {
 	            	<Row >
 	            	
 	            		<Col md="2" >
-		            		<Form >
+		            		<Form style={{"textAlign":"initial"}}>
 				            	<NavLink tag={Redirect} to={"/userstaffAdd"}>
 				              		<Button
                       					style={{backgroundColor: "#6c757d",color: "white",borderColor: "#6c757d"}}>
@@ -125,27 +149,32 @@ class  UserStaff extends Component {
 				        </Col>
 	            	</Row>
 		            <Row className="p-3">
-		            	<Col md="1">Show</Col>
-						<Col md="3">
-							<select name="sortby" className="runningtext container p-2" className="form-control" onChange={this.onChangesortby} >
-			                    	<option value="nill">All</option>
-			                        <option value="5">5</option>
-			                        <option value="10">10</option>
-			                        <option value="25">25</option>
-			                        <option value="50">50</option>
-			                        <option value="75">75</option>
-			                        <option value="100">100</option>
-			                    </select>
+		            	<Col md="6"style={{"text-align":"initial"}}>
+							Show
+							<span style={{"padding":"10px"}}>
+								<select style={{backgroundColor:'#6c757d',borderColor:'#6c757d',fontSize:'15px',color:'white'}} value={this.state.show} onChange={this.onChangeshow}>
+										<option value="0">All</option>
+										<option value="5">5</option>
+										<option value="10">10</option>
+										<option value="25">25</option>
+										<option value="50">50</option>
+										<option value="75">75</option>
+										<option value="100">100</option>
+									</select>
+							</span>
+		                	Entities
 		                </Col>
-						<Col md="4"></Col>
-		                <Col md="1">Search</Col>
-		                <Col md="3"><input type="text" name="search"  className="form-control"onChange={this.onChangesearch}/></Col>
+		                <Col md="6" style={{"textAlign":"right"}}>Search
+							<span style={{"padding":"10px"}}>
+								<input type="text" name="search" onChange={this.onChangesearch}/>
 
+							</span>
+						</Col>
 		            </Row>
 		           	<Row >
 	            		
 	            		<Col md="2">
-		            		<Form >
+		            		<Form  style={{"textAlign":"initial"}}>
 								<ReactHTMLTableToExcel  
 		                    			className="btn btn-secondary"  
 		                    			table="Data"  
@@ -159,7 +188,7 @@ class  UserStaff extends Component {
 	            	</Row>
 	            	<br/>
 		            <Row className="p-2">
-		            	<Col md="12">
+		            	<Col md="12" lg="12">
 			            	<Table id="Data" responsive striped style={{backgroundColor:'white'}}>
 				                <thead style={{backgroundColor:'#2A324B',color:'white'}}>
 				                  <tr>
