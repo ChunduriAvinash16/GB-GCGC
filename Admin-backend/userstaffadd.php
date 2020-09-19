@@ -17,8 +17,10 @@ if(isset($postdata) && !empty($postdata)){
     $mobileno= $request->empmobile;
     $insti= $request->empinsti;
     $desig= $request->empdesig;
+    $gend= $request->Gender;
+    $type= $request->Employee_Type;
 
-    $sql="INSERT INTO staff_details(Emp_Id, Email_id, Emp_Name, Mobile_No, Campus, Institution, Department, Designation) VALUES ($eid,'$emailid','$Ename',$mobileno,'$cam','$insti','$depart','$desig')";
+    $sql="INSERT INTO staff_details(Emp_Id, Email_id, Emp_Name, Mobile_No, Campus, Institution, Department, Designation,Gender,Employee_Type) VALUES ($eid,'$emailid','$Ename',$mobileno,'$cam','$insti','$depart','$desig','$gend','$type')";
 
     if(mysqli_query($con,$sql)){
         http_response_code(202);

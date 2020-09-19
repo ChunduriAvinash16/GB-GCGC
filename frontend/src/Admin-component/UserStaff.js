@@ -128,7 +128,7 @@ class  UserStaff extends Component {
 
 	render(){
 	    return (
-	        <div>
+	        <div className="container-fluid">
 	        	<Row style={{backgroundColor: "#2A324B",color: "white",fontSize: "14px",fontFamily: "Segoe UI",fontWeight: "700"}}>
 		            <Col xs="12" className="p-2" align="center">
 		              <div>Staff Details</div>

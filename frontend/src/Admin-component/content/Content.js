@@ -148,7 +148,7 @@ const Content = ({id,sidebarIsOpen, toggleSidebar}) => (
       <Route exact path={"/editplacement/:id"} component={EditPlacement}/>
       <Route path={"/IndividualStudent/:id"} component={IndividualStudent}/>
       <Route path={"/DashBoard"} component={Dashboard}/>
-      <Route path="/user-staff" component={UserStaff}/>
+      <Route exact path="/user-staff" component={UserStaff}/>
       <Route path="/user-student" component={UserStudent}/>
       <Route path="/assessment" component={Assessment}/>
       <Route path="/Placements" component={Placements}/>
