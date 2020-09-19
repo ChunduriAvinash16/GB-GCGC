@@ -32,6 +32,7 @@ class PlacementBoardEdit extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      id:"",
       placement:[],
       isModalOpen: false,
       year:2021,
@@ -68,7 +69,7 @@ class PlacementBoardEdit extends Component {
     });
   }
   componentDidMount(){
-    Axios.get("http://localhost:80/Admin-backend/PlacementsDashBoardEdit.php?year="+this.props.match.params.id)
+    Axios.get("http://localhost:80/Admin-backend/PlacementsDashBoardEdit.php?id="+this.props.match.params.id)
     .then(response=>{
       this.setState({
         placement:response.data,

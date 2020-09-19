@@ -18,7 +18,7 @@ if(isset($postdata) && !empty($postdata)){
     $instituition = $request->instituition;
     $department = $request->department;
 
-    $sql = "UPDATE `staff_details` SET `Emp_Id`=$id,`Email_id`='$email',`Emp_Name`='$fname',`Mobile_No`=$phone,`Campus`='$campus',`Institution`='$instituition',`Department`='$department',`last_name`='$lname' WHERE Emp_Id=$id";
+    $sql = "UPDATE `staff_details` SET `Emp_Id`=$id,`Email_id`='$email',`Emp_Name`='$fname',`Mobile_No`=$phone,`Campus`='$campus',`Institution`='$instituition',`Department`='$department',`Lastname`='$lname' WHERE Emp_Id=$id";
     if(mysqli_query($con, $sql)){
         echo("Successfully Updated!");
         http_response_code(202);

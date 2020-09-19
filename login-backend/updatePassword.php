@@ -8,7 +8,7 @@
     $postdata = file_get_contents("php://input");
     $request = json_decode($postdata);
     $oldpassword= $request->oldpassword;
-    $newpassword= $request->newpassword;    
+    $newpassword= $request->newpassword;  
     $verifypassword= $request->verifypassword;
     $sql="SELECT * FROM `user` WHERE `user_id`=$id";
     $result=mysqli_query($con,$sql);

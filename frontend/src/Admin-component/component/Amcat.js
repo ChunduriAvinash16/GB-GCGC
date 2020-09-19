@@ -85,7 +85,7 @@ handleSubmit(e){
   console.log(obj);
 }
   render() {
-    if(this.state.id==="NI" || this.state.id=="NA"){
+    if(this.state.id==="NI" || this.state.id==="NA"){
       return(<div></div>)
     }
     return (

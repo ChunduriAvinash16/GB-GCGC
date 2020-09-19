@@ -18,7 +18,7 @@ if(isset($postdata) && !empty($postdata)){
     $sql ="UPDATE `are_cocubes` SET
     `Overall_Aptitude`=$Apptitude,`English`=$English,`Quantitative`=$Quantitative,
     `Analytical`=$Analytical,`Domain`=$Domain,`Computer_Fundamentals`=$ComputerFundamentals,
-    `Coding`=$Coding,`WET`=$WET,
+    `Coding`=$Coding,`WET`=$WET
      WHERE `unique_id`=$id";
     if(mysqli_query($con,$sql)){
         echo ("$program ");
