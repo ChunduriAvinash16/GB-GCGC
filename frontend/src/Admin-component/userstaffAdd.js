@@ -17,7 +17,8 @@ class userstaffAdd extends React.Component {
             empmobile:"",
             empinsti:"",
             empdesig:"",
-            Gender:""
+            Gender:"",
+            Employee_Type:""
             
           };
       
@@ -29,6 +30,8 @@ class userstaffAdd extends React.Component {
           this.onChangeempinsti=this.onChangeempinsti.bind(this);
           this.onChangeempdept=this.onChangeempdept.bind(this);
           this.onChangeEname=this.onChangeEname.bind(this);
+          this.onChangegender=this.onChangegender.bind(this);
+          this.onChangeemptype=this.onChangeemptype.bind(this);
           this.handleSubmit=this.handleSubmit.bind(this);
       
         }
@@ -74,7 +77,16 @@ class userstaffAdd extends React.Component {
           empname:e.target.value
           });
         }
-
+        onChangegender(e){
+          this.setState({
+          Gender:e.target.value
+          });
+        }
+        onChangeemptype(e){
+          this.setState({
+          Employee_Type:e.target.value
+          });
+        }
 
   handleSubmit(e){
     e.preventDefault();
@@ -86,7 +98,9 @@ class userstaffAdd extends React.Component {
           empdept:this.state.empdept,
           empmobile:this.state.empmobile,
           empdesig:this.state.empdesig,
-          empinsti:this.state.empinsti
+          empinsti:this.state.empinsti,
+          Gender:this.state.Gender,
+          Employee_Type:this.state.Employee_Type
     };
     console.log(obj);
     Axios.post("http://localhost/Admin-backend/userstaffadd.php",obj)
@@ -100,14 +114,16 @@ class userstaffAdd extends React.Component {
         empdept:"",
         empmobile:"",
         empdesig:"",
-        empinsti:""
+        empinsti:"",
+        Gender:"",
+        Employee_Type:""
       })
   }
 
 
   render(){
     return(
-      <div>
+      <div style={{ align: "left" }}>
         <Container>
           <Row style={{backgroundColor: "#2A324B",color: "white",fontSize: "14px",fontFamily: "Segoe UI",fontWeight: "700"}}>
             <Col xs="12" className="p-2" align="center">
@@ -152,15 +168,15 @@ class userstaffAdd extends React.Component {
                   <Row>
                     <Col lg="4">Gender</Col>
                     <Col lg="8">
-                        <input type="radio" id="male" name="gender" value={this.state.Gender}/>
+                        <input type="radio" id="Male" name="Gender" value="Male" onChange={this.onChangegender}/>
                         <label for="male">Male</label>
-                        <input type="radio" id="female" name="gender" value={this.state.Gender}/>
+                        <input type="radio" id="Female" name="Gender" value="Female" onChange={this.onChangegender}/>
                         <label for="female">Female</label>
                     </Col>
                   </Row>
                   <Row>&nbsp;</Row>
                   <Row>
-                    <Col lg="4">empdesig</Col>
+                    <Col lg="4">Designation</Col>
                     <Col lg="8">
                       <Input type="text" id="empdesig" value={this.state.empdesig} name="empdesig" onChange={this.onChangeempdesig} />
                     </Col>
@@ -174,16 +190,23 @@ class userstaffAdd extends React.Component {
                   </Row>
                   <Row>&nbsp;</Row>
                   <Row>
-                    <Col lg="4">empinsti</Col>
+                    <Col lg="4">Institution</Col>
                     <Col lg="8">
                       <Input type="text" id="empinsti" value={this.state.empinsti} name="empinsti" onChange={this.onChangeempinsti} />
                     </Col>
                   </Row>
                   <Row>&nbsp;</Row>
                   <Row>
-                    <Col lg="4">empdept</Col>
+                    <Col lg="4">Department</Col>
                     <Col lg="8">
                       <Input type="text" id="empdept" value={this.state.empdept} name="empdept" onChange={this.onChangeempdept} />
+                    </Col>
+                  </Row>
+                  <Row>&nbsp;</Row>
+                  <Row>
+                    <Col lg="4">Employee Type</Col>
+                    <Col lg="8">
+                      <Input type="text" id="Employee_Type" value={this.state.Employee_Type} name="Employee_Type" onChange={this.onChangeemptype} />
                     </Col>
                   </Row>
                   <Row>&nbsp;</Row>

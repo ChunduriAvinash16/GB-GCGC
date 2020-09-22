@@ -6,7 +6,7 @@ import Axios from 'axios';
 
 class EditStaff extends Component {
     constructor(props){
-        super(props);
+        super();
         this.state = {
             
             edit:[],
@@ -18,8 +18,10 @@ class EditStaff extends Component {
             Mobile_No:"",
             Institution:"",
             Designation:"",
-            Gender:""
-            
+            Gender:"",
+            Employee_Type:"",
+            redirect:false
+
           };
       
           this.onChangeemail=this.onChangeemail.bind(this);
@@ -29,6 +31,8 @@ class EditStaff extends Component {
           this.onChangeinstitution=this.onChangeinstitution.bind(this);
           this.onChangedepartment=this.onChangedepartment.bind(this);
           this.onChangeEname=this.onChangeEname.bind(this);
+          this.onChangegender=this.onChangegender.bind(this);
+          this.onChangeemptype=this.onChangeemptype.bind(this);
           this.handleSubmit=this.handleSubmit.bind(this);
       
         }
@@ -69,15 +73,17 @@ class EditStaff extends Component {
           });
         }
 
-        handleChange(e){
+        onChangegender(e){
           this.setState({
-            gender:e.target.value
+            Gender:e.target.value
           });
         }
-
-
+        onChangeemptype(e){
+          this.setState({
+          Employee_Type:e.target.value
+          });
+        }
         
-    
         componentDidMount(){
 
         
@@ -92,7 +98,9 @@ class EditStaff extends Component {
               Department:response.data[0].Department,
               Designation:response.data[0].Designation,
               Mobile_No:response.data[0].Mobile_No,
-              Institution:response.data[0].Institution
+              Institution:response.data[0].Institution,
+              Gender:response.data[0].Gender,
+              Employee_Type:response.data[0].Employee_Type
             })
             console.log(this.response.data)
           })
@@ -110,7 +118,9 @@ class EditStaff extends Component {
           Department:this.state.Department,
           Mobile_No:this.state.Mobile_No,
           Designation:this.state.Designation,
-          Institution:this.state.Institution
+          Institution:this.state.Institution,
+          Gender:this.state.Gender,
+          Employee_Type:this.state.Employee_Type
         };
     console.log(obj);
     Axios.post("http://localhost:80/Admin-backend/userstaffupdate.php",obj)
@@ -124,10 +134,18 @@ class EditStaff extends Component {
         Department:"",
         Mobile_No:"",
         Designation:"",
-        Institution:""
+        Institution:"",
+        Gender:"",
+        Employee_Type:"",
+        redirect:true
+
       })
     }
     render(){
+      const {redirect} = this.state;
+      if(redirect){
+        return <Redirect to={"/user-staff"}/>
+      }
      return (
         <div>
           <Container>
@@ -168,11 +186,10 @@ class EditStaff extends Component {
                           <Row>
                             <Col lg="4">Gender</Col>
                             <Col lg="8">
-                                <input type="radio" id="male" name="gender" value={this.state.Gender} />
+                                <input type="radio" id="Male" name="Gender" value="Male" checked={this.state.Gender === "Male"}  onChange={this.onChangegender}/>
                                 <label for="male">Male</label>
-                                <input type="radio" id="female" name="gender" value={this.state.Gender}/>
+                                <input type="radio" id="Female" name="Gender" value="Female" checked={this.state.Gender === "Female"} onChange={this.onChangegender}/>
                                 <label for="female">Female</label>
-                        
                             </Col>
                           </Row>
                           <Row>&nbsp;</Row>
@@ -205,13 +222,20 @@ class EditStaff extends Component {
                           </Row>
                           <Row>&nbsp;</Row>
                           <Row>
+                            <Col lg="4">Employee Type</Col>
+                            <Col lg="8">
+                              <Input type="text" id="Employee_Type" value={this.state.Employee_Type} name="Employee_Type" onChange={this.onChangeemptype} />
+                            </Col>
+                          </Row>
+                          <Row>&nbsp;</Row>
+                          <Row>
                             <Col lg="4">Image</Col>
                             <Col lg="8">
                               <input type="file" className="form-control" />
                             </Col>
                           </Row>
                           <Row>&nbsp;</Row>
-                          <Row>
+                          <Row className="p-3">
                             <Col lg="4"></Col>
                             <Col lg="8">
                               <Button type="submit" value="submit" color="primary">

@@ -16,8 +16,10 @@ if(isset($postdata) && !empty($postdata)){
     $mobileno= $request->Mobile_No;
     $insti= $request->Institution;
     $desig= $request->Designation;
+    $gen= $request->Gender;
+    $type= $request->Employee_Type;
 
-    $sql ="UPDATE staff_details SET Emp_Id=$id,Emp_Name='$Ename',Email_id='$emailid',Campus='$camp',Department='depart',Mobile_No='$mobileno',Institution='$insti',Designation='$desig' WHERE Emp_Id=$id";
+    $sql ="UPDATE staff_details SET Emp_Id=$id,Emp_Name='$Ename',Email_id='$emailid',Campus='$camp',Department='$depart',Mobile_No='$mobileno',Institution='$insti',Designation='$desig',Gender='$gen',Employee_Type='$type' WHERE Emp_Id=$id";
     if(mysqli_query($con,$sql)){
         http_response_code(202);
     }else{

@@ -6,6 +6,7 @@ header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 $id = $_GET['id'];
 $staff=[];
+
 $sql = "select * from staff_details where Emp_Id=$id";
 
 $ct=0;
