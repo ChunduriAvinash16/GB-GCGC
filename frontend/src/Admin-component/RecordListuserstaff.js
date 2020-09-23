@@ -29,7 +29,7 @@ export default class RecordListuserstaff extends Component {
     return (
         <tr>
             <td>{this.props.obj.Emp_Id}</td>
-            <td>{this.props.obj.Emp_Name}</td>
+            <td align="left">{this.props.obj.Emp_Name}</td>
             <td>{this.props.obj.Email_id}</td>
             <td>{this.props.obj.Campus}</td>
             <td>{this.props.obj.Department}</td>
