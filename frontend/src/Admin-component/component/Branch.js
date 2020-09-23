@@ -55,7 +55,16 @@ class Branch extends React.Component {
 
           <Alert color="success" className="Rounded p-3" >
                 <CardTitle align="left">{this.state.branch.slice(0,3)}</CardTitle>
-                <CardSubtitle align="left">Branch<span className="gap"><Button onClick={()=>{this.handleModalbranch()}}>Edit</Button></span></CardSubtitle> 
+                <CardSubtitle align="left">
+                  <Row>
+                    <Col style={{"padding":"0px"}}>
+                      Branch
+                    </Col>
+                    <Col style={{"textAlign":"end"}}>
+                      <Button style={{"background-color": "rgb(42, 50, 75)"}} onClick={()=>{this.handleModalbranch()}}>Edit</Button>
+                    </Col>
+                  </Row>
+                  </CardSubtitle> 
                   <Modal show={this.state.show} onHide={()=>this.handleModalbranch()} >
                     <Modal.Header closeButton>Edit Branch</Modal.Header>
                     <Modal.Body>

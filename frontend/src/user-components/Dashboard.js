@@ -233,7 +233,7 @@ class Dashboard extends Component {
           </Card>
           <br></br>
           <Card>
-            <Collapsible trigger="ITA">
+            <Collapsible trigger="TAR">
               <hr></hr>
               <ITA aid={this.props.login}/>
             </Collapsible>

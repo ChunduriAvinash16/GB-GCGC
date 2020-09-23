@@ -54,7 +54,16 @@ class BtechMarks extends React.Component {
 
           <Card color="danger" className="Rounded p-3" >
                 <CardTitle align="left">{this.state.gpa}</CardTitle>
-                <CardSubtitle align="left">B Tech Percentage <span className="gap"><Button onClick={()=>{this.handleModalbtech()}}>Edit</Button></span></CardSubtitle> 
+                <CardSubtitle align="left">
+                  <Row>
+                    <Col style={{"padding":"0px"}}>
+                        B Tech CGPA 
+                    </Col>
+                    <Col style={{"textAlign":"end"}}>
+                      <Button  style={{"background-color": "rgb(42, 50, 75)"}} onClick={()=>{this.handleModalbtech()}}>Edit</Button> 
+                    </Col>
+                  </Row>
+                  </CardSubtitle>
                   <Modal show={this.state.show} onHide={()=>this.handleModalbtech()} >
                     <Modal.Header closeButton>Edit B.Tech Marks</Modal.Header>
                     <Modal.Body>

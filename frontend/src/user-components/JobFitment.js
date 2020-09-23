@@ -32,6 +32,7 @@ class JobFitment extends Component {
       }
   render(){
   return (
+    <div>
       <Card className="Rounded p-3">
         <CardSubtitle align="left">Job Fitment</CardSubtitle>
         <hr></hr>
@@ -46,6 +47,8 @@ class JobFitment extends Component {
           performance in all the tests conducted by GCGC
         </CardText>
       </Card>
+    </div>
+
   );
 }
 }
