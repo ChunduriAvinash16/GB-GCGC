@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import {Form} from "reactstrap";
-import {Button,Row,Col,Table} from "react-bootstrap";
+import {Button,Row,Col,Table,Container} from "react-bootstrap";
 import {BrowserRouter as Router,Route,Redirect,Switch,NavLink,Link} from "react-router-dom";
 import {Nav} from "reactstrap";
 import Axios from 'axios';
@@ -128,31 +128,22 @@ class  UserStaff extends Component {
 
 	render(){
 	    return (
-	        <div className="container-fluid">
-	        	<Row style={{backgroundColor: "#2A324B",color: "white",fontSize: "14px",fontFamily: "Segoe UI",fontWeight: "700"}}>
-		            <Col xs="12" className="p-2" align="center">
-		              <div>Staff Details</div>
-		            </Col>
-	          	</Row>
-	            <Row style={{ backgroundColor: "white" }} className="p-2 ">
-	            	<Row >
-	            	
-	            		<Col md="2" >
-		            		<Form style={{"textAlign":"initial"}}>
-				            	<NavLink tag={Redirect} to={"/userstaffAdd"}>
-				              		<Button
-                      					style={{backgroundColor: "#6c757d",color: "white",borderColor: "#6c757d"}}>
-					                      Add Staff
-					                </Button>
-			              		</NavLink>
-				            </Form>
-				        </Col>
+	    	<div style={{backgroundColor:'#C7CCDB'}}>
+	        	<Container>
+	            	<Row>
+	            		<Col align="left">
+				        	<NavLink tag={Redirect} to={"/userstaffAdd"}>
+				            	<Button	style={{backgroundColor: "#2A324B",color: "white",borderColor: "#2A324B"}}>
+					            	Add Staff
+					        	</Button>
+			            	</NavLink>
+			            </Col>
 	            	</Row>
-		            <Row className="p-3">
+		            {/*<Row className="pt-3 pb-3">
 		            	<Col md="6"style={{"text-align":"initial"}}>
 							Show
 							<span style={{"padding":"10px"}}>
-								<select style={{backgroundColor:'#6c757d',borderColor:'#6c757d',fontSize:'15px',color:'white'}} value={this.state.show} onChange={this.onChangeshow}>
+								<select value={this.state.show} onChange={this.onChangeshow}>
 										<option value="0">All</option>
 										<option value="5">5</option>
 										<option value="10">10</option>
@@ -164,50 +155,44 @@ class  UserStaff extends Component {
 							</span>
 		                	Entities
 		                </Col>
-		                <Col md="6" style={{"textAlign":"right"}}>Search
-							<span style={{"padding":"10px"}}>
-								<input type="text" name="search" onChange={this.onChangesearch}/>
-
-							</span>
-						</Col>
-		            </Row>
+		            </Row>*/}
 		           	<Row >
-	            		
-	            		<Col md="2">
-		            		<Form  style={{"textAlign":"initial"}}>
-								<ReactHTMLTableToExcel  
-		                    			className="btn btn-secondary"  
-		                    			table="Data"  
-		                    			filename="Filtered Students"  
-		                    			sheet="Sheet1"  
-		                    			buttonText="Generate Excel"
-		                    			style={{backgroundColor:"#2A324B",color:"white",borderColor:"#2A324B"}} 
-		                    		/>
-				            </Form>
-				        </Col>
+		           		<Col align="left" className="pt-1">
+                			<div>
+                				<ReactHTMLTableToExcel  
+                    				className="btn btn-secondary"  
+                    				table="Data"  
+                    				filename="Filtered Students"  
+                    				sheet="Sheet1"  
+                    				buttonText="EXCEL"
+                    				style={{backgroundColor:"#2A324B",color:"white",borderColor:"#2A324B"}} 
+                    			/>
+                    		</div>
+                    	</Col>
+                    	<Col>
+        					<div align="right">Search:<input type="text" name="search" onChange={this.onChangesearch}/></div>
+        				</Col>
 	            	</Row>
 	            	<br/>
-		            <Row className="p-2">
-		            	<Col md="12" lg="12">
-			            	<Table id="Data" responsive striped style={{backgroundColor:'white'}}>
-				                <thead style={{backgroundColor:'#2A324B',color:'white'}}>
-				                  <tr>
-				                    <th>Emp_Id</th>
+		            <Row>
+			            <Table id="Data" responsive striped style={{backgroundColor:'white'}}>
+				            <thead style={{backgroundColor:'#2A324B',color:'white'}}>
+				                <tr>
+				        		    <th>Emp_Id</th>
 				                    <th>Emp_Name</th>
 				                    <th>Email</th>
 				                    <th>Campus</th>
 				                    <th>Department</th>
 				                    <th>Mobile</th>
 				                    <th>Action</th>
-				                  </tr>
-				                </thead>
-				                <tbody>
-				                	{this.StaffList()}
-			                    </tbody>
-			              	</Table>
-		              	</Col>
-		            </Row>
-	            </Row>
+				                </tr>
+				            </thead>
+				            <tbody>
+				              	{this.StaffList()}
+			                </tbody>
+			            </Table>
+	            	</Row>
+	            </Container>
 	        </div>
 	    )
 	}
