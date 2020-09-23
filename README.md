@@ -38,4 +38,3 @@ var strings = {
     search: "Search"
 };
 </pre>
-[![Run on Repl.it](https://repl.it/badge/github/ChunduriAvinash16/GB-GCGC)](https://repl.it/github/ChunduriAvinash16/GB-GCGC)
