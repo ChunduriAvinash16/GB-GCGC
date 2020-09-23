@@ -56,9 +56,8 @@ componentDidMount(){
         <CardSubtitle align="left">Current Job Suitability</CardSubtitle>
         <hr></hr>
         <div className="container">
-          <Row className="p-4">
+          <Row>
             <Col lg="4" md="6" sm="12">
-         
                       <Doughnut data={{datasets: [{
                                 data: [this.state.Analyst,100-this.state.Analyst],
                                 backgroundColor: ['#4169E1','#EEEEEE'],
