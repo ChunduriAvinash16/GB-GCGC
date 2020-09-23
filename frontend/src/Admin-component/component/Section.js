@@ -56,7 +56,12 @@ class Section extends React.Component {
 
           <Alert color="danger" className="Rounded p-3" >
                 <CardTitle align="left">{this.state.sect}</CardTitle>
-                <CardSubtitle align="left">Section <span className="gap"><Button onClick={()=>{this.handleModalsection()}}>Edit</Button></span></CardSubtitle> 
+                <CardSubtitle align="left">
+                    <Row>
+                      <Col style={{"padding":"0px"}}>Section</Col>
+                      <Col style={{"textAlign":"end"}}><Button onClick={()=>{this.handleModalsection()}}>Edit</Button></Col>
+                    </Row>
+                  </CardSubtitle> 
                   <Modal show={this.state.show} onHide={()=>this.handleModalsection()} >
                     <Modal.Header closeButton>Edit Section</Modal.Header>
                     <Modal.Body>

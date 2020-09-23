@@ -138,7 +138,22 @@ onSubmitCurrentJob(e){
     return (
       <div class="container-fluid">
         <Card className="Rounded p-3">
-          <CardSubtitle align="left">Current Job Suitability</CardSubtitle>
+          <CardSubtitle align="left">
+            <Row>
+              <Col style={{"padding":"0px"}}>
+                Current Job Suitability
+              </Col>
+              <Col style={{"textAlign":"end"}}>
+                <Button
+                  style={{"background-color": "rgb(42, 50, 75)"}}
+                  onClick={() => {
+                      this.handleModalcurrentjob();
+                      }}
+                >Edit
+                </Button>
+              </Col>
+            </Row>
+          </CardSubtitle>
           <hr></hr>
           <div class="container-fluid">
             <Row>
@@ -218,13 +233,6 @@ onSubmitCurrentJob(e){
           </Row>
           </div>
           <br></br>
-          <Button
-            onClick={() => {
-              this.handleModalcurrentjob();
-            }}
-          >
-            Edit
-          </Button>
           <Modal
             show={this.state.show}
             onHide={() => this.handleModalcurrentjob()}

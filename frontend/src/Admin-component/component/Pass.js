@@ -55,7 +55,17 @@ class Pass extends React.Component {
 
           <Alert color="warning" className="Rounded p-3" >
                 <CardTitle align="left">{this.state.pass}</CardTitle>
-                <CardSubtitle align="left">Pass Category <span className="gap"><Button onClick={()=>{this.handleModalpass()}}>Edit</Button></span></CardSubtitle> 
+                <CardSubtitle align="left">
+                  <Row>
+                    <Col style={{"padding":"0px"}}>
+                      Pass Category 
+                    </Col>
+                    <Col style={{"textAlign":"end"}}>
+                      <Button style={{"background-color": "rgb(42, 50, 75)"}} onClick={()=>{this.handleModalpass()}}>Edit</Button>
+                    </Col>
+                  </Row>
+                  </CardSubtitle> 
+                  
                   <Modal show={this.state.show} onHide={()=>this.handleModalpass()} >
                     <Modal.Header closeButton>Edit Pass Category</Modal.Header>
                     <Modal.Body>
