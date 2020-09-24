@@ -16,10 +16,22 @@ export default class Students extends Component{
         this.delete = this.delete.bind(this);
         this.state = {
             redirect: false,
-            val:1,
+            val:1
         }
     }
     delete(e) {
+        if(window.confirm('Are you sure you want to DELETE?'))
+        {
+            fetch("http://localhost:80/Admin-backend/userstudentDelete.php?id="+this.props.obj.id,
+            {
+                method:'DELETE',
+                header:{'Accept':'application/json',
+                'Content-Type':'application/json'
+                }
+            })
+            .then(res=>alert("Sucessfully Deleted!"))
+            .catch(err=>console.log(err))
+        }
         this.setState({redirect : true});
     }
     render(){
@@ -39,7 +51,7 @@ export default class Students extends Component{
                 <td>{this.props.obj.Faculty_Coordinator}</td>
                 <td>
                     <Tooltip title="Delete" placement="right">
-                        <FontAwesomeIcon icon={faTrash} className="ml-2 p-1" style={{backgroundColor:'#2A324B',color:'white',fontSize:'20',borderRadius:'10'}}/>
+                        <FontAwesomeIcon icon={faTrash} onClick={this.delete} className="ml-2 p-1" style={{backgroundColor:'#2A324B',color:'white',fontSize:'20',borderRadius:'10'}}/>
                     </Tooltip>
                 </td>
             </tr>
