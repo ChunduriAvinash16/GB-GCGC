@@ -22,7 +22,7 @@ $row4=mysqli_fetch_assoc($result);
 $sql5 = "SELECT COUNT(*) as count FROM `cdt2020` WHERE `userid`=$id and (`PIU`='NA' OR `PIU`='Y') and (`TIS`='NA' OR `TIS`='Y') and (`GDS`='NA' OR `GDS`='Y') and WTS='Y' and `attendance`='P'";
 $result=mysqli_query($con,$sql5);
 $row5=mysqli_fetch_assoc($result);
-$sql6 = "SELECT COUNT(*) as count FROM `company-yop` WHERE `YOP`=(SELECT `YOP` FROM `academic_details` where `user_id`=$id)";
+$sql6 = "SELECT COUNT(*) as count FROM `placements_dash` WHERE `YOP`=(SELECT `YOP` FROM `academic_details` where `user_id`=$id)";
 $result=mysqli_query($con,$sql6);
 $row6=mysqli_fetch_assoc($result);
 if($result=mysqli_query($con,$sql)){
