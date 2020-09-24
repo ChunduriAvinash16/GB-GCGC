@@ -199,7 +199,21 @@ onSubmitARI(e){
           <Col sm="12">
             <Card className="Rounded p-3">
               <CardSubtitle align="left">
-                Assesment Report Internal
+                <Row>
+                <Col>
+                   Assesment Report Internal
+                </Col>
+                <Col style={{"textAlign":"end"}}>
+                  <Button
+                    style={{"background-color": "rgb(42, 50, 75)"}}
+                    onClick={() => {
+                      this.handleModalARI();
+                    }}
+                  >
+                    Edit
+              </Button>
+              </Col>
+                </Row>
               </CardSubtitle>
               <hr></hr>
               <Bar
@@ -236,13 +250,7 @@ onSubmitARI(e){
                   }}
                   />
               <br></br>
-              <Button
-                onClick={() => {
-                  this.handleModalARI();
-                }}
-              >
-                Edit
-              </Button>
+
               <Modal
                 show={this.state.show}
                 onHide={() => this.handleModalARI()}

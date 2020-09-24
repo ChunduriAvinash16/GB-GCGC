@@ -25,7 +25,6 @@ class Leaderboard extends Component {
     }
   render() {
     return (
-      <div className="lb">
         <Table striped bordered hover zoom responsive>
           <thead>
             <tr>
@@ -42,7 +41,6 @@ class Leaderboard extends Component {
             {this.StudentsList(this.props.login)}
           </tbody>
         </Table>
-      </div>
     );
   }
 }

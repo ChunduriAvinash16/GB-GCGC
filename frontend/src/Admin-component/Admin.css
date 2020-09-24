@@ -185,3 +185,6 @@ Card {
 .e-bigger .control-section #custom-filtering {
   width: 100%;
 }
+.btn{
+  background-color: rgb(42, 50, 75);
+}

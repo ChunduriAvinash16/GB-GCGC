@@ -57,7 +57,16 @@ class TwelveMarks extends React.Component {
     <div class="container-fluid">
           <Card color="warning" className="Rounded p-3" >
                 <CardTitle align="left">{this.state.inter}</CardTitle>
-                <CardSubtitle align="left">Inter Percentage <span className="gap"><Button onClick={()=>{this.handleModaltwelve()}}>Edit</Button></span></CardSubtitle> 
+                <CardSubtitle align="left">
+                  <Row>
+                    <Col style={{"padding":"0px"}}>
+                      Inter Percentage 
+                    </Col>
+                    <Col style={{"textAlign":"end"}}>
+                      <Button style={{"background-color": "rgb(42, 50, 75)"}} onClick={()=>{this.handleModaltwelve()}}>Edit</Button>
+                    </Col>
+                  </Row>
+                </CardSubtitle> 
                   <Modal show={this.state.show} onHide={()=>this.handleModaltwelve()} >
                     <Modal.Header closeButton>Edit Inter Percentage</Modal.Header>
                     <Modal.Body>

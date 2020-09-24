@@ -56,26 +56,26 @@ onChangeoldPassword(e) {
               <label>
                 <div> Old Password</div>
                 <div>
-                  <input type="password" name="oldpassword"  value={this.state.oldpassword} onChange={this.onChangeoldPassword}/>
+                  <input type="password" name="oldpassword" className="form-control" value={this.state.oldpassword} onChange={this.onChangeoldPassword}/>
                 </div>
               </label>
               <br></br>
               <label>
                 <div>New Password</div>
                 <div>
-                  <input type="password" name="newpassword" onChange={this.onChangenewPassword}/>
+                  <input type="password" name="newpassword" className="form-control" onChange={this.onChangenewPassword}/>
                 </div>
               </label>
               <br></br>
               <label>
                 <div>Confirm New Password</div>
                 <div>
-                  <input type="Password" name="verifypassword" onChange={this.onChangeverifyPassword}/>
+                  <input type="Password" name="verifypassword" className="form-control" onChange={this.onChangeverifyPassword}/>
                 </div>
               </label>
               <br></br>
               <label>
-                <Button type="Submit">Submit</Button>
+                <Button type="Submit" className="form-control">Submit</Button>
               </label>
             </form>
           </div>
