@@ -213,7 +213,7 @@ export default class AllStudents extends Component{
                                     </Row>
                                     <Row>
                                         <Col>
-                                          <select name="category" id="selectcategory" className="container p-2" onChange={this.onChangecategory} style={{fontSize:"12px",fontFamily: "Segoe UI",fontWeight:"400",borderColor:"#999999",color:"#999999"}}>
+                                          <select name="category" id="selectcategory" className="form-control container p-2" onChange={this.onChangecategory} style={{fontSize:"12px",fontFamily: "Segoe UI",fontWeight:"400",borderColor:"#999999",color:"#999999"}}>
                                             <option value="Any">Any</option>
                                             <option value="B.Tech">BTech</option>
                                             <option value="MBA">MBA</option>
@@ -227,7 +227,7 @@ export default class AllStudents extends Component{
                                     </Row>
                                     <Row>
                                         <Col xs="12">
-                                            <select name="branches" className="container p-2" onChange={this.onChangebranches} style={{fontSize:"12px",fontFamily: "Segoe UI",fontWeight:"400",borderColor:"#999999",color:"#999999"}} >
+                                            <select name="branches" className="form-control container p-2" onChange={this.onChangebranches} style={{fontSize:"12px",fontFamily: "Segoe UI",fontWeight:"400",borderColor:"#999999",color:"#999999"}} >
                                                 <option value="All">Select All</option>
                                                 <option value="CSE">Computer Science Engineering</option>
                                                 <option value="ECE">Electronics and Communication Engineering</option>
@@ -240,11 +240,11 @@ export default class AllStudents extends Component{
                                 </Col>
                                 <Col lg="4" md="6" xs="12" align="left">
                                     <Row>
-                                        <Col className="container">CGPA(<span id="CGPA">{this.state.cgpa}</span>-10)</Col>
+                                        <Col className="form-control-range container">CGPA(<span id="CGPA">{this.state.cgpa}</span>-10)</Col>
                                     </Row>
                                     <Row>
-                                        <Col>
-                                           <input type="range" defaultValue="0" name="mincgpa" id="mincgpa" min="0" max="10" step="0.5" className="w-100" onChange={this.onChangecgpa}/>
+                                        <Col >
+                                           <input type="range"  defaultValue="0" name="mincgpa" id="mincgpa" min="0" max="10" step="0.5" className="w-100" onChange={this.onChangecgpa}/>
                                         </Col>
                                     </Row>
                                 </Col>
@@ -258,7 +258,7 @@ export default class AllStudents extends Component{
                                     Batch
                                 </Col>
                                 <Col lg="4" md="10" xs="12" >
-                                    <select name="batch" className="runningtext container p-2" onChange={this.onChangebatch}  style={{fontSize:"12px",fontFamily: "Segoe UI",fontWeight:"400",borderColor:"#999999",color:"#999999"}}>
+                                    <select name="batch" className="form-control runningtext container p-2" onChange={this.onChangebatch}  style={{fontSize:"12px",fontFamily: "Segoe UI",fontWeight:"400",borderColor:"#999999",color:"#999999"}}>
                                       <option value="nill">No Preference</option>
                                       <option value="2016" >2016</option>
                                       <option value="2017" >2017</option>
@@ -272,7 +272,7 @@ export default class AllStudents extends Component{
                                         Sort By
                                     </Col>
                                     <Col lg="4" md="10"  xs="12">
-                                        <select name="sortby" className="runningtext container p-2" onChange={this.onChangesortby}  style={{fontSize:"12px",fontFamily: "Segoe UI",fontWeight:"400",borderColor:"#999999",color:"#999999"}}>
+                                        <select name="sortby" className="form-control runningtext container p-2" onChange={this.onChangesortby}  style={{fontSize:"12px",fontFamily: "Segoe UI",fontWeight:"400",borderColor:"#999999",color:"#999999"}}>
                                             <option value="user_id">Roll No</option>
                                             <option value="first_name">Name</option>
                                             <option value="Branch">Branch</option>
@@ -287,7 +287,7 @@ export default class AllStudents extends Component{
                                         Gender
                                     </Col>
                                     <Col lg="4" md="10" xs="12">
-                                        <select className="runningtext container p-2" name="gender" onChange={this.onChangegender}  style={{fontSize:"12px",fontFamily: "Segoe UI",fontWeight:"400",borderColor:"#999999",color:"#999999"}}>
+                                        <select className="form-control runningtext container p-2" name="gender" onChange={this.onChangegender}  style={{fontSize:"12px",fontFamily: "Segoe UI",fontWeight:"400",borderColor:"#999999",color:"#999999"}}>
                                             <option value="nill">No Preference</option>
                                             <option value="M" >Male</option>
                                             <option value="F" >Female</option>
@@ -309,7 +309,7 @@ export default class AllStudents extends Component{
                                         Jobs In Hand
                                     </Col>
                                     <Col lg="4" md="10" xs="12">
-                                        <select name="jobsinhand" className="runningtext container p-2" onChange={this.onChangejobs}  style={{fontSize:"12px",fontFamily: "Segoe UI",fontWeight:"400",borderColor:"#999999",color:"#999999"}}>
+                                        <select name="jobsinhand" className="form-control runningtext container p-2" onChange={this.onChangejobs}  style={{fontSize:"12px",fontFamily: "Segoe UI",fontWeight:"400",borderColor:"#999999",color:"#999999"}}>
                                             <option value="-1">No Preference</option>
                                             <option value="0">0 jobs</option>
                                             <option value="1">less than or equal to 1 job</option>
@@ -352,9 +352,7 @@ export default class AllStudents extends Component{
                                 <Col></Col>
                                 <Col></Col>
                             </Row>
-                            <div className="form-group">
-                                <input type="submit" value="Submit" className="btn btn-primary" style={{backgroundColor:"#2A324B",color:"white",borderColor:"#2A324B"}}/>
-                            </div>
+                                <input type="submit" value="Submit" className="form-group btn btn-primary" style={{backgroundColor:"#2A324B",color:"white",borderColor:"#2A324B",padding:"6px 12px"}}/>
                         </form> 
                     </Col>
                 </Row>
