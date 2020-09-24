@@ -124,30 +124,6 @@ class Personaldetails extends Component {
               </Form.Group>
             </Col>
             <Col lg="4" md="6" xs="12">
-              <Form.Group controlId="Branch">
-                <Form.Label>
-                  <h6>Branch</h6>
-                </Form.Label>
-                <Form.Control type="text"  name="Branch" value={this.state.Branch} />
-              </Form.Group>
-            </Col>
-            <Col lg="4" md="6" xs="12">
-              <Form.Group controlId="Semester">
-                <Form.Label>
-                  <h6>Semester</h6>
-                </Form.Label>
-                <Form.Control type="text"   name="Semester" value={this.state.Semester}/>
-              </Form.Group>
-            </Col>
-            <Col lg="4" md="6" xs="12">
-              <Form.Group controlId="Section">
-                <Form.Label>
-                  <h6>Section</h6>
-                </Form.Label>
-                <Form.Control type="text" name="Section" value={this.state.Section}/>
-              </Form.Group>
-            </Col>
-            <Col lg="4" md="6" xs="12">
               <Form.Group controlId="First_Name">
                 <Form.Label>
                   <h6>First_Name</h6>

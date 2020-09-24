@@ -9,25 +9,25 @@ export default class Students extends Component{
             return(
 
                 <tr>
-                <td style={{"color":"red"}}>
+                <td style={{"color":"red","font-weight":"bolder"}}>
                     {this.props.obj.rank}
                 </td>
-                <td style={{"color":"red"}}>
+                <td style={{"color":"red","font-weight":"bolder"}}>
                     {this.props.obj.user_id}
                 </td>
-                <td style={{"color":"red"}}>
+                <td style={{"color":"red","font-weight":"bolder"}}>
                     {this.props.obj.first_name} {this.props.obj.middle_name}  {this.props.obj.last_name}
                 </td>
-                <td style={{"color":"red"}}>
+                <td style={{"color":"red","font-weight":"bolder"}}>
                     {this.props.obj.Branch}
                 </td>
-                <td style={{"color":"red"}}>
+                <td style={{"color":"red","font-weight":"bolder"}}>
                     {this.props.obj.Cocubes_score}
                 </td>
-                <td style={{"color":"red"}}>
+                <td style={{"color":"red","font-weight":"bolder"}}>
                     {this.props.obj.Amcat_score}
                 </td>
-                <td style={{"color":"red"}}>
+                <td style={{"color":"red","font-weight":"bolder"}}>
                     {this.props.obj.Ati_score}
                 </td>
             </tr>
