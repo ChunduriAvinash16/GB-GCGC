@@ -91,7 +91,23 @@ handleSubmit(e){
     return (
       <div class="container-fluid">
         <Card className="Rounded p-3">
-          <CardSubtitle align="left">Amcat Analysis</CardSubtitle>
+          <CardSubtitle align="left">
+          <Row>
+              <Col>
+                Amcat Analysis
+              </Col>
+              <Col style={{"textAlign":"end"}}>
+                <Button
+                  onClick={() => {
+                      this.handleModalamcat();
+                    }}
+                  >
+                  Edit
+                </Button>
+              </Col>
+            </Row>
+          
+          </CardSubtitle>
           <hr></hr>
           <Radar 
         data = {{
@@ -122,13 +138,6 @@ handleSubmit(e){
           }}
           />
           <br></br>
-          <Button
-            onClick={() => {
-              this.handleModalamcat();
-            }}
-          >
-            Edit
-          </Button>
           <Modal
             show={this.state.show}
             onHide={() => this.handleModalamcat()}

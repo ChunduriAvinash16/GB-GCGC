@@ -8,7 +8,7 @@ import {Radar} from 'react-chartjs-2';
 import Axios from 'axios';
 class Cocubes extends Component {
   constructor(props){
-    super(props);
+    super();
     this.state={
       id:0, Remarks:"", Aptitude:0, English:0, Quantitative:0, Analytical:0, Domain:0, ComputerFundamentals:0, Coding:0,WET:0,Personality:0,
         student_id:321710306006,

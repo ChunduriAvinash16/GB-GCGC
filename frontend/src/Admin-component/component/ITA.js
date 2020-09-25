@@ -80,7 +80,20 @@ class ARI extends React.Component {
           <Col md="12">
             <Card className="Rounded p-3">
               <CardSubtitle align="left">
-                Integrated Training Attendance
+                <Row>
+                  <Col>
+                    Integrated Training Attendance
+                  </Col>
+                  <Col style={{"textAlign":"end"}}>
+                    <Button
+                      onClick={() => {
+                        this.handleModalITA();
+                       }}
+                    >
+                    Edit
+                  </Button>
+                  </Col>
+                </Row>
               </CardSubtitle>
               <hr></hr>
               <Bar
@@ -126,13 +139,6 @@ class ARI extends React.Component {
                   }}
               />
               <br></br>
-              <Button
-                onClick={() => {
-                  this.handleModalITA();
-                }}
-            >
-                Edit
-              </Button>
               <Modal
                 show={this.state.show}
                 onHide={() => this.handleModalITA()}

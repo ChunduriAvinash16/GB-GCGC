@@ -128,7 +128,7 @@ class HomeCards extends Component {
           <div className="col-xs-12 col-lg-3 col-md-6 p-3">
             <Card>
               <Card.Body className="p-3">
-                <Card.Text style={{ fontSize: "12px", fontFamily: "Segoe UI" }}>
+                <Card.Text style={{ fontSize: "12px"}}>
                   Eligible
                 </Card.Text>
                 <Card.Text>
