@@ -212,7 +212,7 @@ class Dashboard extends Component {
           </Card>
           <br></br>
           <Card>
-            <Collapsible trigger="ARI">
+            <Collapsible trigger="Assessment Report Internal">
               <hr></hr>
                 <br/>
                   <ARI arii={this.props.login}/>
@@ -220,7 +220,7 @@ class Dashboard extends Component {
           </Card>
           <br/>
           <Card>
-            <Collapsible trigger="ARE">
+            <Collapsible trigger="Assessment Report External">
               <hr></hr>
               <br/>
               <Col  className="p-2">
@@ -233,7 +233,7 @@ class Dashboard extends Component {
           </Card>
           <br></br>
           <Card>
-            <Collapsible trigger="TAR">
+            <Collapsible trigger="Training Attendance Report">
               <hr></hr>
               <ITA aid={this.props.login}/>
             </Collapsible>

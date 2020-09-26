@@ -57,7 +57,6 @@ class  UserStaff extends Component {
         	Department: response.data[0]["Department"],
         	Mobile_No: response.data[0]["Mobile_No"]
       	})
-      	console.log(this.state.recordListuserstaff)
     })
     
     }
@@ -81,7 +80,6 @@ class  UserStaff extends Component {
    		})
    		.catch(err=>console.log(err));
    	}
-
 
     StaffList(){
         return this.state.recordListuserstaff.map(function(object,i){
@@ -109,7 +107,7 @@ class  UserStaff extends Component {
   	onChangesearch(e) {
         Axios.get("http://localhost/Admin-backend/Staffsearch.php?search="+e.target.value)
           .then(response => {
-          	console.log(response.data);
+          	{/*console.log(response.data);*/}
               this.setState({
                 recordListuserstaff:response.data,
 	        	Emp_Id: response.data[0]["Emp_Id"],
@@ -119,7 +117,7 @@ class  UserStaff extends Component {
 	        	Department: response.data[0]["Department"],
 	        	Mobile_No: response.data[0]["Mobile_No"]
               })  
-              console.log(this.state.recordListuserstaff)
+              {/*console.log(this.state.recordListuserstaff)*/}
           })
           .catch(function(err){
               console.log(err);

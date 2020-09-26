@@ -7,11 +7,17 @@ import Tooltip from "@material-ui/core/Tooltip";
 import Axios from 'axios';
 
 export default class RecordListuserstaff extends Component {
-    
-    
+    constructor(props) {
+        super(props);
+        this.deletestaff = this.deletestaff.bind(this);
+        this.state = {
+            redirect: false,
+            val:1
+        }
+    }   
 
     deletestaff(){
-        if(window.confirm('Are you sure to DELETE?'))
+        if(window.confirm('Are you sure you want to DELETE?'))
         {
             fetch("http://localhost:80/Admin-backend/userstaffDelete.php?id="+this.props.obj.Emp_Id,
             {
@@ -23,10 +29,16 @@ export default class RecordListuserstaff extends Component {
             .then(res=>alert("Sucessfully Deleted!"))
             .catch(err=>console.log(err))
         }
+        this.setState({redirect : true});
     }
 
     render(){
-    return (
+    	const {redirect} = this.state;
+
+        if(redirect){
+            return <Redirect to={"/user-staff"}/>
+        }
+    	return (
         <tr>
             <td>{this.props.obj.Emp_Id}</td>
             <td align="left">{this.props.obj.Emp_Name}</td>
@@ -39,7 +51,7 @@ export default class RecordListuserstaff extends Component {
                     <Link to={"/edituserstaff/"+this.props.obj.Emp_Id} ><FontAwesomeIcon icon={faEdit} className="ml-2 p-1 fa-lg" style={{backgroundColor:'#2A324B',color:'white',fontSize:'20',borderRadius:'10'}}/></Link>
                 </Tooltip>
                 <Tooltip title="Delete" placement="right">
-                    <FontAwesomeIcon icon={faTrash} onClick={()=>this.deletestaff()} className="ml-2 p-1" style={{backgroundColor:'#2A324B',color:'white',fontSize:'20',borderRadius:'10'}}/>
+                    <FontAwesomeIcon icon={faTrash} onClick={this.deletestaff} className="ml-2 p-1" style={{backgroundColor:'#2A324B',color:'white',fontSize:'20',borderRadius:'10'}}/>
                 </Tooltip>
             </td>        
         </tr>  
