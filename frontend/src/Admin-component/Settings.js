@@ -316,12 +316,14 @@ class Settings extends React.Component {
                     </Col>
                   </Row>
                   <Row>&nbsp;</Row>
-                  <Row>
+                 <Row>
                     <Col lg="4" style={{"textAlign":"initial"}}>Image:</Col>
-                    <Col lg="8">
-                      <input type="file" />
+                    <Col lg="8" style={{"textAlign":"initial"}}>
+                      <input type="file"  class="filestyle"/>
                     </Col>
                   </Row>
+
+
                   <Row>&nbsp;</Row>
                   <Row align="center">
                     <Col align="center">
