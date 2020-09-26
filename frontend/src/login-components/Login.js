@@ -86,12 +86,12 @@ class Login extends Component {
                                         <Row>
                                             <Col sm="12" md="4" >   
                                                 <div className="form-group">
-                                                <input type="text" className="form-control" placeholder="LoginId" value={this.state.Login_id} onChange={this.handleAddLoginId}/>
+                                                <input type="text" className="form-control" placeholder="LoginId" value={this.state.Login_id} onChange={this.handleAddLoginId} required/>
                                                 </div>
                                             </Col>
                                             <Col sm="12" md="4">
                                                 <div className="form-group">
-                                                    <input type="password" className="form-control" placeholder="Password"value={this.state.password} onChange={this.handleAddPassword}/>
+                                                    <input type="password" className="form-control" placeholder="Password"value={this.state.password} onChange={this.handleAddPassword} required/>
                                                 </div>    
                                             </Col>
                                             <Col sm="12" md="4" style={{"text-align":"intial"}}>
