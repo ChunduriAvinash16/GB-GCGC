@@ -12,7 +12,6 @@ class Section extends React.Component {
     }
     this.handleModalsection=this.handleModalsection.bind(this);
     this.onChangesection = this.onChangesection.bind(this);
-          
     this.onSubmitsection = this.onSubmitsection.bind(this);
   }
   handleModalsection()
@@ -53,7 +52,6 @@ class Section extends React.Component {
   render(){
   return (
     <div class="container-fluid">
-
           <Alert color="danger" className="Rounded p-3" >
                 <CardTitle align="left">{this.state.sect}</CardTitle>
                 <CardSubtitle align="left">

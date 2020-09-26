@@ -2,7 +2,9 @@ import React from "react";
 import {
   Card,
   CardSubtitle,
+  Col,
   Table,
+  Row
 } from "reactstrap";
 import { Button, Modal } from "react-bootstrap";
 import {Radar} from 'react-chartjs-2';
@@ -85,7 +87,22 @@ class Cocubes extends React.Component {
     return (
       <div class="container-fluid">
         <Card className="Rounded p-3">
-          <CardSubtitle align="left">Cocubes Analysis</CardSubtitle>
+          <CardSubtitle align="left">
+            <Row>
+              <Col>
+                Cocubes Analysis 
+              </Col>
+              <Col style={{"textAlign":"end"}}>
+                <Button
+                  onClick={() => {
+                      this.handleModalcocubes();
+                       }}
+                    >
+                  Edit
+                 </Button>
+              </Col>
+            </Row>
+          </CardSubtitle>
           <hr></hr>
           <Radar 
             data = {{
@@ -117,13 +134,7 @@ class Cocubes extends React.Component {
               }}
               />
           <br></br>
-          <Button
-            onClick={() => {
-              this.handleModalcocubes();
-            }}
-          >
-            Edit
-          </Button>
+          
           <Modal
             show={this.state.show}
             onHide={() => this.handleModalcocubes()}
