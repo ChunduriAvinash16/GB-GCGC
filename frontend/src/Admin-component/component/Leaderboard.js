@@ -2,7 +2,6 @@ import React,{Component} from "react";
 import {Table} from "reactstrap";
 import Axios from "axios";
 import Students from './AllRecordsList';
-
 class Leaderboard extends Component {
   constructor(props) {
         super(props);
