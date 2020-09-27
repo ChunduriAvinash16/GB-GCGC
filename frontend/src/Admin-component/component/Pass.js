@@ -11,8 +11,7 @@ class Pass extends React.Component {
         pass:""
     }
     this.handleModalpass=this.handleModalpass.bind(this);
-    this.onChangepass = this.onChangepass.bind(this);
-          
+    this.onChangepass = this.onChangepass.bind(this);  
     this.onSubmitpass = this.onSubmitpass.bind(this);
   }
   handleModalpass()
@@ -30,7 +29,6 @@ class Pass extends React.Component {
           Axios.get("http://localhost:80/login-backend/individualstudentdetails.php?id="+this.props.pas)
           .then(response => {
               this.setState({
-                  
                   pass:response.data[0]['pass_category']
                   
               }) 
@@ -52,7 +50,6 @@ class Pass extends React.Component {
   render(){
   return (
     <div class="container-fluid">
-
           <Alert color="warning" className="Rounded p-3" >
                 <CardTitle align="left">{this.state.pass}</CardTitle>
                 <CardSubtitle align="left">
@@ -65,7 +62,6 @@ class Pass extends React.Component {
                     </Col>
                   </Row>
                   </CardSubtitle> 
-                  
                   <Modal show={this.state.show} onHide={()=>this.handleModalpass()} >
                     <Modal.Header closeButton>Edit Pass Category</Modal.Header>
                     <Modal.Body>

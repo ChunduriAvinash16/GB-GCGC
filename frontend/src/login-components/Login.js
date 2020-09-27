@@ -84,17 +84,17 @@ class Login extends Component {
                                 <div className="auth-wrapper">
                                     <form onSubmit={this.handleSubmit}>
                                         <Row>
-                                            <Col >   
+                                            <Col sm="12" md="4" >   
                                                 <div className="form-group">
-                                                <input type="text" className="form-control" placeholder="LoginId" value={this.state.Login_id} onChange={this.handleAddLoginId}/>
+                                                <input type="text" className="form-control" placeholder="LoginId" value={this.state.Login_id} onChange={this.handleAddLoginId} required/>
                                                 </div>
                                             </Col>
-                                            <Col>
+                                            <Col sm="12" md="4">
                                                 <div className="form-group">
-                                                    <input type="password" className="form-control" placeholder="Password"value={this.state.password} onChange={this.handleAddPassword}/>
+                                                    <input type="password" className="form-control" placeholder="Password"value={this.state.password} onChange={this.handleAddPassword} required/>
                                                 </div>    
                                             </Col>
-                                            <Col style={{"text-align":"intial"}}>
+                                            <Col sm="12" md="4" style={{"text-align":"intial"}}>
                                                 <div className="form-group" style={{"text-align":"-webkit-center"}}>
                                                     <button type="submit" className="btn btn-danger btn-block"style={{"backgroundColor":"#CC5200" ,"width": "100px","text-align": "center"}}>Submit</button>
                                                 </div> 

@@ -167,7 +167,7 @@ class Settings extends React.Component {
 
   render() {
     return (
-      <Container>
+      <div className="container-fluid">
         <Row
           style={{
             backgroundColor: "#2A324B",
@@ -189,7 +189,7 @@ class Settings extends React.Component {
                 <Col lg="8">
                   <Row>&nbsp;</Row>
                   <Row>
-                    <Col lg="4">Emp ID:</Col>
+                    <Col lg="4" style={{"textAlign":"initial"}}>Emp ID:</Col>
                     <Col lg="8">
                       <input
                         type="text"
@@ -201,7 +201,7 @@ class Settings extends React.Component {
                   </Row>
                   <Row>&nbsp;</Row>
                   <Row>
-                    <Col lg="4">First Name:</Col>
+                    <Col lg="4" style={{"textAlign":"initial"}}>First Name:</Col>
                     <Col lg="8">
                       <input
                         type="text"
@@ -213,7 +213,7 @@ class Settings extends React.Component {
                   </Row>
                   <Row>&nbsp;</Row>
                   <Row>
-                    <Col lg="4">Last Name:</Col>
+                    <Col lg="4" style={{"textAlign":"initial"}}>Last Name:</Col>
                     <Col lg="8">
                       <input
                         type="text"
@@ -225,7 +225,7 @@ class Settings extends React.Component {
                   </Row>
                   <Row>&nbsp;</Row>
                   <Row>
-                    <Col lg="4">Email:</Col>
+                    <Col lg="4" style={{"textAlign":"initial"}}>Email:</Col>
                     <Col lg="8">
                       <input
                         type="text"
@@ -237,7 +237,7 @@ class Settings extends React.Component {
                   </Row>
                   <Row>&nbsp;</Row>
                   <Row>
-                    <Col lg="4">Phone:</Col>
+                    <Col lg="4" style={{"textAlign":"initial"}}>Phone:</Col>
                     <Col lg="8">
                       <input
                         type="text"
@@ -249,7 +249,7 @@ class Settings extends React.Component {
                   </Row>
                   <Row>&nbsp;</Row>
                   <Row>
-                    <Col lg="4">Campus:</Col>
+                    <Col lg="4" style={{"textAlign":"initial"}}>Campus:</Col>
                     <Col lg="8">
                       <select
                         className="form-control"
@@ -264,7 +264,7 @@ class Settings extends React.Component {
                   </Row>
                   <Row>&nbsp;</Row>
                   <Row>
-                    <Col lg="4">Instituion:</Col>
+                    <Col lg="4" style={{"textAlign":"initial"}}>Instituion:</Col>
                     <Col lg="8">
                       <input
                         className="form-control"
@@ -276,7 +276,7 @@ class Settings extends React.Component {
                   </Row>
                   <Row>&nbsp;</Row>
                   <Row>
-                    <Col lg="4">Department:</Col>
+                    <Col lg="4" style={{"textAlign":"initial"}}>Department:</Col>
                     <Col lg="8">
                       <select
                         className="form-control"
@@ -294,7 +294,7 @@ class Settings extends React.Component {
                   </Row>
                   <Row>&nbsp;</Row>
                   <Row>
-                    <Col lg="4">Designation:</Col>
+                    <Col lg="4" style={{"textAlign":"initial"}}>Designation:</Col>
                     <Col lg="8">
                       <select
                         className="form-control"
@@ -316,12 +316,14 @@ class Settings extends React.Component {
                     </Col>
                   </Row>
                   <Row>&nbsp;</Row>
-                  <Row>
-                    <Col lg="4">Image:</Col>
-                    <Col lg="8">
-                      <input type="file" />
+                 <Row>
+                    <Col lg="4" style={{"textAlign":"initial"}}>Image:</Col>
+                    <Col lg="8" style={{"textAlign":"initial"}}>
+                      <input type="file"  class="filestyle"/>
                     </Col>
                   </Row>
+
+
                   <Row>&nbsp;</Row>
                   <Row align="center">
                     <Col align="center">
@@ -331,6 +333,7 @@ class Settings extends React.Component {
                           backgroundColor: "#2A324B",
                           borderColor: "#2A324B",
                           color: "white",
+                          textAlign:"initial"
                         }}
                       >
                         Update
@@ -353,7 +356,7 @@ class Settings extends React.Component {
             fontWeight: "700",
           }}
         >
-          <Col xs="12" className="p-2" align="center">
+          <Col xs="12" className="p-2" align="center" style={{"textAlign":"initial"}}>
             <div>Change Password</div>
           </Col>
         </Row>
@@ -373,7 +376,7 @@ class Settings extends React.Component {
                 <Col lg="8">
                   <Row>&nbsp;</Row>
                   <Form.Group as={Row} controlId="Old Password">
-                    <Form.Label column lg="4" style={{"font-size":"16px","color":"#212529"}}>
+                    <Form.Label column lg="4" style={{"font-size":"16px","color":"#212529","textAlign":"initial"}}>
                       Old Password:
                     </Form.Label>
                     <Col lg="8">
@@ -392,7 +395,7 @@ class Settings extends React.Component {
                   </Form.Group>
                   <br/>
                   <Form.Group as={Row} controlId="New Password">
-                    <Form.Label column lg="4" style={{"font-size":"16px","color":"#212529"}}>
+                    <Form.Label column lg="4" style={{"font-size":"16px","color":"#212529","textAlign":"initial"}}>
                       New Password:
                     </Form.Label>
                     <Col lg="8">
@@ -411,7 +414,7 @@ class Settings extends React.Component {
                   </Form.Group>
                   <br/>
                   <Form.Group as={Row} controlId="Confirm Password">
-                    <Form.Label column lg="4" style={{"font-size":"16px","color":"#212529"}}>
+                    <Form.Label column lg="4" style={{"font-size":"16px","color":"#212529","textAlign":"initial"}}>
                       Confirm Password:
                     </Form.Label>
                     <Col lg="8">
@@ -453,7 +456,7 @@ class Settings extends React.Component {
         </Row>
         <Row>&nbsp;</Row>
         <Row>&nbsp;</Row>
-      </Container>
+      </div>
     );
   }
 }

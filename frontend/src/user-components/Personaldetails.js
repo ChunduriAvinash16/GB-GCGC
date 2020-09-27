@@ -24,7 +24,7 @@ class Personaldetails extends Component {
               Degree:"UG",
               Program:"",
               Branch:"",
-              Semester:"UG",
+              Semester:"VII",
               Section:"",
               First_Name:"",
               Middle_Name:"",
@@ -121,30 +121,6 @@ class Personaldetails extends Component {
                   <h6>Program</h6>
                 </Form.Label>
                 <Form.Control type="text"  name="Program" value={this.state.Program}/>
-              </Form.Group>
-            </Col>
-            <Col lg="4" md="6" xs="12">
-              <Form.Group controlId="Branch">
-                <Form.Label>
-                  <h6>Branch</h6>
-                </Form.Label>
-                <Form.Control type="text"  name="Branch" value={this.state.Branch} />
-              </Form.Group>
-            </Col>
-            <Col lg="4" md="6" xs="12">
-              <Form.Group controlId="Semester">
-                <Form.Label>
-                  <h6>Semester</h6>
-                </Form.Label>
-                <Form.Control type="text"   name="Semester" value={this.state.Semester}/>
-              </Form.Group>
-            </Col>
-            <Col lg="4" md="6" xs="12">
-              <Form.Group controlId="Section">
-                <Form.Label>
-                  <h6>Section</h6>
-                </Form.Label>
-                <Form.Control type="text" name="Section" value={this.state.Section}/>
               </Form.Group>
             </Col>
             <Col lg="4" md="6" xs="12">

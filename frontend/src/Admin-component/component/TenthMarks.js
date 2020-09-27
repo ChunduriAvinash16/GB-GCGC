@@ -14,7 +14,6 @@ class TenthMarks extends React.Component {
     
     this.handleModaltenth=this.handleModaltenth.bind(this);
     this.onChangetenth = this.onChangetenth.bind(this);
-    
     this.onSubmittenth = this.onSubmittenth.bind(this);
 
 }

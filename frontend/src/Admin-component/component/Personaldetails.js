@@ -23,7 +23,7 @@ class Personaldetails extends Component {
               Degree:"UG",
               Program:"",
               Branch:"",
-              Semester:"UG",
+              Semester:"VII",
               Section:"",
               First_Name:"",
               Middle_Name:"",

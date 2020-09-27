@@ -2,7 +2,6 @@ import React from 'react';
 import { Card,CardTitle, CardSubtitle,CardText,Container,Row,Col,Alert,Collapse,Table } from 'reactstrap';
 import {Button,Modal} from 'react-bootstrap';
 import Axios from "axios";
-
 class BtechMarks extends React.Component {
   constructor(props){
     super()
@@ -28,7 +27,6 @@ class BtechMarks extends React.Component {
           Axios.get("http://localhost:80/login-backend/individualstudentdetails.php?id="+this.props.btech)
           .then(response => {
               this.setState({
-                  
                   gpa:response.data[0]['b_tech_gpa']
                   
               }) 
@@ -46,8 +44,7 @@ class BtechMarks extends React.Component {
         Axios.post("http://localhost/login-backend/individualupdatebtech.php?id="+this.props.btech,obj)
             .then(res => console.log(res.data)
             );
-    }
-
+      }
   render(){
   return (
     <div class="container-fluid">

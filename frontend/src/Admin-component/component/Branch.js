@@ -1,8 +1,7 @@
 import React from 'react';
-import { Card,CardTitle, CardSubtitle,CardText,Container,Row,Col,Alert,Collapse,Table } from 'reactstrap';
+import { CardTitle, CardSubtitle,Row,Col,Alert,Table } from 'reactstrap';
 import {Button,Modal} from 'react-bootstrap';
 import Axios from "axios";
-
 class Branch extends React.Component {
   constructor(props){
     super(props)
@@ -12,14 +11,12 @@ class Branch extends React.Component {
     }
     this.handleModalbranch=this.handleModalbranch.bind(this);
     this.onChangebranch = this.onChangebranch.bind(this);
-          
     this.onSubmitbranch = this.onSubmitbranch.bind(this);
   }
   handleModalbranch()
   {
     this.setState({show:!this.state.show})
   }
-
   onChangebranch(e) {
         this.setState({
             branch: e.target.value
@@ -87,12 +84,9 @@ class Branch extends React.Component {
                       </form>
                     </Modal.Body>
                   </Modal>
-
               </Alert>
         </div>
-
         );
 }
 }
-
 export default Branch;

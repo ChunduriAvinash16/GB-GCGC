@@ -115,7 +115,7 @@ class HomeCards extends Component {
                   <div>
                   <Row className="pl-3">
               <h4 className="p-1">Glimpse - </h4>
-              <select className="pr-1 pl-1" style={{backgroundColor:'#2A324B',borderColor:'#2A324B',fontSize:'25px',color:'white'}} value={this.state.year} onChange={this.onChangeYear}>
+              <select className="pr-1 pl-1" style={{backgroundColor:'#2A324B',borderColor:'#2A324B',borderRadius:'5px',color:'white'}} value={this.state.year} onChange={this.onChangeYear}>
               	<option value="2020">2020</option>
               	<option value="2021">2021</option>
               	<option value="2022">2022</option>
@@ -128,7 +128,7 @@ class HomeCards extends Component {
           <div className="col-xs-12 col-lg-3 col-md-6 p-3">
             <Card>
               <Card.Body className="p-3">
-                <Card.Text style={{ fontSize: "12px", fontFamily: "Segoe UI" }}>
+                <Card.Text style={{ fontSize: "12px"}}>
                   Eligible
                 </Card.Text>
                 <Card.Text>
