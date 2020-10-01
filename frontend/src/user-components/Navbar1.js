@@ -66,7 +66,15 @@ class Navbar1 extends Component {
                 <div className="col-7 col-md-6 col-lg-7 col-x-1 pt-2" style={{"color":"aliceblue","font-size":"25px"}}>
                       <h4 className="pr-3"> GITAM Career Guidance Cell </h4>
                 </div>
-                <div className="col-1 col-md-1 pt-2" style={{"padding":"0px"}}>
+                <div className="pt-2" style={{"padding":"0px","padding-left":"40px"}}>
+                      <NavLink tag={Link} to="/Dashboard" style={{"text-align":"right","padding":"0px"}}>
+                        <Tooltip title="Settings">
+                        <i className="fa fa-home fa-lg" style={{"color":"aliceblue"}}></i>
+                        </Tooltip>
+                      </NavLink>  
+                     
+                </div>
+                <div className="pt-2" style={{"padding":"0px","padding-left":"40px"}}>
                       <NavLink tag={Link} to="/changepassword" style={{"text-align":"right","padding":"0px"}}>
                         <Tooltip title="Settings">
                         <i className="fa fa-cog fa-lg" style={{"color":"aliceblue"}}></i>
@@ -74,8 +82,8 @@ class Navbar1 extends Component {
                       </NavLink>  
                      
                 </div>
-                      <div className="col-1 col-md-1 pt-2">
-                        <NavLink tag={Link} style={{"text-align":"left","padding":"0px"}} onClick={ e=>{localStorage.clear();
+                      <div className="pt-2">
+                        <NavLink tag={Link} style={{"text-align":"left","padding":"0px","padding-left":"40px"}} onClick={ e=>{localStorage.clear();
                                 window.location.href = '/login';}}>
                                   <Tooltip title="Log Out">
                                     <i className="fa fa-power-off fa-lg" style={{"color":"aliceblue"}} ></i> 

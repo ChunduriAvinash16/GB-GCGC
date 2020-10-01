@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col, Card,Form, FormGroup,Label,Input } from "reactstrap";
 import { Button } from "react-bootstrap";
 import Axios from "axios";
+import {Redirect} from 'react-router';
 
 class userstaffAdd extends React.Component {
 
@@ -18,7 +19,8 @@ class userstaffAdd extends React.Component {
             empinsti:"",
             empdesig:"",
             Gender:"",
-            Employee_Type:""
+            Employee_Type:"",
+            redirect: false
             
           };
       
@@ -118,10 +120,16 @@ class userstaffAdd extends React.Component {
         Gender:"",
         Employee_Type:""
       })
+      this.setState({redirect : true});
   }
 
 
   render(){
+    const {redirect} = this.state;
+
+        if(redirect){
+            return <Redirect to={"/user-staff"}/>
+        }
     return(
       <div style={{ align: "left" }}>
         <Container>
