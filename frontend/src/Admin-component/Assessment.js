@@ -43,7 +43,7 @@ export default class Assessment extends Component{
                         borderColor: "#2A324B",
                       }}
                     >
-                      Add Student
+                      Add Assessment
                     </Button>
                   </NavLink>
         	</Row>
