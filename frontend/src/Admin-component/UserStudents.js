@@ -36,11 +36,10 @@ export default class Students extends Component{
     }
     render(){
         const {redirect} = this.state;
-
         if(redirect){
             return <Redirect to={"/user-student"}/>
         }
-        if(this.props.obj.Branch==="CIVIL" || this.props.obj.Branch==="Civil"){
+        if(this.props.obj.Branch==="CIVIL" || this.props.obj.Branch==="Civil" || this.props.obj.Branch==="EEE"){
             return(
             <tr>
                 <td>{this.props.obj.id}</td>
