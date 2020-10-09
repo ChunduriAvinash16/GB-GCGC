@@ -5,7 +5,7 @@
     header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
     error_reporting(E_ERROR);
     $students=[];
-   $sql="SELECT * FROM `user-students`";
+   $sql="SELECT * FROM `user-students` ORDER BY `user_id`";
     if($result = mysqli_query($con,$sql))
     {
         $cr=0;

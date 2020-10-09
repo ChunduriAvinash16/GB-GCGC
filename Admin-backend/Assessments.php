@@ -59,10 +59,51 @@
             $students[$cr]['avg']=$row['avg'];
             $cr++;
         }
-        echo json_encode($students);
     }
     else
     {
         http_response_code(404);
     }
+    $sql="SELECT * FROM `ari_date_yop` ORDER BY `name`,`yop`";
+    $result = mysqli_query($con,$sql);
+    if($result = mysqli_query($con,$sql))
+    {
+        while($row = mysqli_fetch_assoc($result))
+        {
+            $YOP=$row['yop'];
+            $assessment=$row['ari'];
+            $sql1="SELECT AVG(`".$assessment."`) as `avg` FROM `ari`,`academic_details` WHERE `ari`.`Unique_Id`=`academic_details`.`user_id` GROUP BY `academic_details`.`YOP` HAVING `academic_details`.`YOP`=".$YOP;
+            $result1 = mysqli_query($con,$sql1);
+            $row1 = mysqli_fetch_assoc($result1);
+            $sql2="SELECT MAX(`".$assessment."`) as `max` FROM `ari`,`academic_details` WHERE `ari`.`Unique_Id`=`academic_details`.`user_id` GROUP BY `academic_details`.`YOP` HAVING `academic_details`.`YOP`=".$YOP;
+            $result2 = mysqli_query($con,$sql2);
+            $row2 = mysqli_fetch_assoc($result2);
+            $sql3="SELECT MIN(`".$assessment."`) as `min` FROM `ari`,`academic_details` WHERE `ari`.`Unique_Id`=`academic_details`.`user_id` and `".$assessment."`>=0 GROUP BY `academic_details`.`YOP` HAVING `academic_details`.`YOP`=".$YOP;
+            $result3 = mysqli_query($con,$sql3);
+            $row3 = mysqli_fetch_assoc($result3);
+            $sql4="SELECT COUNT(`".$assessment."`) as `count` FROM `ari`,`academic_details` WHERE `ari`.`Unique_Id`=`academic_details`.`user_id` and `".$assessment."`<>-20 GROUP BY `academic_details`.`YOP` HAVING `academic_details`.`YOP`=".$YOP;
+            $result4 = mysqli_query($con,$sql4);
+            $row4 = mysqli_fetch_assoc($result4);
+            $sql5="SELECT COUNT(`".$assessment."`) as `count` FROM `ari`,`academic_details` WHERE `ari`.`Unique_Id`=`academic_details`.`user_id` and `".$assessment."`=-20 GROUP BY `academic_details`.`YOP` HAVING `academic_details`.`YOP`=".$YOP;
+            $result5 = mysqli_query($con,$sql5);
+            $row5 = mysqli_fetch_assoc($result5);
+            if($row5['count']=='')
+                $row5['count']=0;
+            $students[$cr]['sno']=$cr+1;
+            $students[$cr]['assessment']=$row['name'];;
+            $students[$cr]['YOP']=$row['yop'];
+            $students[$cr]['Date']=$row['date'];
+            $students[$cr]['attended']=$row4['count'];
+            $students[$cr]['absent']=$row5['count'];
+            $students[$cr]['max']=$row2['max'];
+            $students[$cr]['min']=$row3['min'];
+            $students[$cr]['avg']=round($row1['avg'],2);
+            $cr++;
+        }
+    }
+    else
+    {
+        http_response_code(404);
+    }
+    echo json_encode($students);
 ?>
