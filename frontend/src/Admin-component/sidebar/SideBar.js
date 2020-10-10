@@ -68,13 +68,12 @@ const SideBar = ({ isOpen, toggle }) => (
               </Collapsible>
             </span>
             <hr/>
-          <li>
+          {/*<li>
             <NavLink tag={Link} to={"/assessment"}>
                 <FontAwesomeIcon icon={faEdit} className="mr-2"/>
                 Assessment
             </NavLink>
-          </li>
-          <hr/>
+          </li>*/}
           <li>
             <NavLink tag={Link} to={"/Placements"}>
               <FontAwesomeIcon icon={faUserGraduate} className="mr-2" />

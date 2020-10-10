@@ -5,6 +5,7 @@ import { NavItem, Navbar, NavLink,Row,Col } from "reactstrap";
 import "../App";
 import Axios from 'axios';
 import { Link } from "react-router-dom";
+import { Bar } from "react-chartjs-2";
 class HomeCards extends Component {
   constructor(props){
     super(props);
@@ -263,7 +264,64 @@ class HomeCards extends Component {
           </div>
         </div>
         &nbsp;
-   
+      <Card>
+      <Bar
+                  style={{height:"500"}}
+                  data={{
+                            labels: ["B1","B2","B3","B4","B5","B6","A1","A2","A3","A4","H1","H2"],
+                            datasets: [
+                            {
+                                label: "TNS",
+                                backgroundColor: "red",
+                                borderWidth: 1,
+                                data: [40,65,59,82,88,59,57,12,11,55],
+                            },
+                            {
+                                label: "TNE",
+                                backgroundColor: "blue",
+                                borderWidth: 1,
+                                data: [40,65,59,80,81,56,55,44,15,10],
+                            },
+                            {
+                              label: "TNP",
+                              backgroundColor: "lightblue",
+                              borderWidth: 1,
+                              data: [40,65,59,82,88,59,57],
+                          },
+                          {
+                              label: "TNNP",
+                              backgroundColor: "pink",
+                              borderWidth: 1,
+                              data: [41,55,52,50,21,16,25],
+                          },
+                          {
+                            label: "PP",
+                            backgroundColor: "violet",
+                            borderWidth: 1,
+                            weight:100,
+                            data: [10, 35, 55, 50, 41, 36, 25],
+                        },
+                            ],
+                        }
+                    }
+                  options={{
+                    scales: {
+                      yAxes: [
+                        {
+                          ticks: {
+                            beginAtZero: true,
+                            min: 0,
+                            max: 100,
+                            stepSize: 20,
+                          },
+                        },
+                      ],
+                    },
+                  }}
+              />
+      </Card>
+      
+        &nbsp;
         <div className="row">
                 <Row  style={{color: "white",fontSize: "14px"}}>
                     <Col xs="12" className="p-2" align="center">
