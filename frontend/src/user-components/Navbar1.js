@@ -68,7 +68,7 @@ class Navbar1 extends Component {
                 </div>
                 <div className="pt-2" style={{"padding":"0px","padding-left":"40px"}}>
                       <NavLink tag={Link} to="/Dashboard" style={{"text-align":"right","padding":"0px"}}>
-                        <Tooltip title="Settings">
+                        <Tooltip title="Home">
                         <i className="fa fa-home fa-lg" style={{"color":"aliceblue"}}></i>
                         </Tooltip>
                       </NavLink>  

@@ -7,6 +7,8 @@ $postdata = file_get_contents("php://input");
 if(isset($postdata) && !empty($postdata)){
     $request = json_decode($postdata);
 
+
+
     $eid= $request->empidno;
     $Ename= $request->empname;
     $emailid= $request->empemail;
@@ -17,7 +19,7 @@ if(isset($postdata) && !empty($postdata)){
     $desig= $request->empdesig;
     $gend= $request->Gender;
     $type= $request->Employee_Type;
-    $sql="INSERT INTO user VALUES ($eid,$eid,101,'Admin')";
+    $sql="INSERT INTO `user` (`user_id`, `password`, `campus_id`, `type`) VALUES ($eid,$eid,101,'Admin')";
     if(mysqli_query($con,$sql)){
         http_response_code(202);
     }else{
