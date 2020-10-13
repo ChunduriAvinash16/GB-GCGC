@@ -75,6 +75,7 @@ export default class Assessment extends Component{
                             <th>Highest Score</th>
                             <th>Average Score</th>
                             <th>Least Score</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
