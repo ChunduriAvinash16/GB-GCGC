@@ -1,8 +1,6 @@
 import React,{Component} from 'react';
 import {
-    faPlus,
-    faEdit,
-    faTrash,
+    faUser
   } from "@fortawesome/free-solid-svg-icons";
   import {Link} from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -30,6 +28,11 @@ export default class Students extends Component{
                     <td>{this.props.obj.max}</td>
                     <td>{this.props.obj.avg}</td>
                     <td>{this.props.obj.min}</td>
+                    <td>
+                        <Tooltip title="Students" placement="right">
+                            <Link to={"/user/"+this.props.obj.id} ><FontAwesomeIcon icon={faUser} className="ml-2 p-1 fa-lg" style={{backgroundColor:'#2A324B',color:'white',fontSize:'20',borderRadius:'10'}}/></Link>
+                        </Tooltip>
+                    </td>
                 </tr>
             );
     }
