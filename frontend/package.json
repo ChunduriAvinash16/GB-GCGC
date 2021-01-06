@@ -14,7 +14,7 @@
     "@syncfusion/ej2-react-schedule": "^18.2.54",
     "@testing-library/react": "^10.4.9",
     "apexcharts": "^3.19.3",
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.5.0",
     "bootstrap-social": "^5.1.1",
     "chart.js": "^2.9.3",
